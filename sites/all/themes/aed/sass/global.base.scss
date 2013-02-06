@@ -1,4 +1,3 @@
-
 // _base.scss imports _custom.scss and other partials.
 @import "base";
 
@@ -35,7 +34,6 @@ summary {
   display: block;
 }
 
-
 /*
  * Corrects inline-block display not defined in IE6/7/8/9 & FF3
  */
@@ -47,7 +45,6 @@ video {
   *zoom: 1;
 }
 
-
 /*
  * Prevents modern browsers from displaying 'audio' without controls
  * Remove excess height in iOS5 devices
@@ -57,7 +54,6 @@ audio:not([controls]) {
   height: 0;
 }
 
-
 /*
  * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
  * Known issue: no IE6 support
@@ -65,7 +61,6 @@ audio:not([controls]) {
 [hidden] {
   display: none;
 }
-
 
 /* =============================================================================
     Base
@@ -88,7 +83,6 @@ html {
   overflow-y: scroll;
 }
 
-
 /*
  * 1 . Addresses margins handled incorrectly in IE6/7
  */
@@ -101,7 +95,6 @@ body {
   text-rendering: optimizeLegibility\9; /* Only IE, can mess with Android */
 }
 
-
 /*
  * Addresses font-family inconsistency between 'textarea' and other form elements.
  */
@@ -111,7 +104,6 @@ select,
 textarea {
   font-family: sans-serif;
 }
-
 
 /* =============================================================================
     Links
@@ -124,7 +116,6 @@ a:focus {
   outline: thin dotted;
 }
 
-
 /*
  * Improves readability when focused and also mouse hovered in all browsers
  * people.opera.com/patrickl/experiments/keyboard/test
@@ -133,7 +124,6 @@ a:hover,
 a:active {
   outline: 0;
 }
-
 
 /* =============================================================================
     Typography
@@ -151,36 +141,30 @@ h1 {
   margin: 0.67em 0;
 }
 
-
 h2 {
   font-size: 1.5em;
   margin: 0.83em 0;
 }
-
 
 h3 {
   font-size: 1.17em;
   margin: 1em 0;
 }
 
-
 h4 {
   font-size: 1em;
   margin: 1.33em 0;
 }
-
 
 h5 {
   font-size: 0.83em;
   margin: 1.67em 0;
 }
 
-
 h6 {
   font-size: 0.75em;
   margin: 2.33em 0;
 }
-
 
 /*
  * Addresses styling not present in IE7/8/9, S5, Chrome
@@ -188,7 +172,6 @@ h6 {
 abbr[title] {
   border-bottom: 1px dotted;
 }
-
 
 /*
  * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
@@ -198,11 +181,9 @@ strong {
   font-weight: bold;
 }
 
-
 blockquote {
   margin: 1em 40px;
 }
-
 
 /*
  * Addresses styling not present in S5, Chrome
@@ -210,7 +191,6 @@ blockquote {
 dfn {
   font-style: italic;
 }
-
 
 /*
  * Addresses styling not present in IE6/7/8/9
@@ -220,7 +200,6 @@ mark {
   color: #000;
 }
 
-
 /*
  * Addresses margins set differently in IE6/7
  */
@@ -228,7 +207,6 @@ p,
 pre {
   margin: 0 0 1.5em;
 }
-
 
 /*
  * Corrects font family set oddly in IE6, S4/5, Chrome
@@ -243,7 +221,6 @@ samp {
   font-size: 1em;
 }
 
-
 /*
  * Improves readability of pre-formatted text in all browsers
  */
@@ -252,7 +229,6 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-
 
 /*
  * 1. Addresses CSS quotes not supported in IE6/7
@@ -263,18 +239,15 @@ q {
   quotes: none;
 }
 
-
 q:before,
 q:after {
   content: '';
   content: none;
 }
 
-
 small {
   font-size: 75%;
 }
-
 
 /*
  * Prevents sub and sup affecting line-height in all browsers
@@ -288,16 +261,13 @@ sup {
   vertical-align: baseline;
 }
 
-
 sup {
   top: -0.5em;
 }
 
-
 sub {
   bottom: -0.25em;
 }
-
 
 /* =============================================================================
     Lists
@@ -313,11 +283,9 @@ ul {
   margin: 1em 0;
 }
 
-
 dd {
   margin: 0 0 0 40px;
 }
-
 
 /*
  * Addresses paddings set differently in IE6/7
@@ -328,7 +296,6 @@ ul {
   padding: 0 0 0 40px;
 }
 
-
 /*
  * Corrects list images handled incorrectly in IE7
  */
@@ -337,7 +304,6 @@ nav ol {
   list-style: none;
   list-style-image: none;
 }
-
 
 /* =============================================================================
     Embedded content
@@ -349,10 +315,10 @@ nav ol {
  *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
 img {
-  /* border: 0; */  /* Drupal core already does this, uncomment if you need it */
+  /* border: 0; */
+  /* Drupal core already does this, uncomment if you need it */
   -ms-interpolation-mode: bicubic;
 }
-
 
 /*
  * Corrects overflow displayed oddly in IE9
@@ -360,7 +326,6 @@ img {
 svg:not(:root) {
   overflow: hidden;
 }
-
 
 /* =============================================================================
     Figures
@@ -373,7 +338,6 @@ figure {
   margin: 0;
 }
 
-
 /* =============================================================================
     Forms
    ========================================================================== */
@@ -385,7 +349,6 @@ form {
   margin: 0;
 }
 
-
 /*
  * Define consistent margin, and padding
  */
@@ -393,7 +356,6 @@ fieldset {
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
-
 
 /*
  * 1. Corrects color not being inherited in IE6/7/8/9
@@ -406,7 +368,6 @@ legend {
   white-space: normal;
   *margin-left: -7px;
 }
-
 
 /*
  * 1. Corrects font size not being inherited in all browsers
@@ -423,7 +384,6 @@ textarea {
   *vertical-align: middle;
 }
 
-
 /*
  * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
  */
@@ -431,7 +391,6 @@ button,
 input {
   line-height: normal;
 }
-
 
 /*
  * 1. Improves usability and consistency of cursor style between image-type 'input' and others
@@ -448,7 +407,6 @@ input[type="submit"] {
   *overflow: visible;
 }
 
-
 /*
  * Re-set default cursor for disabled elements
  */
@@ -456,7 +414,6 @@ button[disabled],
 input[disabled] {
   cursor: default;
 }
-
 
 /*
  * 1. Addresses box sizing set to content-box in IE8/9
@@ -472,7 +429,6 @@ input[type="radio"] {
   *width: 13px;
 }
 
-
 /*
  * 1. Addresses appearance set to searchfield in S5, Chrome
  * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
@@ -484,7 +440,6 @@ input[type="search"] {
   box-sizing: content-box;
 }
 
-
 /*
  * Removes inner padding and search cancel button in S5, Chrome on OS X
  */
@@ -492,7 +447,6 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
-
 
 /*
  * Removes inner padding and border in FF3+
@@ -504,7 +458,6 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-
 /*
  * 1. Removes default vertical scrollbar in IE6/7/8/9
  * 2. Improves readability and alignment in all browsers
@@ -513,7 +466,6 @@ textarea {
   overflow: auto;
   vertical-align: top;
 }
-
 
 /* =============================================================================
     Tables
@@ -529,7 +481,6 @@ table {
   font-size: inherit;
   font: 100%;
 }
-
 
 /* =============================================================================
     Gutters
@@ -564,7 +515,6 @@ div.messages {
   margin-right: -$gutter-width;
 }
 
-
 /* =============================================================================
     Flexible Media and Cross browser improvements
    ========================================================================== */
@@ -582,7 +532,6 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
-
 /* Ethan Marcotte - http://front.ie/l8rJaA */
 img,
 embed,
@@ -591,7 +540,6 @@ video {
   max-width: 100%;
 }
 
-
 /* Disable flexiblity for IE8 and below */
 .lt-ie9 img,
 .lt-ie9 object,
@@ -599,7 +547,6 @@ video {
 .lt-ie9 video {
   max-width: none;
 }
-
 
 /* Override max-width 100% for map displays */
 #map img,
@@ -612,7 +559,6 @@ video {
 .views_horizontal_slider img {
   max-width: none !important;
 }
-
 
 /* =============================================================================
     Misc helpers, Accessibility classes etc
@@ -630,7 +576,6 @@ header[role=banner],
   overflow: visible;
   word-wrap: break-word;
 }
-
 
 /**
  * General classes for hiding content. These are all included as SASS mixins.
@@ -660,7 +605,6 @@ header[role=banner],
   background-color: transparent;
 }
 
-
 /* More robust element-invisible and element-focuable classes */
 .element-invisible {
   border: 0;
@@ -673,7 +617,6 @@ header[role=banner],
   width: 1px;
 }
 
-
 .element-invisible.element-focusable:active,
 .element-invisible.element-focusable:focus {
   clip: auto;
@@ -682,7 +625,6 @@ header[role=banner],
   position: static;
   width: auto;
 }
-
 
 /* Shift content offscreen, can be usefull when you reall need to do this */
 .offscreen {
@@ -693,7 +635,6 @@ header[role=banner],
   overflow: hidden;
   outline: 0;
 }
-
 
 /* Hide content from all users */
 .element-hidden {

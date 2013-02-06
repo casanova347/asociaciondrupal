@@ -1,4 +1,3 @@
-
 // _base.scss imports _custom.scss and other partials.
 @import "base";
 
@@ -11,3 +10,7 @@
  *
  * - Read the _README file in this directory, it contains useful help and other information.
  */
+
+body {
+  //background: blue;
+}

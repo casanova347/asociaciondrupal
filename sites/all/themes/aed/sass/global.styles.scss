@@ -1,4 +1,3 @@
-
 // _base.scss imports _custom.scss (variables and mixins) and other partials.
 @import "base";
 
@@ -43,94 +42,120 @@ html {
 }
 
 body {
-  font-family: $sans-serif-small; // Set from _custom.scss font variables
+  font-family: $sans-serif-small;
+  // Set from _custom.scss font variables
   font-size: 87.5%;
 }
-
 
 /* =============================================================================
  *   HTML Elements
  * ========================================================================== */
 
-h1 {}
+h1 {
+  /*foo*/
+}
 
+h2 {
+  /*foo*/
+}
 
-h2 {}
+h3 {
+  /*foo*/
+}
 
+h4 {
+  /*foo*/
+}
 
-h3 {}
+h5 {
+  /*foo*/
+}
 
+h6 {
+  /*foo*/
+}
 
-h4 {}
-
-
-h5 {}
-
-
-h6 {}
-
-
-p {}
-
+p {
+  /*foo*/
+}
 
 b,
-strong {}
-
+strong {
+  /*foo*/
+}
 
 i,
-em {}
+em {
+  /*foo*/
+}
 
+dfn {
+  /*foo*/
+}
 
-dfn {}
+sup {
+  /*foo*/
+}
 
+sub {
+  /*foo*/
+}
 
-sup {}
+del {
+  /*foo*/
+}
 
+ins {
+  /*foo*/
+}
 
-sub {}
+blockquote {
+  /*foo*/
+}
 
+cite {
+  /*foo*/
+}
 
-del {}
+q {
+  /*foo*/
+}
 
+address {
+  /*foo*/
+}
 
-ins {}
+ul {
+  /*foo*/
+}
 
+ol {
+  /*foo*/
+}
 
-blockquote {}
+li {
+  /*foo*/
+}
 
+dl {
+  /*foo*/
+}
 
-cite {}
+dd {
+  /*foo*/
+}
 
+dt {
+  /*foo*/
+}
 
-q {}
+abbr {
+  /*foo*/
+}
 
-
-address {}
-
-
-ul {}
-
-
-ol {}
-
-
-li {}
-
-
-dl {}
-
-
-dd {}
-
-
-dt {}
-
-
-abbr {}
-
-
-acronym {}
-
+acronym {
+  /*foo*/
+}
 
 pre,
 code,
@@ -141,7 +166,6 @@ var {
   font-family: $mono;
 }
 
-
 /* =============================================================================
  *   Wrappers
  * ========================================================================== */
@@ -150,52 +174,60 @@ var {
  * Page wrapper, includes the .container class which sets the overall page or section width
  * Main wrapper in page.tpl.php, the .container class sets the width of the page, do not add width to it!
  */
-#page  {
-  .container {}
+#page {
+  .container {
+    /*foo*/
+  }
 }
-
 
 /*
  * Wraps all header elements - branding and .region-header
  */
-#header {}
-
+#header {
+  /*foo*/
+}
 
 /*
  * Wraps the sidebars the content column
  */
-#columns {}
-
+#columns {
+  /*foo*/
+}
 
 /*
  * Main content column wrapper
  */
-#content-column {}
-
+#content-column {
+  /*foo*/
+}
 
 /*
  * Wraps the main-content-header, the content region and feed-icons. Use this wrapper to style the entire main content column
  */
-#main-content {}
-
+#main-content {
+  /*foo*/
+}
 
 /*
  * Wraps the content region, avoid applying styles to this wrapper, its used mainly for position and invisible gutters and can be problematic to style
  */
-#content {}
-
+#content {
+  /*foo*/
+}
 
 /*
  * Footer wrapper
  */
-#footer {}
-
+#footer {
+  /*foo*/
+}
 
 /*
  * Panels may need additional margin wrangling when in the $content region
  */
-#content .panel-display {}
-
+#content .panel-display {
+  /*foo*/
+}
 
 /*
  * Full Width Wrappers
@@ -209,17 +241,19 @@ var {
  * Wraps #page
  */
 #page-wrapper {
-  .container {}
+  .container {
+    /*foo*/
+  }
 }
-
 
 /*
  * Wraps the leaderboard
  */
 #leaderboard-wrapper {
-  .container {}
+  .container {
+    /*foo*/
+  }
 }
-
 
 /*
  * Wraps the header
@@ -227,57 +261,64 @@ var {
 #header-wrapper {
   /* Debug styles, is this working */
   background: $debug;
-  .container {}
+  .container {
+    /*foo*/
+  }
 }
-
 
 /*
  * Wraps the nav elements
  */
 #nav-wrapper {
-  .container {}
+  .container {
+    /*foo*/
+  }
 }
-
 
 /*
  * Wraps breadcrumb
  */
 #breadcrumb-wrapper {
-  .container {}
+  .container {
+    /*foo*/
+  }
 }
-
 
 /*
  * Wraps messages and help
  */
 #messages-help-wrapper {
-  .container {}
+  .container {
+    /*foo*/
+  }
 }
-
 
 /*
  * Wraps the secondary content/preface region
  */
 #secondary-content-wrapper {
-  .container {}
+  .container {
+    /*foo*/
+  }
 }
-
 
 /*
  * Wraps the main content column
  */
 #content-wrapper {
-  .container {}
+  .container {
+    /*foo*/
+  }
 }
-
 
 /*
  * Wraps the tertiary content/postfix region
  */
 #tertiary-content-wrapper {
-  .container {}
+  .container {
+    /*foo*/
+  }
 }
-
 
 /*
  * Footer wrapper
@@ -286,9 +327,10 @@ var {
   /* Debug styles, is this working? */
   background: $debug;
 
-  .container {}
+  .container {
+    /*foo*/
+  }
 }
-
 
 /* =============================================================================
  *   Branding
@@ -297,8 +339,9 @@ var {
 /*
  * Wraps all the branding elements, logo, name and slogan
  */
-#branding {}
-
+#branding {
+  /*foo*/
+}
 
 /*
  * Logo
@@ -311,12 +354,12 @@ var {
   }
 }
 
-
 /*
  * Wrapper for the site name and slogan (hgroup)
  */
-#name-and-slogan {}
-
+#name-and-slogan {
+  /*foo*/
+}
 
 /*
  * Site name (h1)
@@ -338,14 +381,12 @@ var {
   }
 }
 
-
 /*
  * Site slogan (h2)
  */
 #site-slogan {
   margin: 0;
 }
-
 
 /* =============================================================================
  *   Page content header
@@ -354,8 +395,9 @@ var {
 /*
  * Main content header wraps the page title, tabs and actions links
  */
-#main-content-header {}
-
+#main-content-header {
+  /*foo*/
+}
 
 /*
  * The main page title (h1)
@@ -364,7 +406,6 @@ var {
   margin: 0;
 }
 
-
 /* =============================================================================
  *   Misc Global Styles
  * ========================================================================== */
@@ -372,8 +413,9 @@ var {
 /*
  * Feed icons
  */
-.feed-icon {}
-
+.feed-icon {
+  /*foo*/
+}
 
 /*
  * Aggregator feed source
@@ -384,19 +426,18 @@ var {
   margin-right: 10px;
 }
 
-
 .feed-details dt,
 .feed-details dd {
   display: inline;
   margin: 0;
 }
 
-
 /*
  * Generic styles for the more link
  */
-.more-link {}
-
+.more-link {
+  /*foo*/
+}
 
 /*
  * Generic styles for links. See the ul.links declaration in node and comment stylesheets
@@ -416,14 +457,12 @@ ul.links {
   }
 }
 
-
 /*
  * Search results are an ordered list so reset the margin
  */
 .search-results {
   margin: 0;
 }
-
 
 /* =============================================================================
  *   Regions
@@ -432,80 +471,93 @@ ul.links {
 /*
  * Standard region wrapper, don't add width to any regions, you will bork the layout - no margin, padding or borders etc
  */
-.region {}
-
+.region {
+  /*foo*/
+}
 
 /*
  * Regions have an inner div - perfect for adding margin, padding or borders
  */
-.region-inner {}
-
+.region-inner {
+  /*foo*/
+}
 
 /*
  * Regions can be nested, such as when using Panels
  */
-.region-inner .region-inner {}
-
+.region-inner .region-inner {
+  /*foo*/
+}
 
 /*
  * Header region, embedded in the #header
  */
-.region-header {}
-
+.region-header {
+  /*foo*/
+}
 
 /*
  * Generally used to output Drupals help block, if the help module is enabled
  */
-.region-help {}
-
+.region-help {
+  /*foo*/
+}
 
 /*
  * Secondary content
  */
-.region-secondary-content {}
-
+.region-secondary-content {
+  /*foo*/
+}
 
 /*
  * Sits above the main content header, like a content-top region
  */
-.region-highlighted {}
-
+.region-highlighted {
+  /*foo*/
+}
 
 /*
  * Sits below the main content, like a content-bottom region
  */
-.region-content-aside {}
-
+.region-content-aside {
+  /*foo*/
+}
 
 /*
  * Sidebars - targets both
  */
-.sidebar {}
-
+.sidebar {
+  /*foo*/
+}
 
 /*
  * First sidebar
  */
-.region-sidebar-first {}
-
+.region-sidebar-first {
+  /*foo*/
+}
 
 /*
  * Second sidebar
  */
-.region-sidebar-second {}
-
+.region-sidebar-second {
+  /*foo*/
+}
 
 /*
  * Tertiary content
  */
-.region-tertiary-content {}
-
+.region-tertiary-content {
+  /*foo*/
+}
 
 /*
  * Footer region
  */
-.region-footer {}
-
+.region-footer {
+  /*foo*/
+}
 
 /* =============================================================================
  *   Links
@@ -515,17 +567,20 @@ a {
   text-decoration: none;
 
   &:link,
-  &:visited {}
+  &:visited {
+    /*foo*/
+  }
 
   &:active,
-  &.active {}
+  &.active {
+    /*foo*/
+  }
 
   &:hover,
   &:focus {
     text-decoration: underline;
   }
 }
-
 
 /* =============================================================================
  *   Primary, Secondary and Menu Bar region menus
@@ -563,18 +618,21 @@ a {
     display: block;
     white-space: nowrap;
     padding: 0 10px;
-    
-    &:visited {}
-    
+
+    &:visited {
+      /*foo*/
+    }
+
     &:hover,
-    &:focus {}
+    &:focus {
+      /*foo*/
+    }
   }
 
   .block {
     margin-bottom: 0;
   }
 }
-
 
 /* =============================================================================
  *   Superfish
@@ -592,7 +650,9 @@ ul.sf-menu {
     line-height: 2.5em;
 
     &:link,
-    &:visited {}
+    &:visited {
+      /*foo*/
+    }
   }
 
   li {
@@ -611,13 +671,14 @@ ul.sf-menu {
   }
 }
 
-
 /*
  * Superfish blocks
  */
 .block-superfish {
 
-  .block-inner .content {}
+  .block-inner .content {
+    /*foo*/
+  }
 
   ul {
     margin: 0 !important;
@@ -625,7 +686,9 @@ ul.sf-menu {
 
     ul {
       ul {
-        ul {}
+        ul {
+          /*foo*/
+        }
       }
     }
   }
@@ -636,7 +699,6 @@ ul.sf-menu {
   }
 }
 
-
 /*
  * Vertical style
  */
@@ -646,7 +708,9 @@ ul.sf-menu {
   li {
     width: 100%;
 
-    &.last {}
+    &.last {
+      /*foo*/
+    }
 
     &:hover ul,
     &.sfHover ul {
@@ -662,7 +726,6 @@ ul.sf-menu {
   }
 }
 
-
 /*
  * Navbar style
  */
@@ -670,14 +733,12 @@ ul.sf-menu {
   padding-bottom: 0 !important;
 }
 
-
 /*
  * Sensible padding for the default style
  */
 .sf-menu.sf-style-default a {
   padding: 0 10px;
 }
-
 
 /* =============================================================================
  *   Menus, usually blocks
@@ -690,7 +751,9 @@ ul.menu {
     padding-left: 15px;
 
     ul {
-      ul {}
+      ul {
+        /*foo*/
+      }
     }
   }
 
@@ -699,58 +762,73 @@ ul.menu {
 
     &.collapsed,
     &.expanded,
-    &.leaf {}
+    &.leaf {
+      /*foo*/
+    }
 
     a {
 
       &:link,
-      &:visited {}
+      &:visited {
+        /*foo*/
+      }
 
       &:active,
-      &.active {}
+      &.active {
+        /*foo*/
+      }
 
       &:hover,
-      &:focus {}
+      &:focus {
+        /*foo*/
+      }
     }
 
     &.active a,
-    &.active-trail a {}
+    &.active-trail a {
+      /*foo*/
+    }
 
     &.first,
-    &.last {}
+    &.last {
+      /*foo*/
+    }
   }
 }
 
-
 /* If li.content exists it's a problem, so reset the padding */
 .block .menu li.content {
-  padding: 0;   
+  padding: 0;
 }
 
- 
 /* =============================================================================
  *   Book navigation menu
  * ========================================================================== */
 
 .book-navigation {
 
-  .page-links {}
+  .page-links {
+    /*foo*/
+  }
 
-  .page-previous {}
+  .page-previous {
+    /*foo*/
+  }
 
-  .page-next {}
+  .page-next {
+    /*foo*/
+  }
 
   .page-up {
     /* Prevent text wrapping to a new line, assumes English "up" is used (two characters) */
     min-width: 2em;
     white-space: nowrap;
   }
-  
+
   .menu {
     margin-left: 0;
   }
 }
-
 
 /* =============================================================================
  *   Breadcrumbs
@@ -784,23 +862,32 @@ ul.menu {
     display: inline;
   }
 
-  li.crumb-first {}
+  li.crumb-first {
+    /*foo*/
+  }
 
-  li.crumb-last {}
+  li.crumb-last {
+    /*foo*/
+  }
 
   a {
 
     &:link,
-    &:visited {}
+    &:visited {
+      /*foo*/
+    }
 
     &:active,
-    &.active {}
+    &.active {
+      /*foo*/
+    }
 
     &:hover,
-    &:focus {}
+    &:focus {
+      /*foo*/
+    }
   }
 }
-
 
 /* =============================================================================
  *   Pagers
@@ -812,11 +899,9 @@ ul.pager {
   text-align: center;
 }
 
-
 .item-list ul.pager li {
   margin: 0;
 }
-
 
 ul.pager li {
   background-image: none;
@@ -829,11 +914,9 @@ ul.pager li {
   }
 }
 
-
 .block ul.pager li {
   margin: 0;
 }
-
 
 /*
  * Theme the various states of pager links
@@ -843,25 +926,46 @@ ul.pager li {
   a {
 
     &:link,
-    &:visited {}
+    &:visited {
+      /*foo*/
+    }
 
     &:active,
-    &.active {}
+    &.active {
+      /*foo*/
+    }
 
     &:hover,
-    &:focus {}
+    &:focus {
+      /*foo*/
+    }
   }
 
-  &.pager-item {}
-  &.first {}
-  &.last {}
-  &.pager-current {}
-  &.pager-first {}
-  &.pager-previous {}
-  &.pager-next {}
-  &.pager-last {}
+  &.pager-item {
+    /*foo*/
+  }
+  &.first {
+    /*foo*/
+  }
+  &.last {
+    /*foo*/
+  }
+  &.pager-current {
+    /*foo*/
+  }
+  &.pager-first {
+    /*foo*/
+  }
+  &.pager-previous {
+    /*foo*/
+  }
+  &.pager-next {
+    /*foo*/
+  }
+  &.pager-last {
+    /*foo*/
+  }
 }
-
 
 /* =============================================================================
  *   Skip Navigation
@@ -905,7 +1009,6 @@ ul.pager li {
   }
 }
 
-
 /* =============================================================================
  *   Tabs (local tasks)
  * ========================================================================== */
@@ -913,7 +1016,6 @@ ul.pager li {
 #tasks {
   margin-bottom: 15px;
 }
-
 
 ul.primary {
   border-bottom-color: $border;
@@ -953,7 +1055,6 @@ ul.primary {
   }
 }
 
-
 ul.secondary {
   border-bottom: 1px solid $border;
   margin: 1em 0 0;
@@ -974,7 +1075,6 @@ ul.secondary {
   }
 }
 
-
 /* =============================================================================
  *   Action links
  * ========================================================================== */
@@ -983,9 +1083,10 @@ ul.action-links {
   margin: 20px 0 0;
   list-style: none;
 
-  li {}
+  li {
+    /*foo*/
+  }
 }
-
 
 /* =============================================================================
  *  Field Styling
@@ -994,20 +1095,23 @@ ul.action-links {
 /*
  * Wrapper for any field
  */
-.field {}
-
+.field {
+  /*foo*/
+}
 
 /*
  * Above and inline classes are on the field wrapper
  */
-.field-label-above {}
-
+.field-label-above {
+  /*foo*/
+}
 
 /*
  * When labels are set to inline in field display settings the clearfix class is automatically added
  */
-.field-label-inline {}
-
+.field-label-inline {
+  /*foo*/
+}
 
 /*
  * Labels are h2 in Adaptivetheme. Use a strong selector to mitigate unwanted ineritance issues
@@ -1020,7 +1124,6 @@ ul.action-links {
   margin-bottom: 0;
 }
 
-
 /*
  * Field types (Core)
  */
@@ -1030,13 +1133,18 @@ ul.action-links {
  */
 .field-type-image {
 
-  .caption {}
+  .caption {
+    /*foo*/
+  }
 
-  .full-caption {}
+  .full-caption {
+    /*foo*/
+  }
 
-  .teaser-caption {}
+  .teaser-caption {
+    /*foo*/
+  }
 }
-
 
 /*
  * Taxonomy
@@ -1058,98 +1166,119 @@ ul.action-links {
   }
 }
 
-
 /*
  * Text
  */
-.field-type-text {}
-
+.field-type-text {
+  /*foo*/
+}
 
 /*
  * Long text
  */
-.field-type-text-long {}
-
+.field-type-text-long {
+  /*foo*/
+}
 
 /*
  * Text with summary
  */
-.field-type-text-with-summary {}
-
+.field-type-text-with-summary {
+  /*foo*/
+}
 
 /*
  * File
  */
-.field-type-file {}
-
+.field-type-file {
+  /*foo*/
+}
 
 /*
  * Number/Integer
  */
-.field-type-number-integer {}
-
+.field-type-number-integer {
+  /*foo*/
+}
 
 /*
  * Decimal
  */
-.field-type-number-decimal {}
-
+.field-type-number-decimal {
+  /*foo*/
+}
 
 /*
  * Number float
  */
-.field-type-number-float {}
-
+.field-type-number-float {
+  /*foo*/
+}
 
 /*
  * List
  */
-.field-type-list-text {}
-
+.field-type-list-text {
+  /*foo*/
+}
 
 /*
  * List boolean
  */
-.field-type-list-boolean {}
-
+.field-type-list-boolean {
+  /*foo*/
+}
 
 /*
  * List integer
  */
-.field-type-list-integer {}
-
+.field-type-list-integer {
+  /*foo*/
+}
 
 /*
  * List float
  */
-.field-type-list-float {}
-
+.field-type-list-float {
+  /*foo*/
+}
 
 /*
  * Field types (Contrib)
  */
-.field-type-datetime {}
+.field-type-datetime {
+  /*foo*/
+}
 
-.field-type-node-reference {}
+.field-type-node-reference {
+  /*foo*/
+}
 
-.field-type-user-reference {}
-
+.field-type-user-reference {
+  /*foo*/
+}
 
 /*
  * Named fields
  */
-.field-name-body {}
+.field-name-body {
+  /*foo*/
+}
 
-.field-name-field-image {}
+.field-name-field-image {
+  /*foo*/
+}
 
-.field-name-field-tags {}
-
+.field-name-field-tags {
+  /*foo*/
+}
 
 /*
  * Underscores in field name are replaced with dashes
  */
-.field-name-field-FIELDNAME {}
-
+.field-name-field-FIELDNAME {
+  /*foo*/
+}
 
 /*
  * Image Alignment Theme Settings - included here so you can easily override 
@@ -1159,8 +1288,9 @@ ul.action-links {
  * Float none setting
  */
 .ia-n .field-type-image,
-.iat-n .field-type-image {}
-
+.iat-n .field-type-image {
+  /*foo*/
+}
 
 /*
  * Float left setting
@@ -1170,7 +1300,6 @@ ul.action-links {
   margin: 5px 20px 15px 0;
 }
 
-
 /*
  * Centered setting
  */
@@ -1179,7 +1308,6 @@ ul.action-links {
   margin: 5px auto 15px;
 }
 
-
 /*
  * Float right setting
  */
@@ -1187,8 +1315,6 @@ ul.action-links {
 .iat-r .field-type-image figure {
   margin: 5px 0 15px 20px;
 }
-
-
 
 /* =============================================================================
  *   Block Styling
@@ -1201,36 +1327,40 @@ ul.action-links {
   margin-bottom: 20px;
 }
 
-
 /*
  * Inner wrapper for most blocks, good for margin, padding and borders, block_system_main does not have it
  */
-.block-inner {}
-
+.block-inner {
+  /*foo*/
+}
 
 /*
  * The first block in the region
  */
-.block.first {}
-
+.block.first {
+  /*foo*/
+}
 
 /*
  * The last block in the region
  */
-.block.last {}
-
-
-/*
- * Zebra striping for each block in the region
- */
-.block.odd {}
-
+.block.last {
+  /*foo*/
+}
 
 /*
  * Zebra striping for each block in the region
  */
-.block.even {}
+.block.odd {
+  /*foo*/
+}
 
+/*
+ * Zebra striping for each block in the region
+ */
+.block.even {
+  /*foo*/
+}
 
 /*
  * Block title
@@ -1239,12 +1369,12 @@ ul.action-links {
   margin: 0;
 }
 
-
 /*
  * Block content wrapper
  */
-.block-content {}
-
+.block-content {
+  /*foo*/
+}
 
 /*
  * Match item list and block menu margin and padding
@@ -1262,168 +1392,194 @@ ul.action-links {
   }
 }
 
-
 /*
  * Block for the latest news items in the first category
  */
-#block-aggregator-category-1 {}
-
+#block-aggregator-category-1 {
+  /*foo*/
+}
 
 /*
  * Block for the latest news items in the first feed
  */
-#block-aggregator-feed-1 {}
-
+#block-aggregator-feed-1 {
+  /*foo*/
+}
 
 /*
  * First block created with "Add block" link
  */
-#block-block-1 {}
-
+#block-block-1 {
+  /*foo*/
+}
 
 /*
  * "Recent blog posts" block
  */
-#block-blog-recent {}
-
+#block-blog-recent {
+  /*foo*/
+}
 
 /*
  * "Book navigation" block for the current book's table of contents
  */
-#block-book-navigation {}
-
+#block-book-navigation {
+  /*foo*/
+}
 
 /*
  * "Recent comments" block
  */
-#block-comment-recent {}
-
+#block-comment-recent {
+  /*foo*/
+}
 
 /*
  * "Active forum topics" block
  */
-#block-forum-active {}
-
+#block-forum-active {
+  /*foo*/
+}
 
 /*
  * "New forum topics" block
  */
-#block-forum-new {}
-
+#block-forum-new {
+  /*foo*/
+}
 
 /*
  * Language switcher block
  */
-#block-locale-language {}
-
+#block-locale-language {
+  /*foo*/
+}
 
 /*
  * Custom menu block
  */
-#block-menu-menu-NAME {}
-
+#block-menu-menu-NAME {
+  /*foo*/
+}
 
 /*
  * "Recent content" block
  */
-#block-node-recent {}
-
+#block-node-recent {
+  /*foo*/
+}
 
 /*
  * "Syndicate" block for primary RSS feed; see also page.css's .feed-icon
  */
-#block-node-syndicate {}
-
+#block-node-syndicate {
+  /*foo*/
+}
 
 /*
  * "Most recent poll" block
  */
-#block-poll-recent {}
-
+#block-poll-recent {
+  /*foo*/
+}
 
 /*
  * "Author information" block for the profile of the page's author
  */
-#block-profile-author-information {}
-
+#block-profile-author-information {
+  /*foo*/
+}
 
 /*
  * "Search form" block
  */
-#block-search-form {}
-
+#block-search-form {
+  /*foo*/
+}
 
 /*
  * "Shortcuts" block
  */
-#block-shortcut-shortcuts {}
-
+#block-shortcut-shortcuts {
+  /*foo*/
+}
 
 /*
  * "Popular content" block
  */
-#block-statistics-popular {}
-
+#block-statistics-popular {
+  /*foo*/
+}
 
 /*
  * "Main menu" block
  */
-#block-system-main-menu {}
-
+#block-system-main-menu {
+  /*foo*/
+}
 
 /*
  * "Management" block for Drupal management menu
  */
-#block-system-management {}
-
+#block-system-management {
+  /*foo*/
+}
 
 /*
  * "Navigation" block for Drupal navigation menu
  */
-#block-system-navigation {}
-
+#block-system-navigation {
+  /*foo*/
+}
 
 /*
  * "User menu" block for Drupal user menu
  */
-#block-system-user-menu {}
-
+#block-system-user-menu {
+  /*foo*/
+}
 
 /*
  * "System help" block
  */
-#block-system-help {}
-
+#block-system-help {
+  /*foo*/
+}
 
 /*
  * "Main page content" block
  */
-#block-system-main {}
-
+#block-system-main {
+  /*foo*/
+}
 
 /*
  * "Powered by Drupal" block
  */
-#block-system-powered-by {}
-
+#block-system-powered-by {
+  /*foo*/
+}
 
 /*
  * "User login form" block
  */
-#block-user-login {}
-
+#block-user-login {
+  /*foo*/
+}
 
 /*
  * "Who's new" block for a list of the newest users
  */
-#block-user-new {}
-
+#block-user-new {
+  /*foo*/
+}
 
 /*
  * "Who's online" block for a list of the online users
  */
-#block-user-online {}
-
+#block-user-online {
+  /*foo*/
+}
 
 /* =============================================================================
  *   Node Styling
@@ -1432,70 +1588,121 @@ ul.action-links {
 .node {
   margin-bottom: 20px;
 
-  &.node-promoted {}
+  &.node-promoted {
+    /*foo*/
+  }
 
-  &.node-sticky {}
+  &.node-sticky {
+    /*foo*/
+  }
 
-  &.node-by-viewer {}
+  &.node-by-viewer {
+    /*foo*/
+  }
 
-  &.node-teaser {}
+  &.node-teaser {
+    /*foo*/
+  }
 
-  &.node-full {}
+  &.node-full {
+    /*foo*/
+  }
 
-  &.odd {}
+  &.odd {
+    /*foo*/
+  }
 
-  &.even {}
+  &.even {
+    /*foo*/
+  }
 
   .node-title {
     margin: 0;
   }
 
-  .user-picture {}
+  .user-picture {
+    /*foo*/
+  }
 
   .submitted {
 
-    .username {}
+    .username {
+      /*foo*/
+    }
 
-    time {}
+    time {
+      /*foo*/
+    }
   }
 
-  .node-content {}
+  .node-content {
+    /*foo*/
+  }
 
   ul.links {
 
-    li {}
-    li a {}
+    li {
+      /*foo*/
+    }
+    li a {
+      /*foo*/
+    }
 
-    li.node-read-more a {}
-    li.comment-add a {}
-    li.comment-comments a {}
-    li.comment-new-comments a {}
-    li.blog-sernames-blog a {}
-    li.print-html a {}
-    li.print-email a {}
-    li.print-pdf a {}
+    li.node-read-more a {
+      /*foo*/
+    }
+    li.comment-add a {
+      /*foo*/
+    }
+    li.comment-comments a {
+      /*foo*/
+    }
+    li.comment-new-comments a {
+      /*foo*/
+    }
+    li.blog-sernames-blog a {
+      /*foo*/
+    }
+    li.print-html a {
+      /*foo*/
+    }
+    li.print-email a {
+      /*foo*/
+    }
+    li.print-pdf a {
+      /*foo*/
+    }
   }
 }
 
-
-.preview .node {}
-
+.preview .node {
+  /*foo*/
+}
 
 /*
  * All nodes are given a node-FOO class that describes the type of content that
  * it is. If you create a new content type called "my-custom-type", it will
  * receive a "node-my-custom-type" class.
  */
-.node-page {}
+.node-page {
+  /*foo*/
+}
 
-.node-article {}
+.node-article {
+  /*foo*/
+}
 
-.node-book {}
+.node-book {
+  /*foo*/
+}
 
-.node-forum {}
+.node-forum {
+  /*foo*/
+}
 
-.node-poll {}
-
+.node-poll {
+  /*foo*/
+}
 
 /* =============================================================================
  *   Comment Styling - Comments, comment wrapper, comment form
@@ -1518,37 +1725,55 @@ ul.action-links {
   }
 }
 
-
 /*
  * Wrapper for a single comment
  */
 .comment {
   margin-bottom: 20px;
 
-  &.first {}
+  &.first {
+    /*foo*/
+  }
 
-  &.last {}
+  &.last {
+    /*foo*/
+  }
 
-  &.odd {}
+  &.odd {
+    /*foo*/
+  }
 
-  &.even {}
+  &.even {
+    /*foo*/
+  }
 
-  .user-picture {}
+  .user-picture {
+    /*foo*/
+  }
 
   .submitted {
 
-    p {}
+    p {
+      /*foo*/
+    }
 
-    .username {}
+    .username {
+      /*foo*/
+    }
 
-    time {}
+    time {
+      /*foo*/
+    }
   }
 
-  .user-signature {}
+  .user-signature {
+    /*foo*/
+  }
 
-  ul.links {}
+  ul.links {
+    /*foo*/
+  }
 }
-
 
 /*
  * Comment title
@@ -1557,30 +1782,43 @@ ul.action-links {
   margin: 0;
 }
 
-
 /*
  * Comment states
  */
-.comment-new {}
+.comment-new {
+  /*foo*/
+}
 
-.comment-by-anonymous {}
+.comment-by-anonymous {
+  /*foo*/
+}
 
-.comment-by-node-author {}
+.comment-by-node-author {
+  /*foo*/
+}
 
-.comment-by-viewer {}
+.comment-by-viewer {
+  /*foo*/
+}
 
-.comment-title-hidden {}
+.comment-title-hidden {
+  /*foo*/
+}
 
-.comment-with-picture {}
+.comment-with-picture {
+  /*foo*/
+}
 
-.comment-with-signature {}
-
+.comment-with-signature {
+  /*foo*/
+}
 
 /*
  * Preview of the comment before submitting new or updated comment
  */
-.comment-preview {}
-
+.comment-preview {
+  /*foo*/
+}
 
 /*
  * "New" marker for comments that are new for the current user
@@ -1589,14 +1827,12 @@ ul.action-links {
   color: $highlight;
 }
 
-
 /*
  * Nested comments are indented
  */
 .indented {
   margin-left: 40px;
 }
-
 
 /* =============================================================================
  *   Forms
@@ -1605,7 +1841,7 @@ ul.action-links {
 /*
  * Wrapper for a form element (or group of form elements) and its label
  */
-.form-item { 
+.form-item {
 
   input.error,
   textarea.error,
@@ -1617,18 +1853,17 @@ ul.action-links {
     font-weight: 700;
   }
 
-  label.option { 
+  label.option {
   }
 
   .description {
     font-size: 0.85em;
   }
 
-  &.form-checkboxes ,
+  &.form-checkboxes,
   &.form-radios {
   }
 }
-
 
 /*
  * Highlight marks and form required mark
@@ -1638,13 +1873,11 @@ ul.action-links {
   color: $highlight;
 }
 
-
 /*
  * The submit button
  */
-.form-submit { 
+.form-submit {
 }
-
 
 .container-inline {
   div,
@@ -1663,17 +1896,15 @@ fieldset {
 /*
  * Tips for Drupal's input formats
  */
-.tips { 
+.tips {
 }
-
 
 /*
  * Buttons used by contrib modules like Media
  */
-a.button { 
+a.button {
   @include appearance(button);
 }
-
 
 /*
  * Password confirmation
@@ -1682,7 +1913,6 @@ a.button {
 .confirm-parent {
   margin: 0;
 }
-
 
 /* =============================================================================
  *   Tables
@@ -1698,7 +1928,6 @@ table {
   }
 }
 
-
 table,
 thead,
 tbody,
@@ -1708,13 +1937,11 @@ td {
   border-color: $border;
 }
 
-
 table,
 td,
 th {
   vertical-align: middle;
 }
-
 
 caption,
 th,
@@ -1722,12 +1949,10 @@ td {
   text-align: left;
 }
 
-
 thead tr {
   font-weight: 700;
   background-color: $medium_dark;
 }
-
 
 td,
 th {
@@ -1736,14 +1961,13 @@ th {
   padding: 5px 7px;
 }
 
-
-tbody {}
-
+tbody {
+  /*foo*/
+}
 
 tbody tr {
   border-top: 1px solid $border;
 }
-
 
 tr {
 
@@ -1754,14 +1978,18 @@ tr {
   /* Table row striping */
   &.info,
   &.even,
-  &:nth-child(2n+2)  {
+  &:nth-child(2n+2) {
     border-bottom: 0;
     background-color: $ultralight;
   }
 
-  &.drag {}
+  &.drag {
+    /*foo*/
+  }
 
-  &.drag-previous {}
+  &.drag-previous {
+    /*foo*/
+  }
 
   &.odd td.active {
     background-color: $light;
@@ -1771,7 +1999,6 @@ tr {
     background-color: $medium_light;
   }
 }
-
 
 .lt-ie8 tr {
 
@@ -1784,7 +2011,6 @@ tr {
   }
 }
 
-
 /*
  * Forum tables
  * Core sets white-space to nowrap, which makes no sense
@@ -1796,10 +2022,9 @@ tr {
   .last-reply,
   .replies,
   .pager {
-     white-space: normal;
+    white-space: normal;
   }
 }
-
 
 /* =============================================================================
  *   Messages
@@ -1807,9 +2032,9 @@ tr {
 
 div {
   &.messages {
-  // Left and right margin are set by the global gutter width
-  margin-bottom: 10px;
-  margin-top: 10px;
+    // Left and right margin are set by the global gutter width
+    margin-bottom: 10px;
+    margin-top: 10px;
 
     ul {
       margin-top: 0;
@@ -1827,19 +2052,15 @@ div {
 tr.warning {
 }
 
-
 div.error,
 tr.error {
 }
 
-
 .error {
 }
 
-
 .warning {
 }
-
 
 /*
  * Unpublished nodes
@@ -1848,7 +2069,6 @@ tr.error {
 .comment-unpublished {
 }
 
-
 .node-unpublished,
 .comment-unpublished {
 
@@ -1856,7 +2076,6 @@ tr.error {
     @include unpublished;
   }
 }
-
 
 /* =============================================================================
  *    Maintenance pages
@@ -1872,7 +2091,6 @@ tr.error {
     margin: 0;
   }
 }
-
 
 .db-offline {
   .container {
@@ -1891,7 +2109,6 @@ tr.error {
   }
 }
 
-
 /* =============================================================================
  *   Misc overrides for contrib modules
  * ========================================================================== */
@@ -1904,7 +2121,6 @@ tr.error {
   padding: 0;
 }
 
-
 /*
  * Devel Module
  */
@@ -1912,7 +2128,6 @@ tr.error {
   background: $light;
   padding: 30px;
 }
-
 
 /*
  * Styleguide module tweaks
