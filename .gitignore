@@ -5,5 +5,6 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 sites/all/themes/aed/.sass-cache
+sites/all/themes/aed/css
 
 .idea
