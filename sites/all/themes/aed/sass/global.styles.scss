@@ -1,5 +1,7 @@
 // _base.scss imports _custom.scss (variables and mixins) and other partials.
 @import "base";
+@import "menu";
+@import "forms";
 
 /*
  * @file
@@ -43,24 +45,34 @@ html {
 
 body {
   font-family: $sans-serif-small;
-  // Set from _custom.scss font variables
-  font-size: 87.5%;
+  color: $global-font-color;
+  font-size: $global-font-size;
+  line-height: $global-line-height;
 }
 
 /* =============================================================================
  *   HTML Elements
  * ========================================================================== */
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  text-rendering: optimizelegibility;
+  margin: 10px 0;
+}
+
 h1 {
-  /*foo*/
+  font-size: 34px;
+  line-height: 40px;
 }
 
 h2 {
-  /*foo*/
+  font-size: 26px;
+  line-height: 28px;
 }
 
 h3 {
-  /*foo*/
+  font-size: 20px;
+  line-height: 24px;
 }
 
 h4 {
@@ -76,7 +88,7 @@ h6 {
 }
 
 p {
-  /*foo*/
+  margin: 0 0 10px;
 }
 
 b,
@@ -219,7 +231,15 @@ var {
  * Footer wrapper
  */
 #footer {
-  /*foo*/
+  background-color: #F5F5F5;
+  border-top: 1px solid #E5E5E5;
+  margin-top: 20px;
+  padding: 30px 0;
+  text-align: center;
+  p {
+    color: #777777;
+    margin-bottom: 0;
+  }
 }
 
 /*
@@ -347,7 +367,7 @@ var {
  * Logo
  */
 #logo {
-  padding: 10px 0;
+  float: left;
 
   img {
     vertical-align: bottom;
@@ -358,34 +378,27 @@ var {
  * Wrapper for the site name and slogan (hgroup)
  */
 #name-and-slogan {
-  /*foo*/
+  float: right;
 }
 
 /*
  * Site name (h1)
  */
 #site-name {
-  margin: 0;
-
-  a {
-
-    &:link,
-    &:visited {
-      text-decoration: none;
-    }
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
-  }
+  display: none;
 }
 
 /*
  * Site slogan (h2)
  */
 #site-slogan {
-  margin: 0;
+  display: inline-block;
+  float: right;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 24px;
+  margin-top: 8px;
+  text-align: right;
 }
 
 /* =============================================================================
@@ -403,7 +416,7 @@ var {
  * The main page title (h1)
  */
 #page-title {
-  margin: 0;
+  margin-bottom: 15px;
 }
 
 /* =============================================================================
@@ -565,6 +578,7 @@ ul.links {
 
 a {
   text-decoration: none;
+  color: $link-color;
 
   &:link,
   &:visited {
@@ -579,6 +593,7 @@ a {
   &:hover,
   &:focus {
     text-decoration: underline;
+    color: $link-hover-color;
   }
 }
 
@@ -635,166 +650,8 @@ a {
 }
 
 /* =============================================================================
- *   Superfish
- * ========================================================================== */
-
-ul.sf-menu {
-  margin-bottom: 0;
-
-  a {
-    border-left: 0;
-    border-top: 0;
-    padding: 0 10px;
-    text-decoration: none;
-    height: 2.5em;
-    line-height: 2.5em;
-
-    &:link,
-    &:visited {
-      /*foo*/
-    }
-  }
-
-  li {
-    &:hover,
-    &.sfHover {
-      outline: 0;
-    }
-  }
-
-  a {
-    &:focus,
-    &:hover,
-    &:active {
-      outline: 0;
-    }
-  }
-}
-
-/*
- * Superfish blocks
- */
-.block-superfish {
-
-  .block-inner .content {
-    /*foo*/
-  }
-
-  ul {
-    margin: 0 !important;
-    padding: 0 !important;
-
-    ul {
-      ul {
-        ul {
-          /*foo*/
-        }
-      }
-    }
-  }
-
-  li {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-
-/*
- * Vertical style
- */
-.sf-vertical {
-  width: 100%;
-
-  li {
-    width: 100%;
-
-    &.last {
-      /*foo*/
-    }
-
-    &:hover ul,
-    &.sfHover ul {
-      left: 100%;
-      top: 0;
-      margin: 0;
-      padding: 0;
-    }
-
-    a {
-      padding: 0 10px;
-    }
-  }
-}
-
-/*
- * Navbar style
- */
-.sf-navbar {
-  padding-bottom: 0 !important;
-}
-
-/*
- * Sensible padding for the default style
- */
-.sf-menu.sf-style-default a {
-  padding: 0 10px;
-}
-
-/* =============================================================================
  *   Menus, usually blocks
  * ========================================================================== */
-
-ul.menu {
-  padding-left: 15px;
-
-  ul {
-    padding-left: 15px;
-
-    ul {
-      ul {
-        /*foo*/
-      }
-    }
-  }
-
-  li {
-    margin: 0;
-
-    &.collapsed,
-    &.expanded,
-    &.leaf {
-      /*foo*/
-    }
-
-    a {
-
-      &:link,
-      &:visited {
-        /*foo*/
-      }
-
-      &:active,
-      &.active {
-        /*foo*/
-      }
-
-      &:hover,
-      &:focus {
-        /*foo*/
-      }
-    }
-
-    &.active a,
-    &.active-trail a {
-      /*foo*/
-    }
-
-    &.first,
-    &.last {
-      /*foo*/
-    }
-  }
-}
 
 /* If li.content exists it's a problem, so reset the padding */
 .block .menu li.content {
@@ -1511,12 +1368,6 @@ ul.action-links {
   /*foo*/
 }
 
-/*
- * "Main menu" block
- */
-#block-system-main-menu {
-  /*foo*/
-}
 
 /*
  * "Management" block for Drupal management menu
@@ -2141,4 +1992,47 @@ tr.error {
     min-height: 260px;
     width: auto;
   }
+}
+
+ul > li > i {
+  margin-right: 5px;
+}
+
+ol.alphabetical {
+  list-style: lower-alpha;
+
+}
+
+.falta {
+  background: red;
+  color: #ffffff;
+}
+
+table.empresas-colabora {
+}
+
+table.empresas-colabora tr {
+}
+
+table.empresas-colabora tr td {
+  padding: 15px;
+  vertical-align: middle;
+}
+
+table.empresas-colabora tr td img {
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+a.download {
+  font-size: 12px;
+}
+
+a.download i {
+  margin-right: 4px;
+  position: relative;
+  top: -2px;
 }

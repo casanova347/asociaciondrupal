@@ -1,0 +1,156 @@
+/*Menu principal
+-----------------------------------------------------------------------------*/
+
+@mixin vertical-menu($selector) {
+  #{$selector} {
+    nav {
+
+      //No queremos que nuestro menu al
+      //desplegar se vea tapado por otras cosas
+      position: relative;
+      z-index: 999;
+
+      //No queremos que las palabras se corten
+      a {
+        white-space: nowrap;
+      }
+
+      //######################
+      //ESTRUCTURA Y FUNCIONAMIENTO
+      //######################
+
+      //Primer nivel
+      //---------------------------------
+      > ul {
+        width: 100%;
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+
+        > li {
+
+          -webkit-box-flex: 1;
+          -moz-box-flex: 1;
+          box-flex: 1;
+          margin: 0 1px;
+          position: relative;
+
+          //La magia que permite que los menu se desplieguen esta acá
+          //cuando estamos encima de un link, si tiene hijos los muestra con "a:hover + ul"
+          //Luego cuando dejamos de estan encima del link porque bajamos el mouse al listado
+          //de hijos, "ul:hover" lo mantiene abierto
+          > a:hover + ul,
+          > ul:hover {
+            display: block;
+          }
+
+          //El primer elemento del menu no tiene que tener margen izquierdo
+          &.first {
+            margin-left: 0;
+          }
+
+          //El ultimo elemento del menu no tiene que tener margen derecho
+          &.last {
+            margin-right: 0;
+
+            //El ultimo elemento del primer nivel puede
+            //tener un submenu, pero no lo podemos mostrar hacia la derecha.
+            //lo acomodamos para que se puestre "hacia dentro"
+            > ul {
+              left: auto;
+              right: 0;
+            }
+
+          }
+
+          > a {
+            //Segundo nivel
+            //---------------------------------
+            + ul {
+
+              display: none;
+              position: absolute;
+              top: 100%;
+
+            }
+            //FIN Segundo nivel
+            //---------------------------------
+          }
+
+        }
+      }
+
+      //######################
+      //DECORACIÓN
+      //######################
+      a {
+        text-decoration: none;
+        display: block;
+        padding: 9px 11px;
+      }
+
+      //traza del menu activo.
+      .active-trail {
+        background: #CDCDCD;
+      }
+
+      //El elemento activo
+      .active {
+        &:after {
+          border-bottom: 6px solid #0061A6;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          bottom: 2px;
+          content: "";
+          left: 50%;
+          margin-left: -6px;
+          position: absolute;
+        }
+        border-bottom: 2px solid #0061A6;
+      }
+
+      //Decoracion especificas de cada nivel
+      //---------------------------------
+
+      //Primer nivel
+      //---------------------------------
+      > ul {
+        > li {
+          margin: 0 1px;
+
+          > a {
+            font-size: 12px;
+            background: #ebebeb;
+            color: #444;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-align: center;
+
+            //Segundo nivel
+            //---------------------------------
+            + ul {
+              > li {
+                &.first {
+                  border-top: 1px solid #6790d1;
+                }
+
+                a {
+                  &:hover {
+                    color: #324564;
+                    background-color: #ebebeb;
+                  }
+                }
+              }
+            }
+
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@include vertical-menu("#menu-bar");
+
+

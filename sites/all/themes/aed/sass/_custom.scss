@@ -55,8 +55,7 @@ $primary_task_active: $page;
 // These font stacks are an exact copy of the stacks found in AT Cores
 // theme settings for web safe fonts.
 //
-
-$sans-serif-small: 'Trebuchet MS', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$sans-serif-small: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 $sans-serif-large: Verdana, Geneva, 'DejaVu Sans', Arial, Helvetica, sans-serif;
 $sans-serif-arial-helvetica: Arial, Helvetica, sans-serif;
 $calibri-candara: Calibri, Candara, Arial, Helvetica, sans-serif;
@@ -66,6 +65,13 @@ $modern-myriad: 'Segoe UI', 'Myriad Pro', Myriad, Arial, Helvetica, sans-serif;
 $lucida: 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande', Verdana, Geneva, sans-serif;
 $impact: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', sans-serif;
 $mono: Consolas, Monaco, 'Courier New', Courier, monospace, sans-serif;
+
+$global-font-color: #333;
+$global-font-size: 87.5%;
+$global-line-height: 125.0%;
+
+$link-color: #0088CC;
+$link-hover-color: #005580;
 
 //
 // Gutters
