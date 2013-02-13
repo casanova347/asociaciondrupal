@@ -11,8 +11,10 @@
       z-index: 999;
 
       //No queremos que las palabras se corten
-      a {
+      a, span.nolink {
         white-space: nowrap;
+        outline: none;
+        cursor: pointer;
       }
 
       //######################
@@ -40,7 +42,9 @@
           //Luego cuando dejamos de estan encima del link porque bajamos el mouse al listado
           //de hijos, "ul:hover" lo mantiene abierto
           > a:hover + ul,
-          > ul:hover {
+          > ul:hover,
+          > span.nolink:hover + ul,
+          > span.nolink + ul:hover {
             display: block;
           }
 
@@ -63,7 +67,7 @@
 
           }
 
-          > a {
+          > a, > span.nolink {
             //Segundo nivel
             //---------------------------------
             + ul {
@@ -71,6 +75,9 @@
               display: none;
               position: absolute;
               top: 100%;
+              //compensamos el espacio que queda entre
+              //elementos debido al border que tienen los subelementos.
+              margin-top: -1px;
 
             }
             //FIN Segundo nivel
@@ -83,15 +90,10 @@
       //######################
       //DECORACIÓN
       //######################
-      a {
+      a, span.nolink {
         text-decoration: none;
         display: block;
         padding: 9px 11px;
-      }
-
-      //traza del menu activo.
-      .active-trail {
-        background: #CDCDCD;
       }
 
       //El elemento activo
@@ -100,13 +102,14 @@
           border-bottom: 6px solid #0061A6;
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
-          bottom: 2px;
+          bottom: 1px;
           content: "";
           left: 50%;
           margin-left: -6px;
           position: absolute;
         }
-        border-bottom: 2px solid #0061A6;
+        border-bottom: 1px solid #0061A6;
+        background: #CDCDCD;
       }
 
       //Decoracion especificas de cada nivel
@@ -118,23 +121,41 @@
         > li {
           margin: 0 1px;
 
-          > a {
-            font-size: 12px;
+          > a, > span.nolink {
+            font-size: 85%;
             background: #ebebeb;
             color: #444;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             text-align: center;
 
+            &.active-trail {
+              background: #CDCDCD;
+            }
+
             //Segundo nivel
             //---------------------------------
             + ul {
               > li {
+
+                border-bottom: 1px solid #E9E9E9;
+                display: block;
+                float: none;
+                position: relative;
+
                 &.first {
                   border-top: 1px solid #6790d1;
                 }
 
-                a {
+                a, span.nolink {
+
+                  background: none repeat scroll 0 0 white;
+                  color: #333333;
+
+                  &.active-trail {
+                    background: #fff;
+                  }
+
                   &:hover {
                     color: #324564;
                     background-color: #ebebeb;

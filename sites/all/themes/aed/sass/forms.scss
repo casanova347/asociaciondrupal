@@ -42,7 +42,7 @@
   line-height: 20px;
   margin: 0;
   margin-bottom: 10px;
-  padding: 4px 6px;
+  padding: 6px;
   vertical-align: middle;
   font-size: 100%;
   vertical-align: baseline;
@@ -68,4 +68,19 @@ select,
 textarea {
 
   @include input;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #999999;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #999999;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #999999;
 }

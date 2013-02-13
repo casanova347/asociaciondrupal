@@ -2,42 +2,9 @@
 @import "base";
 @import "menu";
 @import "forms";
-
-/*
- * @file
- * global.styles
- *
- * Styles you add here will load for all device sizes, they are "global", as
- * opposed to "responsive" styles, which only load for a given breakpoint (media
- * query) that you set in theme settings. See the README for more details.
- *
- *
- * How to use this file:
- * --------------------
- *
- * There are many empty selectors and some basic styles to act as a guide.
- * Nothing is set in stone and you can change anything - even delete all of it
- * and start with your own clean slate.
- *
- * To FORCE PRINT all selectors you can search and replace a single { (opening
- * curly brace) and insert an empty comment. This is very useful in conjuction
- * with FireSass: https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/
- *
- * See global.base also which includes normalize.css and some additional
- * helper classes and base styles.
- */
-
-/* =============================================================================
- *   Base
- * ========================================================================== */
-
-/* 
- * To preserve theme settings never apply font properties to the HTML element.
- * This is critically important if you are using the Responsive JavaScript
- * feature as this relies on being able to set a pseudo font family on the HTML
- * element. If you need to set default font properties of any kind use the BODY
- * element as these can be overridden using font theme settings.
- */
+@import "table";
+@import "sprites";
+@import "contact";
 
 html {
   background: $page;
@@ -360,15 +327,24 @@ var {
  * Wraps all the branding elements, logo, name and slogan
  */
 #branding {
-  /*foo*/
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  margin: 0;
+
+  > *{
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+  }
 }
 
 /*
  * Logo
  */
 #logo {
-  float: left;
-
+  margin-left: 10px;
   img {
     vertical-align: bottom;
   }
@@ -378,7 +354,7 @@ var {
  * Wrapper for the site name and slogan (hgroup)
  */
 #name-and-slogan {
-  float: right;
+  margin-right: 10px;
 }
 
 /*
@@ -394,7 +370,7 @@ var {
 #site-slogan {
   display: inline-block;
   float: right;
-  font-size: 16px;
+  font-size: 112.5%;
   font-weight: normal;
   line-height: 24px;
   margin-top: 8px;
@@ -1368,7 +1344,6 @@ ul.action-links {
   /*foo*/
 }
 
-
 /*
  * "Management" block for Drupal management menu
  */
@@ -2035,4 +2010,13 @@ a.download i {
   margin-right: 4px;
   position: relative;
   top: -2px;
+}
+
+
+#mini-menu-toggle-wrapper{
+  display: none;
+}
+
+#menu-bar{
+  display: block;
 }

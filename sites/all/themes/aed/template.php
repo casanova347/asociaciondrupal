@@ -104,3 +104,17 @@ function aed_process_block(&$vars) {
 //  return theme_links($vars);
 //}
 
+function aed_form_alter(&$form, &$form_state, $form_id) {
+  if (in_array($form_id, array('user_login', 'user_login_block'))) {
+    $form['name']['#attributes']['placeholder'] = t('Username');
+    $form['pass']['#attributes']['placeholder'] = t('Password');
+    $form['name']['#title_display'] = "invisible";
+    $form['pass']['#title_display'] = "invisible";
+  }
+}
+
+
+function aed_textarea($element) {
+  $element['element']['#resizable'] = FALSE;
+  return theme_textarea($element);
+}

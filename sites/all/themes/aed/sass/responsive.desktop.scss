@@ -14,3 +14,21 @@
 body {
 
 }
+
+#columns {
+  #content-column {
+    width: 74%;
+
+    .content-inner {
+      margin-right: 0;
+    }
+
+  }
+
+  .region-sidebar-second {
+    float: right;
+    width: 24%;
+    margin-left: auto;
+  }
+
+}
