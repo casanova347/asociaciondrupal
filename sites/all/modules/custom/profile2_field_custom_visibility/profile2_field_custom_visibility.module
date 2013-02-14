@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * Implements hook_field_attach_view_alter()
+ * @param $output
+ * @param $context
+ */
+function profiles2_one_page_field_attach_view_alter(&$output, $context) {
+
+  if ($context['entity_type'] == "profile2") {
+
+    /** @var $profile Profile */
+    $profile = $context['entity'];
+    $user_lvl_perms = profile2_granular_field_visibility_get_fields_perms($profile->uid);
+
+    foreach ($output as $field_name => $field_content) {
+      if (is_field($field_content) && isset($user_lvl_perms[$field_name])) {
+        //We have our own access settings on user level. we apply they here
+        $output[$field_name]['#access'] = $user_lvl_perms[$field_name];
+      }
+    }
+  }
+}
+
+/**
+ * Check if given element is a valid field.
+ *
+ * @param mixed $element
+ * @return bool
+ */
+function is_field($element) {
+  $is_array = is_array($element);
+  $has_theme = $is_array && isset($element["#theme"]);
+  $has_field_name = $is_array && isset($element["#field_name"]);
+  $has_field_type = $is_array && isset($element["#field_type"]);
+  return $has_field_name && $has_field_type && $has_theme;
+}
+
+/**
+ * Returns access perms specified by user.
+ *
+ * @param $uid
+ * @return array
+ */
+function profile2_granular_field_visibility_get_fields_perms($uid) {
+  $perms = array(
+    "field_foto" => FALSE,
+    "field_nombre" => FALSE,
+  );
+
+  return $perms;
+}

@@ -1,90 +1,94 @@
 <?php
 
-define("PROFILE", "socio");
+//@todo move to .info?
+require_once("profiles2_one_page.admin.inc");
+
+
+/**
+ * Form alter user_admin_settings()
+ * @param $form
+ * @param $form_state
+ * @return mixed
+ */
+function profiles2_one_page_form_user_admin_settings_alter(&$form, &$form_state) {
+  $form['profiles2_one_page'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Profile2 one page'),
+    '#weight' => 0
+  );
+
+  $form['profiles2_one_page']['profiles2_one_page_wrap_account'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Wrap account form in a fieldset.'),
+    '#default_value' => variable_get('profiles2_one_page_wrap_account', FALSE),
+  );
+
+  $form['profiles2_one_page']['profiles2_one_page_wrap_account_title'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Fieldset title'),
+    '#default_value' => t(variable_get('profiles2_one_page_wrap_account_title', "User account")),
+  );
+
+}
+
 
 /**
  * Implements hook_menu_alter()
+ *
+ * Disable profile tabs if they are marked to be shown in accounts form
+ *
  * @param $items
  */
 function profiles2_one_page_menu_alter(&$items) {
-  $items['user/%user_category/edit/' . PROFILE]['access callback'] = FALSE;
+  $types = profile2_get_types();
+  foreach ($types as $type) {
+    /** @var $type ProfileType */
+    if (isset($type->data['use_one_page']) && $type->data['use_one_page']) {
+      $items['user/%user_category/edit/' . $type->type]['access callback'] = FALSE;
+    }
+  }
 }
 
 /**
- * Implements hook_form_FORM_ID_alter() for the user edit form.
+ * Implements hook_form_FORM_ID_alter()
+ *
+ * Attach selected profiles to user edit form.
  */
 function profiles2_one_page_form_user_profile_form_alter(&$form, &$form_state) {
 
-  /** @var $type ProfileType */
-  if (($type = profile2_get_types(PROFILE)) && $type->userCategory) {
-    if (empty($form_state["profiles"])) {
-      $profile = profile2_load_by_user($form['#user'], PROFILE);
-      if (empty($profile)) {
-        $profile = profile_create(array('type' => PROFILE, 'uid' => $form['#user']->uid));
+  $types = profile2_get_types();
+
+  //we take care of profiles weights
+  usort($types, '_sort_profile_by_weight');
+
+  foreach ($types as $type) {
+
+    /** @var $type ProfileType */
+    if (isset($type->data['use_one_page']) && $type->data['use_one_page']) {
+
+      if (!isset($form_state["profiles"])) {
+        $form_state["profiles"] = array();
       }
+
+      $profile = profile2_load_by_user($form['#user'], $type->type);
+
+      if (empty($profile)) {
+        $profile = profile_create(array('type' => $type->type, 'uid' => $form['#user']->uid));
+      }
+
       $form_state['profiles'][$profile->type] = $profile;
     }
-    profile2_attach_form($form, $form_state);
+
   }
+
+  profile2_attach_form($form, $form_state);
 }
 
 /**
- * Implements hook_form_profile2_form_alter()
- * @param $form
- * @param $form_state
+ * @param ProfileType $a
+ * @param ProfileType $b
+ * @return int
  */
-function profiles2_one_page_form_profile2_form_alter(&$form, &$form_state) {
-  $form["account"]["#type"] = "fieldset";
-  $form["account"]["#title"] = t("User account");
-}
-
-/**
- * Implements hook_field_attach_view_alter()
- * @param $output
- * @param $context
- */
-function profiles2_one_page_field_attach_view_alter(&$output, $context) {
-
-  if ($context['entity_type'] == "profile2") {
-
-    /** @var $profile Profile */
-    $profile = $context['entity'];
-    $user_lvl_perms = profile2_granular_field_visibility_get_fields_perms($profile->uid);
-
-    foreach ($output as $field_name => $field_content) {
-      if (is_field($field_content) && isset($user_lvl_perms[$field_name])) {
-        //We have our own access settings on user level. we apply they here
-        $output[$field_name]['#access'] = $user_lvl_perms[$field_name];
-      }
-    }
-  }
-}
-
-/**
- * Check if given element is a valid field.
- *
- * @param mixed $element
- * @return bool
- */
-function is_field($element) {
-  $is_array = is_array($element);
-  $has_theme = $is_array && isset($element["#theme"]);
-  $has_field_name = $is_array && isset($element["#field_name"]);
-  $has_field_type = $is_array && isset($element["#field_type"]);
-  return $has_field_name && $has_field_type && $has_theme;
-}
-
-/**
- * Returns access perms specified by user.
- *
- * @param $uid
- * @return array
- */
-function profile2_granular_field_visibility_get_fields_perms($uid) {
-  $perms = array(
-    "field_foto" => FALSE,
-    "field_nombre" => FALSE,
-  );
-
-  return $perms;
+function _sort_profile_by_weight($a, $b) {
+  return $a->weight == $b->weight ? 0 : ($a->weight > $b->weight) ? 1 : -1;
 }
