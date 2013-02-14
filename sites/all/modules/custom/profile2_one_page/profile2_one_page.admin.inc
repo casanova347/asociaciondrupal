@@ -1,10 +1,16 @@
 <?php
+/**
+ * @file
+ * Admin functions
+ */
 
 /**
  * Implements hook_form_FORM_ID_alter() for the profile2 type form..
  */
 function profile2_one_page_form_profile2_type_form_alter(&$form, &$form_state) {
+
   $type = $form_state['profile2_type'];
+
   $form['data']['use_one_page'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show this profile as part of user account form'),
