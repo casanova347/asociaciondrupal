@@ -5,6 +5,7 @@
 @import "table";
 @import "sprites";
 @import "contact";
+@import "user-form";
 
 html {
   background: $page;
@@ -333,7 +334,7 @@ var {
   display: box;
   margin: 0;
 
-  > *{
+  > * {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
@@ -1713,13 +1714,6 @@ ul.action-links {
 }
 
 /*
- * Define consistent borders
- */
-fieldset {
-  border: 1px solid $border;
-}
-
-/*
  * Tips for Drupal's input formats
  */
 .tips {
@@ -2012,11 +2006,26 @@ a.download i {
   top: -2px;
 }
 
-
-#mini-menu-toggle-wrapper{
+#mini-menu-toggle-wrapper {
   display: none;
 }
 
-#menu-bar{
+#menu-bar {
   display: block;
+}
+
+.form-item, .form-actions {
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+//pagina del perfil de usuario
+.entity.entity-profile2.profile2-socio {
+  .field-label {
+    line-height: 24px;
+    margin: 0;
+    min-width: 15%;
+    padding-right: 2%;
+    text-align: right;
+  }
 }

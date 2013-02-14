@@ -57,9 +57,13 @@ function aed_process_html(&$vars) {
 function aed_preprocess_page(&$vars) {
 
   //Odiamos que los theme invoquen menus directamente, eso es competencia del site builder.
-  if (isset($vars['primary_navigation'])) {
-    $vars['primary_navigation'] = FALSE;
-  }
+//  if (isset($vars['primary_navigation'])) {
+//    $vars['primary_navigation'] = FALSE;
+//  }
+
+//  if (isset($vars['secondary_navigation'])) {
+//    $vars['secondary_navigation'] = FALSE;
+//  }
 
 }
 

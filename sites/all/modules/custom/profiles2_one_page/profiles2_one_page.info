@@ -1,0 +1,4 @@
+name = Profile2 one page
+description = Shows a profile2's profile and the user account into a single page (both view and edit)
+core = 7.x
+package = profile

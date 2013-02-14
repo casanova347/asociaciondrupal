@@ -1,3 +1,11 @@
+@mixin form-container() {
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
 @mixin btn($size: "normal") {
 
   background-color: #F5F5F5;
@@ -53,6 +61,23 @@
   box-sizing: border-box;
 }
 
+legend {
+  border-bottom: 1px solid #E5E5E5;
+  color: #333333;
+  display: block;
+  font-size: 21px;
+  line-height: 40px;
+  margin-bottom: 20px;
+  padding: 0;
+  width: 100%;
+}
+
+fieldset {
+  border: 0 none;
+  margin: 0;
+  padding: 0;
+}
+
 //////implementaciones
 
 button,
@@ -83,4 +108,38 @@ textarea:-ms-input-placeholder {
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: #999999;
+}
+
+#edit-account,
+.profile2-form {
+  margin-bottom: 10px;
+}
+
+.field-type-image {
+
+  label {
+    vertical-align: top;
+  }
+
+  .image-preview {
+    display: inline-block;
+    padding: 0;
+    vertical-align: top;
+    margin-right: 5%;
+
+    img {
+      background-color: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 4px;
+    }
+  }
+
+  div.image-widget-data {
+    display: inline-block;
+
+    .form-submit {
+      display: block;
+    }
+  }
 }
