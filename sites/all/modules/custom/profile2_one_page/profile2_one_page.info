@@ -4,4 +4,4 @@ core = 7.x
 version = "7.x-1.0-beta"
 dependencies[] = profile2
 package = Profile2 (contrib)
-;files[] = profiles2_one_page.admin.inc
+;files[] = profile2_one_page.admin.inc

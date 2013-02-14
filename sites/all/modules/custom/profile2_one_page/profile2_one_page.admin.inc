@@ -3,7 +3,7 @@
 /**
  * Implements hook_form_FORM_ID_alter() for the profile2 type form..
  */
-function profiles2_one_page_form_profile2_type_form_alter(&$form, &$form_state) {
+function profile2_one_page_form_profile2_type_form_alter(&$form, &$form_state) {
   $type = $form_state['profile2_type'];
   $form['data']['use_one_page'] = array(
     '#type' => 'checkbox',
@@ -17,7 +17,7 @@ function profiles2_one_page_form_profile2_type_form_alter(&$form, &$form_state) 
 /**
  * Implements hook_profile2_type_insert().
  */
-function profiles2_one_page_profile2_type_insert(ProfileType $type) {
+function profile2_one_page_profile2_type_insert(ProfileType $type) {
   // Do not directly issue menu rebuilds here to avoid potentially multiple
   // rebuilds. Instead, let menu_get_item() issue the rebuild on the next page.
   if (!empty($type->data['use_one_page'])) {
@@ -52,9 +52,9 @@ function profile2_one_page_profile2_type_delete($type) {
  * @param $form
  * @param $form_state
  */
-function profiles2_one_page_form_profile2_form_alter(&$form, &$form_state) {
-  if (variable_get('profiles2_one_page_wrap_account', FALSE)) {
+function profile2_one_page_form_profile2_form_alter(&$form, &$form_state) {
+  if (variable_get('profile2_one_page_wrap_account', FALSE)) {
     $form["account"]["#type"] = "fieldset";
-    $form["account"]["#title"] = t(variable_get('profiles2_one_page_wrap_account_title', ""));
+    $form["account"]["#title"] = t(variable_get('profile2_one_page_wrap_account_title', ""));
   }
 }
