@@ -848,12 +848,12 @@ ul.pager li {
  * ========================================================================== */
 
 #tasks {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 ul.primary {
   border-bottom-color: $border;
-  margin: 20px 0;
+  margin: 0;
   padding: 0 0 0 5px;
 
   li {
@@ -862,14 +862,19 @@ ul.primary {
     margin: 0 1px -1px;
 
     a {
-      background-color: $ultralight;
-      border-color: $border;
-      margin-right: 1px;
-      padding: 0 10px;
+
+      background-color: transparent;
+      border: medium none #DDDDDD;
+      border-radius: 4px 4px 0 0;
+      color: #0088CC;
       display: block;
       float: left;
-      height: 1.5em;
-      line-height: 1.5em;
+      font-size: 0.95em;
+      height: 22px;
+      line-height: 0.95em;
+      margin-right: 1px;
+      padding: 10px 12px 0;
+      vertical-align: top;
 
       &:hover,
       &:focus {
@@ -885,6 +890,7 @@ ul.primary {
     a:focus {
       background-color: $page;
       border-bottom-color: $page;
+      color: #555555;
     }
   }
 }
