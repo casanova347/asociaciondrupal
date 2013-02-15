@@ -2035,3 +2035,7 @@ a.download i {
     text-align: right;
   }
 }
+
+.image-style-thumbnail {
+  @include polaroid;
+}
