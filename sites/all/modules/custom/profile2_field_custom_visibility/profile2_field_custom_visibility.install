@@ -1,0 +1,35 @@
+<?php
+
+function profile2_field_custom_visibility_schema() {
+  $schema['profile2_fcv'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'identifier.',
+      ),
+      'uid' => array(
+        'description' => 'profile id',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'type' => array(
+        'description' => 'profile2 type',
+        'type' => 'varchar',
+        'length' => 60,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'allowed' => array(
+        'description' => 'allowed fields by user',
+        'type' => 'text',
+        'not null' => FALSE,
+        'size' => 'big',
+        'serialize' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+  return $schema;
+}

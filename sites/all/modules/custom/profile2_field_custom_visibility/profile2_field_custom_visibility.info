@@ -4,4 +4,3 @@ core = 7.x
 version = "7.x-1.0-beta"
 dependencies[] = profile2
 package = Profile2 (contrib)
-files[] = profile2.admin.inc

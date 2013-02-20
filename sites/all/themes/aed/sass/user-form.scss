@@ -129,4 +129,27 @@
       }
     }
   }
+
+  .form-wrapper {
+    position: relative;
+  }
+
+  .exponer-este-field {
+
+    font-size: 12px;
+    left: 65%;
+    position: absolute;
+    top: 15%;
+
+    > div {
+
+      float: right;
+      margin: 0;
+
+      input {
+      }
+      label {
+      }
+    }
+  }
 }
