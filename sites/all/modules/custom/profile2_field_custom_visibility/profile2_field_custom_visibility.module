@@ -4,6 +4,22 @@ function profile2_field_custom_visibility_init() {
 }
 
 /**
+ * Implements hook_entity_info()
+ */
+function profile2_field_custom_visibility_entity_info() {
+  $return = array(
+    'profile2fcv' => array(
+      'label' => t('profile2 privacy fields'),
+      'controller class' => 'EntityAPIController',
+      'base table' => 'profile2_fcv',
+      'entity keys' => array('id' => 'id'),
+      'module' => 'profile2_field_custom_visibility',
+    ),
+  );
+  return $return;
+}
+
+/**
  * Implements hook_menu()
  */
 function profile2_field_custom_visibility_menu() {
@@ -195,32 +211,4 @@ function profile2_field_custom_visibility_form_profile2_form_alter_submit(&$form
     //para luego usa esta informacion a la hora de mostrar la info.
   }
 
-}
-
-/**
- * Check if given element is a valid field.
- *
- * @param mixed $element
- * @return bool
- */
-function is_field($element) {
-  $is_array = is_array($element);
-  $has_theme = $is_array && isset($element["#theme"]);
-  $has_field_name = $is_array && isset($element["#field_name"]);
-  $has_field_type = $is_array && isset($element["#field_type"]);
-  return $has_field_name && $has_field_type && $has_theme;
-}
-
-function profile2_field_custom_visibility_entity_info() {
-  $return = array(
-    'profile2fcv' => array(
-      'label' => t('profile2 privacy fields'),
-      'controller class' => 'EntityAPIController',
-      'base table' => 'profile2_fcv',
-      'entity keys' => array('id' => 'id'),
-      'module' => 'profile2_field_custom_visibility',
-    ),
-
-  );
-  return $return;
 }
