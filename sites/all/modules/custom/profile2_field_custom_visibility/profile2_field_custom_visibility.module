@@ -222,5 +222,5 @@ function profile2_field_custom_visibility_entity_info() {
     ),
 
   );
-   return $return;
+  return $return;
 }

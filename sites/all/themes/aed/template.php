@@ -41,72 +41,26 @@ function aed_preprocess_html(&$vars) {
 // */
 
 
-/**
- * Process variables for the html template.
- */
-/* -- Delete this line if you want to use this function
-function aed_process_html(&$vars) {
-}
-// */
+function aed_theme() {
 
+  return array(
+    'aed_user_view_pane' => array(
+      'variables' => array(
+        'output' => array(),
+        'pane' => array(),
+        'display' => array()
+      ),
+      'path' => drupal_get_path('theme', 'aed') . '/layouts',
+      'template' => 'aed-user-view-pane',
+    )
+  );
 
-/**
- * Override or insert variables for the page templates.
- */
-
-function aed_preprocess_page(&$vars) {
-
-  //Odiamos que los theme invoquen menus directamente, eso es competencia del site builder.
-//  if (isset($vars['primary_navigation'])) {
-//    $vars['primary_navigation'] = FALSE;
-//  }
-
-//  if (isset($vars['secondary_navigation'])) {
-//    $vars['secondary_navigation'] = FALSE;
-//  }
 
 }
 
 function aed_process_page(&$vars) {
 }
 
-
-/**
- * Override or insert variables into the node templates.
- */
-/* -- Delete this line if you want to use these functions
-function aed_preprocess_node(&$vars) {
-}
-function aed_process_node(&$vars) {
-}
-// */
-
-
-/**
- * Override or insert variables into the comment templates.
- */
-/* -- Delete this line if you want to use these functions
-function aed_preprocess_comment(&$vars) {
-}
-function aed_process_comment(&$vars) {
-}
-// */
-
-
-/**
- * Override or insert variables into the block templates.
- */
-/* -- Delete this line if you want to use these functions
-function aed_preprocess_block(&$vars) {
-}
-function aed_process_block(&$vars) {
-}
-// */
-
-
-//function aed_links($vars) {
-//  return theme_links($vars);
-//}
 
 function aed_form_alter(&$form, &$form_state, $form_id) {
   if (in_array($form_id, array('user_login', 'user_login_block'))) {
@@ -121,4 +75,13 @@ function aed_form_alter(&$form, &$form_state, $form_id) {
 function aed_textarea($element) {
   $element['element']['#resizable'] = FALSE;
   return theme_textarea($element);
+}
+
+
+function aed_preprocess(&$variables, $hook = "") {
+
+  if ($hook == "panels_pane" && $variables['display']->layout == "user_profile_view") {
+    $variables['theme_hook_suggestions'][] = "aed_user_view_pane";
+  }
+
 }

@@ -6,6 +6,10 @@ $plugin = array(
   'icon' => 'icono.png',
   'theme' => 'layout_user_profile_view',
   'css' => 'user_profile_view.css',
+
+  'admin theme' => 'admin_layout_user_profile_view',
+  'admin css' => 'user_profile_view.admin.css',
+
   'regions' => array(
     'foto' => t('Foto'),
     'nombre' => t('Nombre'),

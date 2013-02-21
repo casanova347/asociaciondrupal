@@ -1,0 +1,13 @@
+.region {
+    margin-bottom: 10px;
+}
+
+.region-foto {
+    width: 25%;
+    float: left;
+}
+
+.region-nombre {
+    width: 74%;
+    float: right;
+}
