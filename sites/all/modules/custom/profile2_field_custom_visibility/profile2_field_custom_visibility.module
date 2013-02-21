@@ -42,7 +42,6 @@ function profile2_field_custom_visibility_menu() {
         'access arguments' => array('administer site configuration'),
       );
 
-      // 'Manage display' tab.
       $items[$bundle_info['admin']['path'] . "/user-manage"] = array(
         'title' => 'Custom visibility',
         'page callback' => 'drupal_get_form',
