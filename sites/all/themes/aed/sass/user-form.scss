@@ -30,6 +30,7 @@
   .description {
     font-size: 0.75em;
     margin-left: $labelMargin;
+    color: #555555;
   }
 
   #edit-actions {
@@ -127,6 +128,14 @@
         margin-right: 12px;
         width: auto;
       }
+    }
+  }
+
+  .form-item-profile-socio-field-exponer-mi-perfil-und {
+    margin-left: $labelMargin;
+    .description {
+      margin-left: 2.7%;
+      width: auto;
     }
   }
 

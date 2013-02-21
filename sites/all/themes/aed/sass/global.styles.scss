@@ -2040,3 +2040,33 @@ a.download i {
 .image-style-thumbnail {
   @include polaroid;
 }
+
+.perfil {
+
+  margin-bottom: 20px;
+
+  .foto {
+    float: left;
+  }
+  .datos {
+    padding-left: 65px;
+
+    .nombre {
+      font-size: 18px;
+      margin: 0 0 5px;
+    }
+    .contenidos {
+      > * {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+
+.listado-socios{
+  .view-header{
+    margin-bottom: 20px;
+  }
+}

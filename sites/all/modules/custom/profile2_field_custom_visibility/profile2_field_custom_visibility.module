@@ -3,7 +3,9 @@
 function profile2_field_custom_visibility_init() {
 }
 
-
+/**
+ * Implements hook_menu()
+ */
 function profile2_field_custom_visibility_menu() {
 
   $items = array();
@@ -63,7 +65,7 @@ function profile2_field_custom_visibility_bundle_config_form($form, &$form_state
     '#tree' => TRUE,
     '#type' => 'fieldset',
     '#title' => t('Profile2 one page'),
-    '#description' => t('Select fields user can decide'),
+    '#description' => t('Select the fields on which allows the user to choose whether to display them or not.<br /><strong>ATTENTION: if user does not explicitly mark his fields to be exposed, they will not be shown.<br />Finally ensure "Make the content of this field private." option is not checked in these fields.</strong>'),
     '#weight' => 0
   );
 
@@ -84,35 +86,39 @@ function profile2_field_custom_visibility_bundle_config_form($form, &$form_state
   return $form;
 }
 
+/**
+ * Submit callback.
+ * @see profile2_field_custom_visibility_bundle_config_form()
+ */
 function profile2_field_custom_visibility_bundle_config_form_submit($form, &$form_state) {
-
   $marked = array_filter($form_state['values']['fields']);
-
   /** @var $bundle ProfileType */
   $bundle = & $form['#bundle'];
   $bundle->data["user_custom_visibility"] = array_keys($marked);
   $bundle->save();
-
 }
 
 /**
- * Implements hook_field_attach_view_alter()
- * @param $output
- * @param $context
+ * Implements hook_field_access()
  */
-function profile2_field_custom_visibility_field_attach_view_alter(&$output, $context) {
+function profile2_field_custom_visibility_field_access($op, $field, $entity_type, $profile, $account) {
 
-  if ($context['entity_type'] == "profile2") {
+  if ($profile instanceof Profile && $op == "view") {
 
-    /** @var $profile Profile */
-    $profile = $context['entity'];
+    $bundle = profile2_get_types($profile->type);
 
-    $user_lvl_perms = profile2_granular_field_visibility_get_fields_perms($profile->uid);
+    if (isset($bundle->data['user_custom_visibility'])) {
 
-    foreach ($output as $field_name => $field_content) {
-      if (is_field($field_content) && isset($user_lvl_perms[$field_name])) {
-        //We have our own access settings on user level. we apply they here
-        $output[$field_name]['#access'] = $user_lvl_perms[$field_name];
+      $delegated = $bundle->data['user_custom_visibility'];
+
+      $fcv = entity_load("profile2fcv", FALSE, array('uid' => $profile->uid, 'type' => $profile->type));
+      if (count($fcv) == 1) {
+
+        $fcv = array_pop($fcv);
+
+        if (in_array($field['field_name'], $delegated)) {
+          return in_array($field['field_name'], $fcv->allowed);
+        }
       }
     }
   }
@@ -123,11 +129,10 @@ function profile2_field_custom_visibility_field_attach_view_alter(&$output, $con
  */
 function profile2_field_custom_visibility_form_profile2_form_alter(&$form, &$form_state) {
 
-
   foreach ($form_state['profiles'] as $profile) {
     $name = field_extract_bundle("profile2", $profile->type);
     $bundle = profile2_get_types($name);
-    $allowed_fields = isset($bundle->data['user_custom_visibility']) ? $bundle->data['user_custom_visibility'] : FALSE;
+    $allowed_fields = isset($bundle->data['user_custom_visibility']) ? $bundle->data['user_custom_visibility'] : array();
 
     $fcv = entity_load("profile2fcv", FALSE, array('uid' => $profile->uid, 'type' => $profile->type));
     $fcv = array_pop($fcv);
@@ -137,7 +142,7 @@ function profile2_field_custom_visibility_form_profile2_form_alter(&$form, &$for
       $form["profile_" . $name][$allowed_field]["expose_" . $allowed_field] = array(
         '#type' => 'checkbox',
         '#title' => t("Expose this"),
-        '#default_value' => in_array($allowed_field, $fcv->allowed),
+        '#default_value' => isset($fcv->allowed) && in_array($allowed_field, $fcv->allowed),
         '#prefix' => '<div class="exponer-este-field">',
         '#suffix' => '</div>',
       );
@@ -145,11 +150,14 @@ function profile2_field_custom_visibility_form_profile2_form_alter(&$form, &$for
 
   }
 
-  $form['#submit'][] = 'foo';
+  $form['#submit'][] = 'profile2_field_custom_visibility_form_profile2_form_alter_submit';
 }
 
-
-function foo(&$form, &$form_state) {
+/**
+ * Form submit callback
+ * @see profile2_field_custom_visibility_form_profile2_form_alter()
+ */
+function profile2_field_custom_visibility_form_profile2_form_alter_submit(&$form, &$form_state) {
 
   /** @var $controller EntityAPIController */
   $controller = entity_get_controller("profile2fcv");
@@ -187,7 +195,6 @@ function foo(&$form, &$form_state) {
     //para luego usa esta informacion a la hora de mostrar la info.
   }
 
-
 }
 
 /**
@@ -204,21 +211,6 @@ function is_field($element) {
   return $has_field_name && $has_field_type && $has_theme;
 }
 
-/**
- * Returns access perms specified by user.
- *
- * @param $uid
- * @return array
- */
-function profile2_granular_field_visibility_get_fields_perms($uid) {
-  $perms = array(
-    "field_foto" => TRUE,
-    "field_nombre" => TRUE,
-  );
-
-  return $perms;
-}
-
 function profile2_field_custom_visibility_entity_info() {
   $return = array(
     'profile2fcv' => array(
@@ -226,8 +218,9 @@ function profile2_field_custom_visibility_entity_info() {
       'controller class' => 'EntityAPIController',
       'base table' => 'profile2_fcv',
       'entity keys' => array('id' => 'id'),
+      'module' => 'profile2_field_custom_visibility',
     ),
 
   );
-  return $return;
+   return $return;
 }

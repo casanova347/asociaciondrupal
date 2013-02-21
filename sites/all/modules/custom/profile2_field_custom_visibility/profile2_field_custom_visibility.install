@@ -9,13 +9,13 @@ function profile2_field_custom_visibility_schema() {
         'description' => 'identifier.',
       ),
       'uid' => array(
-        'description' => 'profile id',
+        'description' => "The {users}.uid of the associated user.",
         'type' => 'int',
         'not null' => TRUE,
         'default' => 0,
       ),
       'type' => array(
-        'description' => 'profile2 type',
+        'description' => 'The {profile_type}.type of this profile.',
         'type' => 'varchar',
         'length' => 60,
         'not null' => TRUE,
@@ -27,6 +27,17 @@ function profile2_field_custom_visibility_schema() {
         'not null' => FALSE,
         'size' => 'big',
         'serialize' => TRUE,
+//        'merge' => TRUE,
+      ),
+    ),
+    'foreign keys' => array(
+      'uid' => array(
+        'table' => 'users',
+        'columns' => array('uid' => 'uid'),
+      ),
+      'type' => array(
+        'table' => 'profile_type',
+        'columns' => array('type' => 'type'),
       ),
     ),
     'primary key' => array('id'),

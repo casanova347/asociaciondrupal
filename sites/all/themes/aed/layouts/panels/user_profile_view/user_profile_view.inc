@@ -7,10 +7,10 @@ $plugin = array(
   'theme' => 'layout_user_profile_view',
   'css' => 'user_profile_view.css',
   'regions' => array(
-    'foto' => t('foto'),
-    'nombre' => t('nombre'),
+    'foto' => t('Foto'),
+    'nombre' => t('Nombre'),
     'contenido-footer' => t('Contenido footer'),
-    'contenido' => t('contenido'),
+    'contenido' => t('Contenido'),
     'contenido-header' => t('Contenido header'),
   ),
 );
