@@ -1,2 +1,19 @@
 <?php
 
+function aed_mod_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state) {
+//  array_unshift($form['#validate'], "aed_mod_form_commerce_cart_add_to_cart_form_validate");
+}
+
+function aed_mod_form_commerce_cart_add_to_cart_form_validate(&$form, &$form_state) {
+//  $product_id = $form_state['values']['product_id'];
+//  $product = commerce_product_load($product_id);
+//  /** @var $product_wrapper EntityDrupalWrapper */
+//  $product_wrapper = entity_metadata_wrapper('commerce_product', $form_state['values']['product_id']);
+
+}
+
+function aed_mod_views_api() {
+  return array(
+    'api' => 3.0,
+  );
+}

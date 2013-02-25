@@ -33,6 +33,12 @@ h1 {
   line-height: 40px;
 }
 
+.front .node h1 {
+  font-size: 26px;
+  line-height: 28px;
+  margin: 10px 0;
+}
+
 h2 {
   font-size: 26px;
   line-height: 28px;
@@ -1423,7 +1429,9 @@ ul.action-links {
   margin-bottom: 20px;
 
   &.node-promoted {
-    /*foo*/
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
 
   &.node-sticky {
@@ -2064,9 +2072,65 @@ a.download i {
   }
 }
 
-
-.listado-socios{
-  .view-header{
+.listado-socios {
+  .view-header {
     margin-bottom: 20px;
+  }
+}
+
+.front {
+  .block-main {
+    &.first {
+      margin-top: 20px;
+    }
+
+    h4 {
+      margin-bottom: 0.3em;
+      margin-top: 1.3em;
+    }
+
+    .node-readmore {
+      display: none;
+    }
+
+  }
+}
+
+.view-resources {
+  table {
+    border: none;
+    border-top: 1px solid #ebebeb;
+    tbody {
+      tr {
+        border: none;
+        td {
+          ul {
+            margin: 0;
+            li {
+              list-style: none outside none;
+              margin: 0;
+              padding: 0;
+              a {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.views-tab {
+  .view-content {
+
+    h3 {
+
+    }
+
+    table.views-view-grid {
+      //display: none;
+    }
   }
 }
