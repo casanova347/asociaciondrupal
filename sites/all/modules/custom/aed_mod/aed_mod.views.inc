@@ -24,8 +24,11 @@ function aed_mod_views_plugins() {
  */
 class views_plugin_style_tabs extends views_plugin_style {
 
-  /**@var $table_plugin views_plugin_style_table*/
+  /**@var $table_plugin views_plugin_style_table */
   var $table_plugin = NULL;
+
+  /**@var $grid_plugin views_plugin_style_grid */
+  var $grid_plugin = NULL;
 
   function init(&$view, &$display, $options = NULL) {
     parent::init($view, $display, $options);
@@ -33,6 +36,11 @@ class views_plugin_style_tabs extends views_plugin_style {
     $this->table_plugin = new views_plugin_style_table();
     $this->table_plugin->definition = array();
     $this->table_plugin->init($this->view, $this->display, $this->options["table"]);
+
+
+    $this->grid_plugin = new views_plugin_style_grid();
+    $this->grid_plugin->definition = array();
+    $this->grid_plugin->init($this->view, $this->display, $this->options["grid"]);
 
   }
 
@@ -69,6 +77,16 @@ class views_plugin_style_tabs extends views_plugin_style {
       )
     );
 
+    $options["grid"] = array(
+      'default' => array(
+        'columns' => '4',
+        'alignment' => 'horizontal',
+        'fill_single_line' => TRUE,
+        'summary' => '',
+        'theme' => 'views_view_grid'
+      )
+    );
+
     return $options;
   }
 
@@ -91,7 +109,7 @@ class views_plugin_style_tabs extends views_plugin_style {
     );
 
     //Attach selected style's form
-
+    ///////////////
     $form['html-list-config'] = array(
       '#type' => 'fieldset',
       '#title' => t('List settings'),
@@ -106,6 +124,8 @@ class views_plugin_style_tabs extends views_plugin_style {
     $list_form["wrapper_class"]['#default_value'] = $this->options['list']['wrapper_class'];
     $list_form["class"]['#default_value'] = $this->options['list']['class'];
     $form['html-list-config'][] = $list_form;
+
+    ///////////////
 
     $form['html-table-config'] = array(
       '#type' => 'fieldset',
@@ -126,6 +146,23 @@ class views_plugin_style_tabs extends views_plugin_style {
     $table_form["empty_table"]['#default_value'] = $this->options['table']['empty_table'];
     $form['html-table-config'][] = $table_form;
 
+    ///////////////
+
+    $form['html-grid-config'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Grid settings'),
+      '#dependency' => array('radio:style_options[style_plugin]' => array('grid')),
+    );
+
+    $grid_form = array();
+    $this->grid_plugin->options_form($grid_form, $form_state);
+
+    $grid_form["columns"]['#default_value'] = $this->options['grid']['columns'];
+    $grid_form["alignment"]['#default_value'] = $this->options['grid']['alignment'];
+    $grid_form["fill_single_line"]['#default_value'] = $this->options['grid']['fill_single_line'];
+    $grid_form["summary"]['#default_value'] = $this->options['grid']['summary'];
+    $form['html-grid-config'][] = $grid_form;
+
   }
 
   /**
@@ -136,10 +173,12 @@ class views_plugin_style_tabs extends views_plugin_style {
     //Metemos las preferencias que el usuario ha configurado en su lugar
     $form_state['values']['style_options']['list'] = $form_state['values']['style_options']['html-list-config'][0];
     $form_state['values']['style_options']['table'] = $form_state['values']['style_options']['html-table-config'][0];
+    $form_state['values']['style_options']['grid'] = $form_state['values']['style_options']['html-grid-config'][0];
 
     unset(
     $form_state['values']['style_options']['html-list-config'],
-    $form_state['values']['style_options']['html-table-config']
+    $form_state['values']['style_options']['html-table-config'],
+    $form_state['values']['style_options']['html-grid-config']
     );
   }
 
