@@ -22,9 +22,7 @@ $seed = rand(0, 9990);
 
   <?php for ($i = 0; $i < count($content_tabs); $i++): ?>
     <div id="tab-content-<?php print $i . "-" . $seed; ?>">
-      <?php foreach ($content_tabs[$i] as $item): ?>
-      <?php print $item; ?>
-      <?php endforeach; ?>
+      <?php print $content_tabs[$i]; ?>
     </div>
   <?php endfor; ?>
 
