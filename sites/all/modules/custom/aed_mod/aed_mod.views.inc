@@ -24,6 +24,18 @@ function aed_mod_views_plugins() {
  */
 class views_plugin_style_tabs extends views_plugin_style {
 
+  /**@var $table_plugin views_plugin_style_table*/
+  var $table_plugin = NULL;
+
+  function init(&$view, &$display, $options = NULL) {
+    parent::init($view, $display, $options);
+
+    $this->table_plugin = new views_plugin_style_table();
+    $this->table_plugin->definition = array();
+    $this->table_plugin->init($this->view, $this->display, $this->options["table"]);
+
+  }
+
   /**
    * Set default options
    */
@@ -40,6 +52,20 @@ class views_plugin_style_tabs extends views_plugin_style {
         'class' => '',
         'wrapper_class' => 'item-list',
         'theme' => 'views_view_list'
+      )
+    );
+
+    $options["table"] = array(
+      'default' => array(
+        'columns' => array(),
+        'default' => '',
+        'info' => array(),
+        'override' => TRUE,
+        'sticky' => FALSE,
+        'order' => 'asc',
+        'summary' => '',
+        'empty_table' => FALSE,
+        'theme' => 'views_view_table',
       )
     );
 
@@ -80,6 +106,26 @@ class views_plugin_style_tabs extends views_plugin_style {
     $list_form["wrapper_class"]['#default_value'] = $this->options['list']['wrapper_class'];
     $list_form["class"]['#default_value'] = $this->options['list']['class'];
     $form['html-list-config'][] = $list_form;
+
+    $form['html-table-config'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Table settings'),
+      '#dependency' => array('radio:style_options[style_plugin]' => array('table')),
+    );
+
+    $table_form = array();
+    $this->table_plugin->options_form($table_form, $form_state);
+
+    $table_form["columns"]['#default_value'] = $this->options['table']['columns'];
+    $table_form["default"]['#default_value'] = $this->options['table']['default'];
+    $table_form["info"]['#default_value'] = $this->options['table']['info'];
+    $table_form["override"]['#default_value'] = $this->options['table']['override'];
+    $table_form["sticky"]['#default_value'] = $this->options['table']['sticky'];
+    $table_form["order"]['#default_value'] = $this->options['table']['order'];
+    $table_form["summary"]['#default_value'] = $this->options['table']['summary'];
+    $table_form["empty_table"]['#default_value'] = $this->options['table']['empty_table'];
+    $form['html-table-config'][] = $table_form;
+
   }
 
   /**
@@ -89,7 +135,12 @@ class views_plugin_style_tabs extends views_plugin_style {
 
     //Metemos las preferencias que el usuario ha configurado en su lugar
     $form_state['values']['style_options']['list'] = $form_state['values']['style_options']['html-list-config'][0];
-    unset($form_state['values']['style_options']['html-list-config']);
+    $form_state['values']['style_options']['table'] = $form_state['values']['style_options']['html-table-config'][0];
+
+    unset(
+    $form_state['values']['style_options']['html-list-config'],
+    $form_state['values']['style_options']['html-table-config']
+    );
   }
 
   function render_grouping_sets($sets, $level = 0) {
@@ -148,6 +199,10 @@ class views_plugin_style_tabs extends views_plugin_style {
     drupal_add_js(drupal_get_path('module', 'aed_mod') . "/js/views-tab.js");
 
     return $output;
+  }
+
+  function sanitize_columns($columns, $fields = NULL) {
+    return $this->table_plugin->sanitize_columns($columns, $fields);
   }
 
 }
