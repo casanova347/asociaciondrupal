@@ -21,12 +21,12 @@ function profile2_field_custom_visibility_entity_info() {
 
 /**
  * Implements hook_menu()
+ *
+ * Adds 'Custom visibility' tab in every profile edition.
  */
 function profile2_field_custom_visibility_menu() {
 
   $items = array();
-
-  // Create tabs for all possible bundles.
   $entity_info = entity_get_info("profile2");
 
   foreach ($entity_info['bundles'] as $bundle_name => $bundle_info) {

@@ -53,7 +53,6 @@ class views_plugin_style_tabs extends views_plugin_style {
     //Defaults del plugin
     $options['style_plugin'] = array('default' => 'list');
 
-    //Defaults del renderizado HTML list
     $options["list"] = array(
       'default' => array(
         'type' => 'ul',

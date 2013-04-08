@@ -2121,16 +2121,14 @@ a.download i {
   }
 }
 
-
-.views-tab {
-  .view-content {
-
-    h3 {
-
-    }
-
-    table.views-view-grid {
-      //display: none;
-    }
+.views-tabs {
+  table, tr, td, th {
+    border: none;
+    margin: 0;
+    padding: 0;
   }
+}
+
+.views-tab-empresas-colaboradoras{
+
 }
