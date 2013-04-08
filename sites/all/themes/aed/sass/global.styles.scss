@@ -2129,6 +2129,19 @@ a.download i {
   }
 }
 
-.views-tab-empresas-colaboradoras{
+.views-tab-empresas-colaboradoras {
 
+}
+
+//Odio hacer esto perp es mas rapido que pelearme por horas tratando
+//de ocultar una columna cuando quiero mostrar el contenido proncipal a lo ancho
+.page-gestion-empresas {
+  #columns {
+    #content-column {
+      width: 100%;
+    }
+    .sidebar {
+      display: none;
+    }
+  }
 }
