@@ -31,8 +31,11 @@ function profile2_one_page_menu_alter(&$items) {
  */
 function profile2_one_page_form_user_profile_form_alter(&$form, &$form_state) {
 
+  if ($GLOBALS['user']->uid == 1) {
+    return;
+  }
+
   $types = profile2_get_types();
-  $types2 = profile2_load_by_user($form["#user"]);
 
   //we take care of profiles weights
   usort($types, '_sort_profile_by_weight');
