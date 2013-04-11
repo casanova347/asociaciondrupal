@@ -2053,9 +2053,10 @@ a.download i {
 
   margin-bottom: 20px;
 
-  .foto {
+  .views-field-field-foto {
     float: left;
   }
+
   .datos {
     padding-left: 65px;
 
@@ -2063,12 +2064,14 @@ a.download i {
       font-size: 18px;
       margin: 0 0 5px;
     }
+
     .contenidos {
       > * {
         display: inline-block;
         margin-right: 10px;
       }
     }
+
   }
 }
 
@@ -2144,7 +2147,6 @@ a.download i {
       display: none;
     }
   }
-
 
   .views-exposed-widgets .views-exposed-widget {
     width: 22%;

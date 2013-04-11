@@ -3,9 +3,7 @@
 }?>>
 
     <div class="perfil clearfix">
-        <a class="foto" href="#">
           <?php print $content['foto']; ?>
-        </a>
 
         <div class="datos">
             <h4 class="nombre"><?php print $content['nombre']; ?></h4>

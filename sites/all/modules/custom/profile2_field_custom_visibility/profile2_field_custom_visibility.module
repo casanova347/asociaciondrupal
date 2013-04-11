@@ -144,6 +144,10 @@ function profile2_field_custom_visibility_field_access($op, $field, $entity_type
  */
 function profile2_field_custom_visibility_form_profile2_form_alter(&$form, &$form_state) {
 
+  if ($GLOBALS['user']->uid == 1) {
+    return;
+  }
+
   foreach ($form_state['profiles'] as $profile) {
     $name = field_extract_bundle("profile2", $profile->type);
     $bundle = profile2_get_types($name);
