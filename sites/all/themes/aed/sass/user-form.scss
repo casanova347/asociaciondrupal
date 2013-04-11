@@ -161,4 +161,27 @@
       }
     }
   }
+
+  .form-type-checkbox-tree {
+    display: block;
+    //.term-reference-tree
+    > label {
+      vertical-align: top;
+    }
+    .no-term-reference-tree-button {
+      background-color: transparent;
+    }
+
+  }
+
+  .field-name-field-anos-que-ha-participado > div {
+    >label {
+      vertical-align: top;
+    }
+    > div > div > label {
+      text-align: left;
+
+    }
+  }
+
 }

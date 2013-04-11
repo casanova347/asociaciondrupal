@@ -140,3 +140,27 @@ textarea::-webkit-input-placeholder {
     }
   }
 }
+
+html.js input.form-autocomplete {
+  background-position: 99% -86%;
+}
+
+html.js input.throbbing {
+  background-position: 99% 112%;
+}
+
+#user-profile-form .form-item {
+  .link-field-url {
+    label.element-invisible {
+      display: none;
+    }
+    input {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}
+
+#edit-cancel {
+  margin-left: 5px;
+}

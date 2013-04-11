@@ -2135,7 +2135,7 @@ a.download i {
 
 //Odio hacer esto pero es mas rapido que pelearme por horas tratando
 //de ocultar una columna cuando quiero mostrar el contenido proncipal a lo ancho
-.page-gestion-de-empresas {
+.page-gestion-de-empresas, .page-gestion-de-socios {
   #columns {
     #content-column {
       width: 100%;
@@ -2143,5 +2143,10 @@ a.download i {
     .sidebar {
       display: none;
     }
+  }
+
+
+  .views-exposed-widgets .views-exposed-widget {
+    width: 22%;
   }
 }
