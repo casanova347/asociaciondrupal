@@ -1,0 +1,99 @@
+<?php
+/**
+ * Implements hook_menu_alter().
+ */
+function taxonomy_view_permission_menu_alter(&$items) {
+
+  $alter_callback = & $items['taxonomy/term/%taxonomy_term']['access callback'];
+
+  //We add oor access callback
+  if (is_array($alter_callback)) {
+    array_push($alter_callback, "taxonomy_view_permission_view_access");
+  }
+  else {
+    if (is_null($alter_callback)) {
+      $alter_callback = array("taxonomy_view_permission_view_access");
+    }
+  }
+
+  //And add the term to arguments
+  array_push($items['taxonomy/term/%taxonomy_term']['access arguments'], 2);
+}
+
+
+/**
+ * Implements hook_permission().
+ */
+function taxonomy_view_permission_permission() {
+  $permissions = array();
+
+  foreach (taxonomy_get_vocabularies() as $vocabulary) {
+    $permissions += array(
+      'view terms in ' . $vocabulary->vid => array(
+        'title' => t('View terms in %vocabulary', array('%vocabulary' => $vocabulary->name)),
+      ),
+    );
+
+  }
+  return $permissions;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ */
+function taxonomy_view_permission_form_user_admin_permissions_alter(&$form) {
+
+  foreach (taxonomy_view_permission_permission() as $perm_name => $perm) {
+    $extra_perm = array($perm_name => $form['permission'][$perm_name]);
+    //Move "View" perm before "Edit" and "Delete"
+    array_splice_assoc($form['permission'], getKeyPositionInArray($form['permission'], 'edit terms in ' . substr($perm_name, -1, 1)), 0, $extra_perm);
+  }
+
+  //Finally unset "Taxonomy view permission" label since we moved all its contents to "Taxonomy"
+  foreach ($form['permission'] as $k_permission => $permission) {
+    if (isset($permission['#id']) && $permission['#id'] == "taxonomy_view_permission") {
+      unset($form['permission'][$k_permission]);
+    }
+  }
+}
+
+/**
+ * Return view access for a given term.
+ */
+function taxonomy_view_permission_view_access($access_content, $term) {
+  return user_access("view terms in $term->vid");
+}
+
+/**
+ * Returns key index position in the array
+ * @param $haystack
+ * @param $keyNeedle
+ * @return bool|int
+ */
+function getKeyPositionInArray($haystack, $keyNeedle) {
+  $i = 0;
+  foreach ($haystack as $key => $value) {
+    if ($key === $keyNeedle) {
+      return $i;
+    }
+    $i++;
+  }
+  return FALSE;
+}
+
+function array_splice_assoc(&$input, $offset, $length, $replacement) {
+  $replacement = (array) $replacement;
+  $key_indices = array_flip(array_keys($input));
+
+  if (isset($input[$offset]) && is_string($offset)) {
+    $offset = $key_indices[$offset];
+  }
+
+  if (isset($input[$length]) && is_string($length)) {
+    $length = $key_indices[$length] - $offset;
+  }
+
+  $input = array_slice($input, 0, $offset, TRUE)
+    + $replacement
+    + array_slice($input, $offset + $length, NULL, TRUE);
+}

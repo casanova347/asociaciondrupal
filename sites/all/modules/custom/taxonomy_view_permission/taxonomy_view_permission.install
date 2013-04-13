@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_enable().
+ */
+function taxonomy_view_permission_enable() {
+  $perms = array_keys(taxonomy_view_permission_permission());
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, $perms);
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, $perms);
+}
+

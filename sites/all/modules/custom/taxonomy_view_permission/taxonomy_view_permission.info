@@ -1,0 +1,7 @@
+name = Taxonomy view permission
+description = Adds missing "View" perm to terms of an specific vocabulary.
+core = 7.x
+version = "7.x-0.1-beta"
+dependencies[] = taxonomy
+package = Taxonomy
+
