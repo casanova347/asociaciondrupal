@@ -5,7 +5,9 @@
  */
 
 /**
- * Implements hook_form_FORM_ID_alter() for the profile2 type form..
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * for the profile2 type form.
  */
 function profile2_one_page_form_profile2_type_form_alter(&$form, &$form_state) {
 
@@ -14,7 +16,8 @@ function profile2_one_page_form_profile2_type_form_alter(&$form, &$form_state) {
   $form['data']['use_one_page'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show this profile as part of user account form'),
-//    '#description' => t('Beware, you can not enable this option when "Provide a separate page for editing profiles." is enabled'),
+    // '#description' => t('Beware, you can not enable this option when
+    // "Provide a separate page for editing profiles." is enabled'),
     '#default_value' => !empty($type->is_new) || !empty($type->data['use_one_page']),
   );
   $form['data']['#tree'] = TRUE;
@@ -43,7 +46,7 @@ function profile2_one_page_profile2_type_update(ProfileType $type) {
 }
 
 /**
- * Implements hook_profile2_type_delete()
+ * Implements hook_profile2_type_delete().
  */
 function profile2_one_page_profile2_type_delete($type) {
   // Do not directly issue menu rebuilds here to avoid potentially multiple
@@ -54,13 +57,11 @@ function profile2_one_page_profile2_type_delete($type) {
 }
 
 /**
- * Implements hook_form_profile2_form_alter()
- * @param $form
- * @param $form_state
+ * Implements hook_form_profile2_form_alter().
  */
 function profile2_one_page_form_profile2_form_alter(&$form, &$form_state) {
   if (variable_get('profile2_one_page_wrap_account', FALSE)) {
     $form["account"]["#type"] = "fieldset";
-    $form["account"]["#title"] = t(variable_get('profile2_one_page_wrap_account_title', ""));
+    $form["account"]["#title"] = variable_get('profile2_one_page_wrap_account_title', "");
   }
 }

@@ -1,7 +1,6 @@
 name = Profile2 one page
 description = Merges Profile2 forms into user account form.
 core = 7.x
-version = "7.x-1.0-beta"
 dependencies[] = profile2
 package = Profile2 (contrib)
 ;files[] = profile2_one_page.admin.inc

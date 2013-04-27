@@ -4,20 +4,18 @@
  * Support for profiles in account page.
  */
 
-//@todo move to .info?
-require_once("profile2_one_page.admin.inc");
+// @todo move to .info?
+require_once "profile2_one_page.admin.inc";
 
 /**
- * Implements hook_menu_alter()
+ * Implements hook_menu_alter().
  *
  * Disable profile tabs if they are marked to be shown in accounts form
- *
- * @param $items
  */
 function profile2_one_page_menu_alter(&$items) {
   $types = profile2_get_types();
   foreach ($types as $type) {
-    /** @var $type ProfileType */
+    // @var $type ProfileType
     if (isset($type->data['use_one_page']) && $type->data['use_one_page']) {
       $items['user/%user_category/edit/' . $type->type]['access callback'] = FALSE;
     }
@@ -25,7 +23,7 @@ function profile2_one_page_menu_alter(&$items) {
 }
 
 /**
- * Implements hook_form_FORM_ID_alter()
+ * Implements hook_form_FORM_ID_alter().
  *
  * Attach selected profiles to user edit form.
  */
@@ -37,12 +35,12 @@ function profile2_one_page_form_user_profile_form_alter(&$form, &$form_state) {
 
   $types = profile2_get_types();
 
-  //we take care of profiles weights
-  usort($types, '_sort_profile_by_weight');
+  // We take care of profiles weights.
+  usort($types, 'profile2_one_page_sort_profile_by_weight');
 
   foreach ($types as $type) {
 
-    /** @var $type ProfileType */
+    // @var $type ProfileType
     if (isset($type->data['use_one_page']) && $type->data['use_one_page']) {
 
       $profile = profile2_load_by_user($form['#user'], $type->type);
@@ -63,23 +61,18 @@ function profile2_one_page_form_user_profile_form_alter(&$form, &$form_state) {
     }
   }
 
-
 }
 
 /**
- * Implements hook_form_FORM_ID_alter()
+ * Implements hook_form_FORM_ID_alter().
  *
  * Alter for user_admin_settings()
- *
- * @param $form
- * @param $form_state
- * @return mixed
  */
 function profile2_one_page_form_user_admin_settings_alter(&$form, &$form_state) {
   $form['profile2_one_page'] = array(
     '#type' => 'fieldset',
     '#title' => t('Profile2 one page'),
-    '#weight' => 0
+    '#weight' => 0,
   );
 
   $form['profile2_one_page']['profile2_one_page_wrap_account'] = array(
@@ -91,7 +84,7 @@ function profile2_one_page_form_user_admin_settings_alter(&$form, &$form_state) 
   $form['profile2_one_page']['profile2_one_page_wrap_account_title'] = array(
     '#type' => 'textfield',
     '#title' => t('Fieldset title'),
-    '#default_value' => t(variable_get('profile2_one_page_wrap_account_title', "User account")),
+    '#default_value' => variable_get('profile2_one_page_wrap_account_title', t("User account")),
   );
 
 }
@@ -100,16 +93,19 @@ function profile2_one_page_form_user_admin_settings_alter(&$form, &$form_state) 
  * Helper to sort profiles based on weight prop.
  *
  * @param ProfileType $a
+ *   a profile
  * @param ProfileType $b
+ *   a profile
+ *
+ * @return bool
+ *   int
  *
  * Example usage:
  * @code
  * $types = profile2_get_types();
  * usort($types, '_sort_profile_by_weight');
  * @endcode
- *
- * @return int
  */
-function _sort_profile_by_weight($a, $b) {
+function profile2_one_page_sort_profile_by_weight($a, $b) {
   return $a->weight == $b->weight ? 0 : ($a->weight > $b->weight) ? 1 : -1;
 }
