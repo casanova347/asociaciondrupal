@@ -1,0 +1,325 @@
+/*
+ * Body
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\000034}}
+body {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.4;
+  word-spacing: 1.1pt;
+  letter-spacing: 0.2pt;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  color: black;
+  background: none;
+  font-size: 11pt;
+}
+
+/*
+ * Links
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\0000321}}
+a {
+  background: transparent;
+  font-weight: 700;
+  text-decoration: underline;
+  color: #0000ee;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\0000329}}
+a[href^="http://"]:after, a[href^="http://"]:visited:after {
+  content: "(" attr(href) ")";
+  font-size: 10pt;
+}
+
+/*
+ * Strip background from likely candidates
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\0000364}}
+div[id*="wrapper"],
+[class*="title"],
+[class*="inner"],
+header,
+footer,
+#branding,
+#container,
+#columns,
+.columns-inner,
+#content-column,
+.content-inner,
+.region,
+.region-header,
+.region-content,
+.article,
+.article-title,
+.article-content,
+.comment,
+.comment-title,
+.comment-content,
+.block,
+.block-inner,
+.block-title,
+.block-content,
+table,
+table * {
+  background: none !important;
+}
+
+/*
+ * Hide various bits of the page
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\0000387}}
+.sidebar,
+#breadcrumb,
+.nav,
+.field-type-taxonomy-term-reference,
+ul.links,
+.feed-icon,
+.poll .bar,
+.poll .foreground,
+.comment-form,
+#comment-form,
+.book-navigation,
+.tabs,
+.action-links,
+.pager,
+.messages,
+.help {
+  display: none;
+}
+
+/*
+ * Ensure the display the main content region
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\0000395}}
+#content {
+  display: block !important;
+}
+
+/*
+ * Layout
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003103}}
+#header {
+  margin-bottom: 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003108}}
+.content-inner {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/*
+ * HTML elements
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003122}}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333333;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003130}}
+h1 {
+  font-size: 14pt;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003135}}
+h2 {
+  font-size: 13pt;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003140}}
+h3 {
+  font-size: 12pt;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003147}}
+h4,
+h5,
+h6 {
+  font-size: 11pt;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003158}}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+#site-name a,
+#site-slogan {
+  text-decoration: none !important;
+  color: #333333;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003166}}
+hgroup a:link, hgroup a:visited {
+  text-decoration: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003172}}
+#page-title {
+  margin-top: 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003182}}
+pre,
+code,
+tt,
+samp,
+kbd,
+var {
+  font-size: 10pt;
+  font-family: Consolas, "Lucida Console", Menlo, Monaco, "DejaVu Sans Mono", monospace, sans-serif;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003188}}
+blockquote {
+  margin: 20px;
+  padding: 10px;
+  font-size: 10pt;
+  font-style: italic;
+  background: #eeeeee;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003197}}
+hr {
+  background-color: #666666;
+}
+
+/*
+ * Header, Logo, Site name
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003205}}
+#header {
+  padding-bottom: 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003210}}
+#logo img {
+  padding: 0 10px 0 0;
+  margin: 0 !important;
+  float: none !important;
+}
+
+/*
+ * Images
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003220}}
+img {
+  float: left;
+  margin: 4px 20px 10px 0;
+  page-break-inside: avoid;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003227}}
+a img {
+  border: none;
+}
+
+/*
+ * Tables
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003235}}
+table {
+  margin: 1px;
+  text-align: left;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003241}}
+th {
+  border-bottom: 1px solid #333333;
+  font-weight: 700;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003247}}
+td {
+  border-bottom: 1px solid #333333;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003253}}
+th,
+td {
+  padding: 4px 10px 4px 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003258}}
+tfoot {
+  font-style: italic;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003263}}
+caption {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003269}}
+thead {
+  display: table-header-group;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003274}}
+tr {
+  page-break-inside: avoid;
+}
+
+/*
+ * Forms
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003282}}
+form {
+  margin-bottom: 10px;
+}
+
+/*
+ * Poll module
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003292}}
+.poll .text,
+.poll .percent,
+.poll .total {
+  text-align: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003295}}
+.poll form {
+  margin-bottom: 0;
+}
+
+/*
+ * Articles
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003305}}
+.node,
+.comment {
+  margin-bottom: 20px;
+  overflow: hidden;
+  page-break-inside: avoid;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003311}}
+.submitted {
+  color: #666666;
+  text-decoration: none;
+  font-size: 9pt;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/print\.scss}line{font-family:\00003319}}
+.submitted a {
+  color: #666666;
+  text-decoration: none;
+  font-size: 9pt;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
