@@ -1,0 +1,447 @@
+<?php
+
+/**
+ * @file
+ * Provides  PayPal billing agreement subscription method for Drupal Commerce
+ */
+
+/**
+ * Implements hook_commerce_payment_method_info().
+ */
+function commerce_recurring_paypal_commerce_payment_method_info() {
+  return array(
+    'commerce_recurring_paypal' => array(
+      'title' => t('Subscribe using PayPal'),
+      'description' => t('Provides payment and billing agreement for further payments.'),
+      'active' => FALSE,
+      'offsite' => TRUE,
+      'offsite_autoredirect' => TRUE,
+      'terminal' => FALSE,
+    ),
+  );
+}
+
+/**
+ * Helper provides PayPal API settings.
+ *
+ * @param array $payment_method
+ *   payment method's settings configured by user.
+ *
+ * @return array
+ *   Settings
+ */
+function commerce_recurring_paypal_api_settings($payment_method) {
+  if ($payment_method['settings']['server'] == "sandbox") {
+    $server = 'https://api-3t.sandbox.paypal.com/nvp';
+  }
+  else {
+    if ($payment_method['settings']['server'] == "live") {
+      $server = 'https://api-3t.paypal.com/nvp';
+    }
+    else {
+      $server = NULL;
+    }
+  }
+
+  return array(
+    'server' => $server,
+    'api_username' => $payment_method['settings']['api_username'],
+    'api_password' => $payment_method['settings']['api_password'],
+    'api_signature' => $payment_method['settings']['api_signature'],
+  );
+}
+
+/**
+ * Payment method callback: settings form.
+ */
+function commerce_recurring_paypal_settings_form($settings = array()) {
+  return CommerceRecurringPaypalAdmin::getSettingsForm($settings);
+}
+
+/**
+ * Payment method callback: adds a message submission form.
+ */
+function commerce_recurring_paypal_submit_form($payment_method, $pane_values, $checkout_pane, $order) {
+  $form = array();
+
+  // Use a template to allow overwriting.
+  $form['commerce_recurring_paypal_information'] = array(
+    '#markup' => theme('commerce_recurring_paypal_information'),
+  );
+
+  return $form;
+}
+
+/**
+ * Payment method callback: redirect form.
+ *
+ * Applies "Step 1: Set Up the Payment Authorization"
+ * Applies "Step 2: Redirect the Customer to PayPal for Authorization"
+ * (see README.txt)
+ */
+function commerce_recurring_paypal_redirect_form($form, &$form_state, $order, $payment_method) {
+
+  // Return an error if the enabling action's settings haven't been configured.
+  $no_credentials
+    = empty($payment_method['settings']['api_username']) ||
+    empty($payment_method['settings']['api_password']) ||
+    is_null($payment_method['settings']['server']) ||
+    empty($payment_method['settings']['api_signature']);
+
+  if ($no_credentials) {
+    drupal_set_message(t('This gateway is not configured for use.'), 'error');
+    return array();
+  }
+
+  $settings = commerce_recurring_paypal_api_settings($payment_method);
+
+  if ($payment_method['settings']['server'] == "sandbox") {
+    $url_token_checker = 'https://www.sandbox.paypal.com/webscr&cmd=_express-checkout&useraction=commit&token=';
+  }
+  else {
+    if ($payment_method['settings']['server'] == "live") {
+      $url_token_checker = 'https://www.paypal.com/webscr&cmd=_express-checkout&useraction=commit&token=';;
+    }
+  }
+
+  $request_params = array(
+    'VERSION' => '86',
+    'returnUrl' => url('checkout/' . $order->order_id . '/payment/return/' . $order->data['payment_redirect_key'], array('absolute' => TRUE)),
+    'cancelUrl' => url('checkout/' . $order->order_id . '/payment/back/' . $order->data['payment_redirect_key'], array('absolute' => TRUE)),
+    'PAYMENTREQUEST_0_PAYMENTACTION' => 'AUTHORIZATION',
+    'L_BILLINGTYPE0' => 'MerchantInitiatedBilling',
+    'L_BILLINGAGREEMENTDESCRIPTION0' => '',
+    'LOCALECODE' => $payment_method['settings']['language'],
+  );
+
+  $recurring_items = array();
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+  foreach ($order_wrapper->commerce_line_items as $line_item_wrapper) {
+    if (in_array($line_item_wrapper->type->value(), commerce_product_line_item_types())) {
+      $product = $line_item_wrapper->commerce_product->value();
+      if (commerce_recurring_product_is_recurring($product)) {
+        $recurring_items[] = $line_item_wrapper;
+      }
+    }
+  }
+
+  // @todo this value should be an order description instead item description?
+  for ($i = 0; $i < count($recurring_items); $i++) {
+    $request_params['L_BILLINGAGREEMENTDESCRIPTION0'] .= $recurring_items[$i]->commerce_product->title->value() . " ";
+  }
+
+  // Step 1
+  $response = PaypalNVP::call("SetExpressCheckout", $request_params, $settings);
+
+  $respose_status = strtoupper($response['ACK']);
+
+  if ($respose_status == "SUCCESS" || $respose_status = 'SUCCESSWITHWARNING') {
+    // Step 2
+    $form['#action'] = $url_token_checker . $response["TOKEN"];
+  }
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Proceed to PayPal'),
+  );
+
+  return $form;
+}
+
+/**
+ * Payment method callback: redirect form return validation.
+ */
+function commerce_recurring_paypal_redirect_form_validate(&$order, &$payment_method) {
+  $billing_agreement = commerce_recurring_paypal_process_callback($payment_method);
+
+  // At this point we got the billing agreement.
+  if (!is_null($billing_agreement)) {
+
+    // Charge actual order.
+    $feedback = commerce_recurring_paypal_response_to_ipn(commerce_recurring_paypal_charge($order, $billing_agreement, $payment_method));
+
+    $response_status = strtoupper($feedback["payment_status"]);
+
+    if ($response_status == "SUCCESS" || $response_status == "COMPLETED") {
+      $order->data['commerce_recurring_paypal_billing_agreement'] = $billing_agreement;
+      commerce_recurring_paypal_do_transaction($order, $payment_method, $feedback, $billing_agreement);
+      commerce_payment_redirect_pane_next_page($order);
+      return TRUE;
+    }
+    else {
+      commerce_payment_redirect_pane_previous_page($order);
+      return FALSE;
+    }
+
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Applies "Step 4: Capture Future Payments" (see README.txt).
+ *
+ * @param Entity $order
+ *   The current order
+ * @param string $billingagreementid
+ *   The billing agreement id used to charge the payment.
+ * @param array $payment_method
+ *   Payment method of current order
+ *
+ * @return bool
+ *   Result of charge
+ */
+function commerce_recurring_paypal_charge($order, $billingagreementid, $payment_method) {
+
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+  $currency_code = $order_wrapper->commerce_order_total->currency_code->value();
+  $amount = commerce_currency_amount_to_decimal($order_wrapper->commerce_order_total->amount->value(), $currency_code);
+
+  $settings = commerce_recurring_paypal_api_settings($payment_method);
+
+  $request_params = array(
+    'VERSION' => '86',
+    'AMT' => $amount,
+    'CURRENCYCODE' => $currency_code,
+    'PAYMENTACTION' => "SALE",
+    'REFERENCEID' => $billingagreementid,
+  );
+
+  if ($payment_method['settings']['cart_items_list']) {
+    foreach ($order_wrapper->commerce_line_items as $i => $item) {
+      $request_params['L_ITEMCATEGORY' . $i] = "Digital";
+      $request_params['L_NAME' . $i] = $item->commerce_product->title->value();
+      $request_params['L_AMT' . $i] = commerce_currency_amount_to_decimal($item->commerce_unit_price->amount->value(), $currency_code);
+      $request_params['L_QTY' . $i] = round($item->quantity->value(), 2);
+    }
+
+    $request_params['ITEMAMT'] = $amount;
+  }
+
+  $response = PaypalNVP::call("DoReferenceTransaction", $request_params, $settings);
+
+  return $response;
+}
+
+/**
+ * Applies "Step 3: Create the Billing Agreement" (see README.txt).
+ *
+ * @param array $payment_method
+ *   Payment method of current order
+ *
+ * @return string
+ *   string BILLINGAGREEMENTID|null
+ */
+function commerce_recurring_paypal_process_callback($payment_method) {
+  $settings = commerce_recurring_paypal_api_settings($payment_method);
+  $token = $_REQUEST['token'];
+
+  if ($token) {
+    $request_params = array('TOKEN' => $token, 'VERSION' => '86');
+    // We have a token, now try to get the corresponding authorization.
+    $response = PaypalNVP::call("CreateBillingAgreement", $request_params, $settings);
+    $response_status = strtoupper($response['ACK']);
+    return (is_array($response) && ($response_status == "SUCCESS" || $response_status == 'SUCCESSWITHWARNING')) ? $response['BILLINGAGREEMENTID'] : NULL;
+  }
+  else {
+    return NULL;
+  }
+}
+
+/**
+ * Process paypal response.
+ *
+ * @param Entity $order
+ *   The current order
+ * @param array $payment_method
+ *   Payment method of current order
+ * @param array $feedback
+ *   IPN format of the charge
+ *
+ * @return stdClass
+ *   transaction object
+ */
+function commerce_recurring_paypal_do_transaction($order, $payment_method, &$feedback) {
+
+  if (in_array($feedback['payment_status'], array('Voided', 'Completed')) && !empty($feedback['transaction_id'])) {
+    $transactions = commerce_payment_transaction_load_multiple(array(), array('remote_id' => $feedback['transaction_id']));
+  }
+
+  if (isset($transactions) && !empty($transactions)) {
+    // Get the transaction to update.
+    $transaction = reset($transactions);
+  }
+  else {
+    // Create a new payment transaction for the order.
+    $transaction = commerce_payment_transaction_new('commerce_recurring_paypal', $order->order_id);
+    $transaction->instance_id = $payment_method['instance_id'];
+  }
+
+  $transaction->remote_id = $feedback['txn_id'];
+  $transaction->amount = commerce_currency_decimal_to_amount($feedback['mc_gross'], $feedback['mc_currency']);
+  $transaction->currency_code = $feedback['mc_currency'];
+  $transaction->payload[REQUEST_TIME] = $feedback;
+
+  // Set the transaction's statuses based on the IPN's payment_status.
+  $transaction->remote_status = $feedback['payment_status'];
+
+  // Process the status.
+  commerce_recurring_paypal_process_status($feedback, $transaction);
+
+  // Save the transaction information.
+  commerce_payment_transaction_save($transaction);
+  $feedback['transaction_id'] = $transaction->transaction_id;
+  return $transaction;
+}
+
+/**
+ * Parse response (DoReferenceTransaction) to ipn format.
+ *
+ * @param array $response
+ *   retrieved response from PayPal (DoReferenceTransaction)
+ *
+ * @return array
+ *   formatted response
+ */
+function commerce_recurring_paypal_response_to_ipn($response) {
+  return array(
+    'txn_id' => $response['TRANSACTIONID'],
+    'txn_type' => $response['TRANSACTIONTYPE'],
+    'transaction_id' => $response['TRANSACTIONID'],
+    'mc_gross' => $response['AMT'],
+    'mc_currency' => $response['CURRENCYCODE'],
+    'mc_fee' => $response['FEEAMT'],
+    'payment_status' => $response['PAYMENTSTATUS'],
+    'payment_type' => $response['PAYMENTTYPE'],
+    'pending_reason' => $response['PENDINGREASON'],
+  );
+}
+
+/**
+ * Process the payment status.
+ *
+ * Add status & message properties to transaction object.
+ */
+function commerce_recurring_paypal_process_status($feedback, &$transaction) {
+
+  switch ($feedback['payment_status']) {
+    case 'Failed':
+      $transaction->status = COMMERCE_PAYMENT_STATUS_FAILURE;
+      $transaction->message = t("The payment has failed. This happens only if the payment was made from your customer’s bank account.");
+      break;
+
+    case 'Voided':
+      $transaction->status = COMMERCE_PAYMENT_STATUS_FAILURE;
+      $transaction->message = t('The authorization was voided.');
+      break;
+
+    case 'Pending':
+      $transaction->status = COMMERCE_PAYMENT_STATUS_PENDING;
+      $transaction->message = commerce_recurring_paypal_pending_reason($feedback['pending_reason']);
+      break;
+
+    case 'Completed':
+      $transaction->status = COMMERCE_PAYMENT_STATUS_SUCCESS;
+      $transaction->message = t('The payment has completed.');
+      break;
+
+    case 'Refunded':
+      $transaction->status = COMMERCE_PAYPAL_EC_STATUS_REFUND;
+      $transaction->message = t('Refund for transaction @txn_id', array('@txn_id' => $feedback['txn_id']));
+      break;
+  }
+}
+
+/**
+ * Returns an appropriate message given a pending reason.
+ */
+function commerce_recurring_paypal_pending_reason($pending_reason) {
+  switch ($pending_reason) {
+    case 'address':
+      return t('The payment is pending because your customer did not include a confirmed shipping address and your Payment Receiving Preferences is set to allow you to manually accept or deny each of these payments.');
+
+    case 'authorization':
+      return t('You set the payment action to Authorization and have not yet captured funds.');
+
+    case 'echeck':
+      return t('The payment is pending because it was made by an eCheck that has not yet cleared.');
+
+    case 'intl':
+      return t('The payment is pending because you hold a non-U.S. account and do not have a withdrawal mechanism.');
+
+    case 'multi-currency':
+      return t('You do not have a balance in the currency sent, and you do not have your Payment Receiving Preferences set to automatically convert and accept this payment.');
+
+    case 'order':
+      return t('You set the payment action to Order and have not yet captured funds.');
+
+    case 'paymentreview':
+      return t('The payment is pending while it is being reviewed by PayPal for risk.');
+
+    case 'unilateral':
+      return t('The payment is pending because it was made to an e-mail address that is not yet registered or confirmed.');
+
+    case 'upgrade':
+      return t('The payment is pending because it was either made via credit card and you do not have a Business or Premier account or you have reached the monthly limit for transactions on your account.');
+
+    case 'verify':
+      return t('The payment is pending because you are not yet verified.');
+
+    case 'other':
+      return t('The payment is pending for a reason other than those listed above. For more information, contact PayPal Customer Service.');
+
+  }
+}
+
+/**
+ * Implements hook_entity_property_info_alter().
+ *
+ * On top of the Recurring module.
+ */
+function commerce_recurring_paypal_entity_property_info_alter(&$info) {
+  $info['commerce_recurring']['properties']['commerce_recurring_paypal_auth_id'] = array(
+    'label' => t('Commerce recurring PayPal auth ID'),
+    'getter callback' => 'commerce_recurring_paypal_get_auth_id',
+    'setter callback' => 'commerce_recurring_paypal_set_auth_id',
+    'type' => 'text',
+  );
+}
+
+/**
+ * Getter for commerce_recurring->commerce_recurring_paypal_auth_id.
+ */
+function commerce_recurring_paypal_get_auth_id($data, array $options, $name, $type, $info) {
+  $recurring = entity_metadata_wrapper('commerce_recurring', $data);
+
+  return db_select('commerce_recurring_paypal', 'crp')
+    ->fields('crp', array('agreement_id'))
+    ->condition('recurring_id', $recurring->id->value(), '=')
+    ->execute()
+    ->fetchField();
+}
+
+/**
+ * Setter for commerce_recurring->commerce_recurring_paypal_auth_id.
+ */
+function commerce_recurring_paypal_set_auth_id(&$data, $name, $value, $langcode, $type, $info) {
+  $recurring = entity_metadata_wrapper('commerce_recurring', $data);
+  $record = new stdClass();
+  $record->recurring_id = $recurring->id->value();
+  $record->agreement_id = $value;
+  drupal_write_record('commerce_recurring_paypal', $record);
+}
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_recurring_paypal_theme() {
+  $templates_path = drupal_get_path('module', 'commerce_recurring_paypal') . '/' . 'tpl';
+
+  return array(
+    'commerce_recurring_paypal_information' => array(
+      'template' => 'commerce-recurring-paypal-information',
+      'path' => $templates_path,
+    ),
+  );
+}

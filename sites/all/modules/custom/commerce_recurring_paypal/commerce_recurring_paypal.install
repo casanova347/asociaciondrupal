@@ -1,0 +1,30 @@
+<?php
+/**
+ * @file
+ * Install hooks
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function commerce_recurring_paypal_schema() {
+  $schema['commerce_recurring_paypal'] = array(
+    'description' => 'Store PayPal billing agreement IDs',
+    'fields' => array(
+      'recurring_id' => array(
+        'description' => 'identifier for a recurring entity.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'agreement_id' => array(
+        'description' => 'Agreement ID',
+        'type' => 'varchar',
+        'length' => 30,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('recurring_id'),
+  );
+  return $schema;
+}

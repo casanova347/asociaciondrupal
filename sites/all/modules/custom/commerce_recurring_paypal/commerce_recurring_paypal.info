@@ -1,0 +1,9 @@
+name = "Commerce Recurring Paypal"
+description = "Implementation of Paypal gateway for Commerce recurring framework"
+core = "7.x"
+package = "Commerce (contrib)"
+dependencies[] = "commerce_recurring"
+
+; Central Entity Controller.
+files[] = inc/commerce_recurring_paypal.admin.inc
+files[] = inc/commerce_recurring_paypal-paypal-api.inc
