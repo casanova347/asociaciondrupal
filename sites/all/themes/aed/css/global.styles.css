@@ -3345,3 +3345,8 @@ img.centered {
   display: block;
   margin: 0 auto;
 }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032162}}
+.node-product-display-susc-aed .field-type-commerce-product-reference {
+  text-align: center;
+}

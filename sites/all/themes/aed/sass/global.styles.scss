@@ -2157,3 +2157,9 @@ img.centered {
   display: block;
   margin: 0 auto;
 }
+
+.node-product-display-susc-aed {
+  .field-type-commerce-product-reference {
+    text-align: center;
+  }
+}
