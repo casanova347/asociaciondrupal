@@ -5,4 +5,6 @@ sites/*/settings*.php
 sites/all/themes/aed/.sass-cache
 
 .idea
-.foo
+
+sites/*/files
+sites/*/private
