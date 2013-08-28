@@ -423,7 +423,7 @@ input[disabled] {
  */
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   padding: 0;
   *height: 13px;
   *width: 13px;
@@ -435,9 +435,7 @@ input[type="radio"] {
  */
 input[type="search"] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
+  @include box-sizing(border-box);
 }
 
 /*
@@ -565,17 +563,17 @@ video {
    ========================================================================== */
 
 /* Prevent overflowing content */
-header[role=banner],
-.content-inner,
-.nav,
-.region-sidebar-first,
-.region-sidebar-second,
-.region-secondary-content,
-.region-tertiary-content,
-.region-footer {
-  overflow: visible;
-  word-wrap: break-word;
-}
+//header[role=banner],
+//.content-inner,
+//.nav,
+//.region-sidebar-first,
+//.region-sidebar-second,
+//.region-secondary-content,
+//.region-tertiary-content,
+//.region-footer {
+//  overflow: visible;
+//  word-wrap: break-word;
+//}
 
 /**
  * General classes for hiding content. These are all included as SASS mixins.

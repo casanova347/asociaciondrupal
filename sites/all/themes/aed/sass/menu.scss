@@ -8,13 +8,16 @@
       //No queremos que nuestro menu al
       //desplegar se vea tapado por otras cosas
       position: relative;
-      z-index: 999;
+      z-index: 500;
 
       //No queremos que las palabras se corten
-      a, span.nolink {
-        white-space: nowrap;
+      > .menu a, > .menu span.nolink {
+        white-space: nowrap !important;
         outline: none;
         cursor: pointer;
+        text-decoration: none;
+        display: block;
+        padding: 9px 11px;
       }
 
       //######################
@@ -27,12 +30,17 @@
         width: 100%;
         display: -webkit-box;
         display: -moz-box;
+        display: -ms-flexbox;
+        -ms-flex-pack: justify;
+        //-ms-flex-direction: row;
         display: box;
 
         > li {
 
           -webkit-box-flex: 1;
           -moz-box-flex: 1;
+          -ms-flex: 1;
+          -ms-flex-preferred-size: auto;
           box-flex: 1;
           margin: 0 1px;
           position: relative;
@@ -85,15 +93,6 @@
           }
 
         }
-      }
-
-      //######################
-      //DECORACIÓN
-      //######################
-      a, span.nolink {
-        text-decoration: none;
-        display: block;
-        padding: 9px 11px;
       }
 
       //El elemento activo

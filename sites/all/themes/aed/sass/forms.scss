@@ -3,9 +3,7 @@
 @mixin form-container() {
   border: 1px solid #ccc;
   padding: 10px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 
 @mixin btn($size: "normal") {
@@ -58,9 +56,13 @@
   vertical-align: baseline;
   margin: 0;
   width: 100%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
+
+//Especifico para webkit.
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    padding: 4px;
+  }
+
 }
 
 legend {
@@ -93,7 +95,6 @@ input[type="text"],
 input[type="password"],
 select,
 textarea {
-
   @include input;
 }
 
@@ -144,7 +145,7 @@ textarea::-webkit-input-placeholder {
 }
 
 html.js input.form-autocomplete {
-  background-position: 99% -86%;
+  background-position: 99% -78%;
 }
 
 html.js input.throbbing {
