@@ -1,0 +1,38 @@
+/*
+Basurillas temporales hasta que implemente una solucion permanente a estas cosas.
+*/
+article#node-28 {
+  .field-name-field-image {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+.node {
+
+  .field-name-field-tags {
+    > * {
+      display: inline-block;
+    }
+
+    ul {
+      display: inline-flex;
+      margin: 0;
+      padding-left: 10px;
+
+      li {
+        float: left;
+
+        a {
+          background: none repeat scroll 0 0 #F1F1F1;
+          border-radius: 3px 3px 3px 3px;
+          display: inline-block;
+          margin-right: 10px;
+          padding: 0 5px;
+        }
+      }
+    }
+
+  }
+}
