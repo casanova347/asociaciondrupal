@@ -21,6 +21,7 @@ article#node-28 .field-name-field-image {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\0000324}}
 .node .field-name-field-tags ul li {
   float: left;
+  list-style: none;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\0000327}}
 .node .field-name-field-tags ul li a {
