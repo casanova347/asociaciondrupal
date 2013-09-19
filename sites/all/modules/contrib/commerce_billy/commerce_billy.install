@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Commerce Billy installation file.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function commerce_billy_uninstall() {
+  variable_del('commerce_billy_invoice_nr_method');
+  variable_del('commerce_billy_invoice_nr_pattern');
+  variable_del('commerce_billy_auto_invoice');
+  variable_del('commerce_billy_invoice_nr_last_yearly');
+  variable_del('commerce_billy_invoice_nr_last_monthly');
+  variable_del('commerce_billy_invoice_nr_last_infinite');
+}

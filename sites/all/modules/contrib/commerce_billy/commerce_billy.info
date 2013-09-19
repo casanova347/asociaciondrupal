@@ -1,0 +1,28 @@
+name = Commerce Billy
+description = Commerce billing light
+core = 7.x
+package = Commerce
+php = 5.2.4
+dependencies[] = commerce_order
+dependencies[] = commerce_order_ui
+dependencies[] = date
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = field_sql_storage
+dependencies[] = rules
+features[features_api][] = api:1
+features[field][] = commerce_order-commerce_order-field_commerce_billy_cancel_date
+features[field][] = commerce_order-commerce_order-field_commerce_billy_i_date
+features[rules_config][] = rules_commerce_billy_generate_invoice_number_on_order_insert
+features[rules_config][] = rules_commerce_billy_generate_invoice_number_on_order_update
+features[rules_config][] = rules_commerce_billy_invoice_order_on_completion
+features[rules_config][] = rules_commerce_billy_set_cancel_date
+features[rules_config][] = rules_commerce_billy_set_to_canceled
+features[rules_config][] = rules_commerce_billy_set_to_invoiced
+
+; Information added by drupal.org packaging script on 2013-07-01
+version = "7.x-1.0-beta1"
+core = "7.x"
+project = "commerce_billy"
+datestamp = "1372672259"
+
