@@ -96,6 +96,8 @@ function commerce_billy_pdf_theme() {
  * Page callback for invoice PDF.
  */
 function commerce_billy_pdf($order) {
+  global $language;
+
   $vars['viewed_orders'][] = entity_view('commerce_order', array($order->order_id => $order), 'pdf', NULL, TRUE);
   // Add a credit memo.
   if ($order->status == 'canceled') {
@@ -108,7 +110,11 @@ function commerce_billy_pdf($order) {
   }
 
   $html = theme('commerce_billy_pdf_page', $vars);
-  $filename = preg_replace('/[^a-z0-9]/', '_', drupal_strtolower('invoice_' . $order->order_number)) . '.pdf';
+
+  $tokenized_filename = variable_get('billy_filename_pattern', drupal_strtolower('invoice_' . $order->order_number));
+  $tokenized_filename = token_replace($tokenized_filename, array('commerce-order' => $order), array('language' => $language));
+  $tokenized_filename = preg_replace('/[^a-zA-Z0-9]/', '_', $tokenized_filename);
+  $filename = $tokenized_filename . '.pdf';
 
   try {
     commerce_billy_pdf_output($html, $filename);

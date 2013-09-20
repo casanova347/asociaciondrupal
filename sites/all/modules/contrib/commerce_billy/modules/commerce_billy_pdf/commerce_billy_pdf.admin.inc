@@ -44,6 +44,48 @@ function commerce_billy_pdf_admin_form($form, &$form_state) {
     '#default_value' => isset($settings['invoice_footer']) ? $settings['invoice_footer'] : '',
   );
 
+
+  $form['commerce_billy_pdf_file_settings'] = array(
+    '#tree' => TRUE,
+    '#type' => 'fieldset',
+    '#title' => t('PDF file settings'),
+  );
+
+  $billy_filename_pattern = variable_get('billy_filename_pattern', array());
+
+  $form['commerce_billy_pdf_file_settings']['billy_filename_pattern'] = array(
+    '#type' => 'textfield',
+    '#title' => t('File name'),
+    '#default_value' => isset($billy_filename_pattern) ? $billy_filename_pattern : 'invoice_[commerce-order:order-id]',
+  );
+
+  if (module_exists('token')) {
+    $form['commerce_billy_pdf_file_settings']['billy_filename_pattern']['#element_validate'][] = 'token_element_validate';
+    $form['commerce_billy_pdf_file_settings']['billy_filename_pattern']['#token_type'] = array('commerce-order');
+    $form['commerce_billy_pdf_file_settings']['billy_filename_pattern_tokens'] = array(
+      '#type' => 'item',
+      '#theme' => 'token_tree',
+      '#token_types' => array('commerce-order'),
+    );
+  }
+  else {
+    $token_list = array();
+    $tokens = token_info();
+    $order_tokens = $tokens['tokens']['commerce-order'];
+
+    foreach (array_keys($order_tokens) as $token) {
+      $token_list[] = '<b>[commerce-order:' . check_plain($token) . ']</b> ' . filter_xss_admin($order_tokens[$token]['description']);
+    }
+
+    $form['commerce_billy_pdf_file_settings']['billy_filename_pattern_tokens'] = array(
+      '#type' => 'markup',
+      '#title' => 'Valid tokens:',
+      '#theme' => 'item_list',
+      '#items' => $token_list,
+      '#description' => 'test',
+    );
+  }
+
   $form['commerce_billy_pdf_logo'] = array(
     '#type' => 'textfield',
     '#title' => t('Logo'),
@@ -68,6 +110,7 @@ function commerce_billy_pdf_admin_form($form, &$form_state) {
   $form = system_settings_form($form);
   // Use custom submit handler.
   $form['#submit'] = array('commerce_billy_pdf_admin_form_submit');
+
   return $form;
 }
 
@@ -89,6 +132,7 @@ function commerce_billy_pdf_admin_form_submit($form, $form_state) {
     }
   }
   variable_set('commerce_billy_pdf_css_files', $css_files);
+  variable_set('billy_filename_pattern', $form_state['values']['commerce_billy_pdf_file_settings']['billy_filename_pattern']);
 
   variable_set('commerce_billy_pdf_logo', $form_state['values']['commerce_billy_pdf_logo']);
   drupal_set_message(t('The configuration options have been saved.'));
