@@ -3394,3 +3394,8 @@ article#node-28 .field-name-field-image {
   margin-right: 10px;
   padding: 0 5px;
 }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\.local\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032170}}
+.view-commerce-user-orders td, .view-commerce-user-orders th {
+  white-space: nowrap;
+}

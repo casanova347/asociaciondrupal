@@ -2165,3 +2165,9 @@ img.centered {
 }
 
 @import "tweaks";
+
+.view-commerce-user-orders {
+  td, th {
+    white-space: nowrap;
+  }
+}
