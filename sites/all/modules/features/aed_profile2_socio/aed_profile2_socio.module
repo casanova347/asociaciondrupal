@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AED Profile2 socio feature.
+ */
+
+include_once 'aed_profile2_socio.features.inc';
