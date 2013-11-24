@@ -1,0 +1,17 @@
+name = Views AED
+description = Views creados para la web de la AED
+core = 7.x
+package = AED
+version = 7.x-1.0
+project = views_aed
+dependencies[] = aed_mod
+dependencies[] = panels
+dependencies[] = views
+dependencies[] = views_content
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = empresas_colaboradoras_por_anio
+features[views_view][] = gestion_de_empresas
+features[views_view][] = gestion_de_socios
+features[views_view][] = socios
+features_exclude[dependencies][ctools] = ctools

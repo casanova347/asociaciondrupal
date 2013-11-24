@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AED panels feature.
+ */
+
+include_once 'aed_panels.features.inc';

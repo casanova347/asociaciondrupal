@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Views AED feature.
+ */
+
+include_once 'views_aed.features.inc';
