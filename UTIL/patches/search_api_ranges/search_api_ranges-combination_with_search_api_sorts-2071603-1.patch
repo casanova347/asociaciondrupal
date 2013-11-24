@@ -1,0 +1,14 @@
+diff --git a/plugins/facetapi/widget_slider.inc b/plugins/facetapi/widget_slider.inc
+index b0634e3..dc8bc60 100644
+--- a/plugins/facetapi/widget_slider.inc
++++ b/plugins/facetapi/widget_slider.inc
+@@ -88,6 +88,9 @@ class SearchApiRangesWidgetUISlider extends FacetapiWidget {
+     $index = search_api_index_load($index_id[1]);
+     list($query, $results) = $this->facet->getAdapter()->getCurrentSearch();
+ 
++    // Make a clone of the query, as to not alter the current search query
++    $query = clone $query;
++
+     // Prepare variables for min/max query
+     $variables = array(
+       'index' => $index,
