@@ -1,8 +1,10 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the feature_company feature.
  */
+
+include_once 'feature_company.features.inc';
 
 /**
  * Implements hook_entity_info().

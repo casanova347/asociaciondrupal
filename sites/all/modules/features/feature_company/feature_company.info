@@ -1,6 +1,12 @@
 name = feature_company
 core = 7.x
 package = Features
+dependencies[] = aed_mod
 dependencies[] = entity
+dependencies[] = views
+dependencies[] = views_content
+features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
+features[views_view][] = manage_partner
+features[views_view][] = partners_by_year
 files[] = feature_company.controller.inc
