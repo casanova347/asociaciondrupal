@@ -71,9 +71,9 @@ dependencies[] = commerce_tax_ui
 
 files[] = commerce_kickstart.profile
 
-; Information added by drupal.org packaging script on 2013-10-23
-version = "7.x-1.20"
+; Information added by  packaging script on 2013-11-26
+version = "7.x-1.21"
 core = "7.x"
 project = "commerce_kickstart"
-datestamp = "1382532027"
+datestamp = "1385480358"
 
