@@ -1,0 +1,361 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+
+/**
+ * Implements hook_entity_info().
+ */
+function feature_company_entity_info() {
+  $return = array(
+    'company' => array(
+      'label' => t('Company'),
+      'entity class' => 'Company',
+      'controller class' => 'CompanyController',
+      'base table' => 'company',
+      'fieldable' => TRUE,
+      'entity keys' => array(
+        'id' => 'cid',
+        'bundle' => 'type',
+      ),
+      'bundle keys' => array(
+        'bundle' => 'type',
+      ),
+      'bundles' => array(),
+      'load hook' => 'company_load',
+      'view modes' => array(
+        'full' => array(
+          'label' => t('Default'),
+          'custom settings' => FALSE,
+        ),
+      ),
+      'label callback' => 'entity_class_label',
+      'uri callback' => 'entity_class_uri',
+      'module' => 'company',
+      'access callback' => 'company_access',
+    ),
+  );
+  $return['company_type'] = array(
+    'label' => t('Company Type'),
+    'entity class' => 'CompanyType',
+    'controller class' => 'CompanyTypeController',
+    'base table' => 'company_type',
+    'fieldable' => FALSE,
+    'bundle of' => 'company',
+    'exportable' => TRUE,
+    'entity keys' => array(
+      'id' => 'id',
+      'name' => 'type',
+      'label' => 'label',
+    ),
+    'module' => 'feature_company',
+    // Enable the entity API's admin UI.
+    'admin ui' => array(
+      'path' => 'admin/structure/company-types',
+      'file' => 'feature_company.admin.inc',
+      'controller class' => 'CompanyTypeUIController',
+    ),
+    'access callback' => 'company_type_access',
+  );
+
+  return $return;
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function feature_company_entity_info_alter(&$entity_info) {
+  foreach (company_types() as $type => $info) {
+    $entity_info['company']['bundles'][$type] = array(
+      'label' => $info->label,
+      'admin' => array(
+        'path' => 'admin/structure/company-types/manage/%company_type',
+        'real path' => 'admin/structure/company-types/manage/' . $type,
+        'bundle argument' => 4,
+      ),
+    );
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function feature_company_menu() {
+  $items = array();
+
+  $items['company/add'] = array(
+    'title' => 'Add company',
+    'page callback' => 'company_admin_add_page',
+    'access arguments' => array('administer company entities'),
+    'file' => 'feature_company.admin.inc',
+    'type' => MENU_LOCAL_ACTION,
+    'tab_parent' => 'company',
+    'tab_root' => 'company',
+  );
+
+  $company_uri = 'company/%company';
+  $company_uri_argument_position = 1;
+
+  $items[$company_uri] = array(
+    'title callback' => 'entity_label',
+    'title arguments' => array('company', $company_uri_argument_position),
+    'page callback' => 'company_view',
+    'page arguments' => array($company_uri_argument_position),
+    'access callback' => 'entity_access',
+    'access arguments' => array('view', 'company', $company_uri_argument_position),
+    'file' => 'feature_company.pages.inc',
+  );
+
+  $items[$company_uri . '/view'] = array(
+    'title' => 'View',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => -10,
+  );
+
+  $items[$company_uri . '/delete'] = array(
+    'title' => 'Delete company',
+    'title callback' => 'company_label',
+    'title arguments' => array($company_uri_argument_position),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('company_delete_form', $company_uri_argument_position),
+    'access callback' => 'entity_access',
+    'access arguments' => array('edit', 'company', $company_uri_argument_position),
+    'file' => 'feature_company.admin.inc',
+  );
+
+  $items[$company_uri . '/edit'] = array(
+    'title' => 'Edit',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('company_form', $company_uri_argument_position),
+    'access callback' => 'entity_access',
+    'access arguments' => array('edit', 'company', $company_uri_argument_position),
+    'file' => 'feature_company.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+  );
+
+  foreach (company_types() as $type => $info) {
+    $items['company/add/' . $type] = array(
+      'title' => 'Add company',
+      'page callback' => 'company_add',
+      'page arguments' => array(2),
+      'access callback' => 'entity_access',
+      'access arguments' => array('create', 'company', $type),
+      'file' => 'feature_company.admin.inc',
+    );
+  }
+
+  $items['admin/structure/company-types/%company_type/delete'] = array(
+    'title' => 'Delete',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('company_type_form_delete_confirm', 4),
+    'access arguments' => array('administer company types'),
+    'weight' => 1,
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'feature_company.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_admin_paths().
+ */
+function feature_company_admin_paths() {
+  $paths = array(
+    'company/*/edit' => TRUE,
+    'company/*/delete' => TRUE,
+    'company/add' => TRUE,
+    'company/add/*' => TRUE,
+  );
+  return $paths;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function feature_company_permission() {
+  $permissions = array(
+    'administer company types' => array(
+      'title' => t('Administer company types'),
+      'description' => t('Allows users to configure company types and their fields.'),
+      'restrict access' => TRUE,
+    ),
+    'create company entities' => array(
+      'title' => t('Create companies'),
+      'description' => t('Allows users to create companies.'),
+      'restrict access' => TRUE,
+    ),
+    'view company entities' => array(
+      'title' => t('View companies'),
+      'description' => t('Allows users to view companies.'),
+      'restrict access' => TRUE,
+    ),
+    'edit any company entities' => array(
+      'title' => t('Edit any companies'),
+      'description' => t('Allows users to edit any comapnies.'),
+      'restrict access' => TRUE,
+    ),
+    'edit own company entities' => array(
+      'title' => t('Edit own companies'),
+      'description' => t('Allows users to edit own companies.'),
+      'restrict access' => TRUE,
+    ),
+  );
+
+  return $permissions;
+}
+
+
+/**
+ * Implements hook_entity_property_info_alter().
+ */
+function company_entity_property_info_alter(&$info) {
+  $properties = &$info['company']['properties'];
+  $properties['created'] = array(
+    'label' => t("Date created"),
+    'type' => 'date',
+    'description' => t("The date the company was posted."),
+    'setter callback' => 'entity_property_verbatim_set',
+    'setter permission' => 'administer company entities',
+    'schema field' => 'created',
+  );
+  $properties['changed'] = array(
+    'label' => t("Date changed"),
+    'type' => 'date',
+    'schema field' => 'changed',
+    'description' => t("The date the company was most recently updated."),
+  );
+  $properties['uid'] = array(
+    'label' => t("Author"),
+    'type' => 'user',
+    'description' => t("The author of the company."),
+    'setter callback' => 'entity_property_verbatim_set',
+    'setter permission' => 'administer company entities',
+    'required' => TRUE,
+    'schema field' => 'uid',
+  );
+}
+
+
+/*******************************************************************************
+ ********************************* Company API's **********************************
+ ******************************************************************************/
+
+/**
+ * Access callback for company.
+ */
+function company_access($op, $company, $account = NULL, $entity_type = NULL) {
+  global $user;
+
+  if (!isset($account)) {
+    $account = $user;
+  }
+  switch ($op) {
+    case 'create':
+      return user_access('administer company entities', $account)
+      || user_access('create company entities', $account);
+    case 'view':
+      return user_access('administer company entities', $account)
+      || user_access('view company entities', $account);
+    case 'edit':
+      return user_access('administer company entities')
+      || user_access('edit any company entities')
+      || (user_access('edit own company entities') && ($company->uid == $account->uid));
+  }
+}
+
+/**
+ * Load a company.
+ */
+function company_load($cid, $reset = FALSE) {
+  $companies = company_load_multiple(array($cid), array(), $reset);
+  return reset($companies);
+}
+
+/**
+ * Load multiple companies based on certain conditions.
+ */
+function company_load_multiple($cids = array(), $conditions = array(), $reset = FALSE) {
+  return entity_load('company', $cids, $conditions, $reset);
+}
+
+/**
+ * Save company.
+ */
+function company_save($company) {
+  entity_save('company', $company);
+}
+
+/**
+ * Delete single company.
+ */
+function company_delete($company) {
+  entity_delete('company', entity_id('company' ,$company));
+}
+
+/**
+ * Delete multiple companies.
+ */
+function company_delete_multiple($company_ids) {
+  entity_delete_multiple('comapny', $company_ids);
+}
+
+
+/*******************************************************************************
+ ****************************** Company Type API's ********************************
+ ******************************************************************************/
+
+/**
+ * Access callback for company type.
+ */
+function company_type_access($op, $entity = NULL) {
+  return user_access('administer company types');
+}
+
+/**
+ * Load company type.
+ */
+function company_type_load($company_type) {
+  return company_types($company_type);
+}
+
+/**
+ * List of company types.
+ */
+function company_types($type_name = NULL) {
+  $types = entity_load_multiple_by_name('company_type', isset($type_name) ? array($type_name) : FALSE);
+  return isset($type_name) ? reset($types) : $types;
+}
+
+/**
+ * Save company type entity.
+ */
+function company_type_save($company_type) {
+  entity_save('company_type', $company_type);
+}
+
+/**
+ * Delete single company type.
+ */
+function company_type_delete($company_type) {
+  entity_delete('company_type', entity_id('company_type' ,$company_type));
+}
+
+/**
+ * Delete multiple company types.
+ */
+function company_type_delete_multiple($company_type_ids) {
+  entity_delete_multiple('company_type', $company_type_ids);
+}
+
+/**
+ * Implements hook_views_api().
+ */
+/*function example_task_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'example_task'),
+  );
+}*/
