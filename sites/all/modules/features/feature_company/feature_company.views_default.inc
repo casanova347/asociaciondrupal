@@ -51,10 +51,11 @@ function feature_company_views_default_views() {
   $handler->display->display_options['fields']['cid']['id'] = 'cid';
   $handler->display->display_options['fields']['cid']['table'] = 'company';
   $handler->display->display_options['fields']['cid']['field'] = 'cid';
-  /* Campo: Empresa: Nombre */
-  $handler->display->display_options['fields']['field_partner_name']['id'] = 'field_partner_name';
-  $handler->display->display_options['fields']['field_partner_name']['table'] = 'field_data_field_partner_name';
-  $handler->display->display_options['fields']['field_partner_name']['field'] = 'field_partner_name';
+  /* Campo: Empresa: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'company';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Nombre';
   /* Campo: Empresa: Persona de contacto */
   $handler->display->display_options['fields']['field_partner_contact']['id'] = 'field_partner_contact';
   $handler->display->display_options['fields']['field_partner_contact']['table'] = 'field_data_field_partner_contact';
@@ -97,26 +98,6 @@ function feature_company_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'partner' => 'partner',
-  );
-  /* Criterios de filtrado: Empresa: Nombre (field_partner_name) */
-  $handler->display->display_options['filters']['field_partner_name_value']['id'] = 'field_partner_name_value';
-  $handler->display->display_options['filters']['field_partner_name_value']['table'] = 'field_data_field_partner_name';
-  $handler->display->display_options['filters']['field_partner_name_value']['field'] = 'field_partner_name_value';
-  $handler->display->display_options['filters']['field_partner_name_value']['operator'] = 'regular_expression';
-  $handler->display->display_options['filters']['field_partner_name_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_partner_name_value']['expose']['operator_id'] = 'field_partner_name_value_op';
-  $handler->display->display_options['filters']['field_partner_name_value']['expose']['label'] = 'Nombre de la empresa';
-  $handler->display->display_options['filters']['field_partner_name_value']['expose']['operator'] = 'field_partner_name_value_op';
-  $handler->display->display_options['filters']['field_partner_name_value']['expose']['identifier'] = 'nombre';
-  $handler->display->display_options['filters']['field_partner_name_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    6 => 0,
-    7 => 0,
-    8 => 0,
   );
   /* Criterios de filtrado: Empresa: Años patrocinados (field_partner_year_sponsor) */
   $handler->display->display_options['filters']['field_partner_year_sponsor_tid']['id'] = 'field_partner_year_sponsor_tid';
@@ -161,6 +142,26 @@ function feature_company_views_default_views() {
     8 => 0,
   );
   $handler->display->display_options['filters']['field_partner_location_tid']['vocabulary'] = 'paises';
+  /* Criterios de filtrado: Empresa: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'company';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Nombre';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'nombre';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+    8 => 0,
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -194,7 +195,6 @@ function feature_company_views_default_views() {
     t('<a href="/company/[cid]" target="_blank">Ver</a>
 <br />
 <a href="/company/[cid]/edit" target="_blank">Editar</a>'),
-    t('Nombre de la empresa'),
     t('Localización'),
     t('Page'),
   );
