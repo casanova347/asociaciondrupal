@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the aed videos feature.
+ */
+
+include_once 'aed_videos.features.inc';
