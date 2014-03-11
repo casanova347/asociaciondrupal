@@ -82,7 +82,7 @@ function aed_preprocess_field(&$variables, $hook) {
     && $variables['element']['#object'] instanceof Profile
   ) {
 
-    if (TRUE || $variables['element'][0]['#markup']) {
+    if ($variables['element'][0]['#markup']) {
       $variables['items'][0]['#markup'] = l(
         $variables['items'][0]['#markup'],
         $variables['items'][0]['#markup'],
