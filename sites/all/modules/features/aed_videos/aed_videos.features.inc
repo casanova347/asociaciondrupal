@@ -30,7 +30,7 @@ function aed_videos_node_info() {
       'base' => 'node_content',
       'description' => t('AED Videos'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Título'),
       'help' => '',
     ),
   );
