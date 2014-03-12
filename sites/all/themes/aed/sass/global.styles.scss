@@ -6,6 +6,10 @@
 @import "sprites";
 @import "contact";
 @import "user-form";
+@import "components/search-api-sort";
+@import "components/facets";
+@import "components/blocks";
+@import "pages/page-videos";
 
 html {
   background: $page;
@@ -177,7 +181,7 @@ var {
  * Wraps the sidebars the content column
  */
 #columns {
-  /*foo*/
+  margin-top: 20px;
 }
 
 /*
