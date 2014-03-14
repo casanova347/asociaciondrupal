@@ -1,0 +1,28 @@
+.node-type-videos {
+  .node-videos {
+
+    .field-type-video-embed-field{
+      margin: 30px 0;
+
+      .embedded-video {
+        .player {
+          iframe {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .field-type-taxonomy-term-reference {
+      margin-bottom: 0;
+
+      &.field-label-inline {
+        h2 {
+          margin: 0 10px 0 0;
+          min-width: 69px;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
