@@ -64,6 +64,15 @@ function aed_videos_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* Comportamiento si no hay resultados: Global: Área de texto */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = '<img src="/sites/default/files/no-results.jpg" />
+<p>"Estos no son los androides que buscas"</p>
+';
+  $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Campo: Indexed Nodo: Video */
   $handler->display->display_options['fields']['field_videos_video']['id'] = 'field_videos_video';
   $handler->display->display_options['fields']['field_videos_video']['table'] = 'search_api_index_default_node_index';
@@ -95,6 +104,11 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
   );
+  /* Criterio de ordenación: Indexed Nodo: Año */
+  $handler->display->display_options['sorts']['field_videos_ano']['id'] = 'field_videos_ano';
+  $handler->display->display_options['sorts']['field_videos_ano']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['sorts']['field_videos_ano']['field'] = 'field_videos_ano';
+  $handler->display->display_options['sorts']['field_videos_ano']['order'] = 'DESC';
   /* Criterios de filtrado: Buscar: Búsqueda por texto completo */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_default_node_index';
@@ -152,6 +166,9 @@ function aed_videos_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
+    t('<img src="/sites/default/files/no-results.jpg" />
+<p>"Estos no son los androides que buscas"</p>
+'),
     t('Page'),
   );
   $export['videos'] = $view;

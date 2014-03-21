@@ -175,7 +175,7 @@ function aed_videos_default_search_api_sort() {
     "index_id" : "default_node_index",
     "field" : "created",
     "name" : "Fecha de creaci\\u00f3n",
-    "enabled" : "1",
+    "enabled" : "0",
     "weight" : "0",
     "identifier" : "default_node_index__created",
     "default_sort" : "0",

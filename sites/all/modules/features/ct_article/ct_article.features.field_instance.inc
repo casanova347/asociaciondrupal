@@ -131,8 +131,8 @@ function ct_article_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => 'large',
+          'image_link' => 'file',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => -1,
