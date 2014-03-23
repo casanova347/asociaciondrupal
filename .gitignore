@@ -7,5 +7,5 @@ sites/all/themes/aed/.sass-cache
 #IDEs
 .idea
 
-sites/*/files
+#sites/*/files
 sites/*/private
