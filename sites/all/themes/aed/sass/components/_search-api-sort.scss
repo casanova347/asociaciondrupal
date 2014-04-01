@@ -1,0 +1,30 @@
+//Faceta de sorts
+#block-search-api-sorts-search-sorts {
+  margin: 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      font-size: 0.95em;
+      list-style: none outside none;
+      vertical-align: middle;
+      margin: 0 10px 0 0;
+
+      .search-api-sort-active {
+        font-weight: bold;
+      }
+
+      a {
+        img {
+          bottom: -1px;
+          margin-left: 3px;
+          position: relative;
+        }
+      }
+
+    }
+  }
+}

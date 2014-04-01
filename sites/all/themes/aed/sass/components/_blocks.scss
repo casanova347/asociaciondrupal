@@ -1,0 +1,29 @@
+#block-views-exp-videos-videos-page {
+  .views-exposed-widgets {
+    margin: 0;
+
+    table, tbody, thead, th, tr, td {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    td.search-input {
+      width: 100%;
+    }
+
+    td.submit-btn {
+      padding-left: 10px;
+    }
+
+    .views-exposed-widget {
+      padding: 0;
+      float: none;
+
+      .form-submit {
+        margin-top: 0;
+        padding: 6px;
+      }
+    }
+  }
+}

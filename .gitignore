@@ -4,7 +4,8 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/all/themes/aed/.sass-cache
 
+#IDEs
 .idea
 
-sites/*/files
+#sites/*/files
 sites/*/private

@@ -59,3 +59,38 @@ function aed_preprocess(&$variables, $hook = "") {
   }
 
 }
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function aed_preprocess_field(&$variables, $hook) {
+
+  // @todo esto es una ñapa para poder ver los link del perfil de un usuario como links.
+  // Convertir los field del perfil de usuario a campos tipo link y quitar este code.
+  $fields_2_link = array(
+    'field_perfil_en_drupal_org',
+    'field_perfil_twitter',
+    'field_perfil_facebook',
+    'field_perfil_google_plus',
+    'field_perfil_linkedin',
+    'field_pagina_web',
+  );
+
+  if (
+    $variables['field_view_mode'] == '_custom_display' &&
+    in_array($variables['element']['#field_name'], $fields_2_link)
+    && $variables['element']['#object'] instanceof Profile
+  ) {
+
+    if ($variables['element'][0]['#markup']) {
+      $variables['items'][0]['#markup'] = l(
+        $variables['items'][0]['#markup'],
+        $variables['items'][0]['#markup'],
+        array(
+          'attributes' => array('rel' => 'nofollow'),
+          'absolute' => TRUE
+        )
+      );
+    }
+  }
+}

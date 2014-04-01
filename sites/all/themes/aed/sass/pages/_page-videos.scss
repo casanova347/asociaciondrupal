@@ -1,0 +1,43 @@
+body.page-videos {
+  .view-videos {
+    margin-top: 10px;
+
+    .view-content {
+
+      // Reset.
+      table, tbody, thead, th, tr, td {
+        margin: 0;
+        padding: 0;
+        border: none;
+      }
+
+      table {
+        tr {
+          td {
+            padding-bottom: 10px;
+            padding-top: 10px;
+            vertical-align: top;
+
+            img {
+              max-width: none;
+            }
+
+            &.views-field-field-videos-video {
+
+            }
+
+            &.views-field-title {
+              padding-left: 20px;
+
+              h3 {
+                line-height: normal;
+                margin-top: 0;
+                vertical-align: top;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

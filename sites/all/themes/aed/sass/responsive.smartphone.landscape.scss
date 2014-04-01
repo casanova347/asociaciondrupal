@@ -1,3 +1,4 @@
+
 // _base.scss imports _custom.scss and other partials.
 @import "base";
 
@@ -115,7 +116,7 @@ html {
   display: block;
 
   a {
-    background: url("../images/menu-toggle.png") no-repeat scroll 50% 50% transparent;
+    background: image-url("menu-toggle.png") no-repeat scroll 50% 50% transparent;
     display: inline-block;
     float: right;
     height: 21px;

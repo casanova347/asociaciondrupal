@@ -6,6 +6,11 @@
 @import "sprites";
 @import "contact";
 @import "user-form";
+@import "components/search-api-sort";
+@import "components/facets";
+@import "components/blocks";
+@import "pages/page-videos";
+@import "nodes/video";
 
 html {
   background: $page;
@@ -177,7 +182,7 @@ var {
  * Wraps the sidebars the content column
  */
 #columns {
-  /*foo*/
+  margin-top: 20px;
 }
 
 /*
@@ -1985,11 +1990,6 @@ ul > li > i {
 ol.alphabetical {
   list-style: lower-alpha;
 
-}
-
-.falta {
-  background: red;
-  color: #ffffff;
 }
 
 table.empresas-colabora {
