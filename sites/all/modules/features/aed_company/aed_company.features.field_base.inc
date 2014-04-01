@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * feature_company.features.field_base.inc
+ * aed_company.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function feature_company_field_default_field_bases() {
+function aed_company_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'field_partner_compact_logo'

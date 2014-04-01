@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * feature_company.views_default.inc
+ * aed_company.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function feature_company_views_default_views() {
+function aed_company_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -165,7 +165,7 @@ function feature_company_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'gestion-de-empresas2';
+  $handler->display->display_options['path'] = 'gestion-de-empresas';
   $translatables['manage_partner'] = array(
     t('Master'),
     t('Gestión de empresas'),

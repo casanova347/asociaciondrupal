@@ -1,15 +1,15 @@
 <?php
 /**
  * @file
- * Code for the feature_company feature.
+ * Code for the aed_company feature.
  */
 
-include_once 'feature_company.features.inc';
+include_once 'aed_company.features.inc';
 
 /**
  * Implements hook_entity_info().
  */
-function feature_company_entity_info() {
+function aed_company_entity_info() {
   $return = array(
     'company' => array(
       'label' => t('Company'),
@@ -51,11 +51,11 @@ function feature_company_entity_info() {
       'name' => 'type',
       'label' => 'label',
     ),
-    'module' => 'feature_company',
+    'module' => 'aed_company',
     // Enable the entity API's admin UI.
     'admin ui' => array(
       'path' => 'admin/structure/company-types',
-      'file' => 'feature_company.admin.inc',
+      'file' => 'aed_company.admin.inc',
       'controller class' => 'CompanyTypeUIController',
     ),
     'access callback' => 'company_type_access',
@@ -67,7 +67,7 @@ function feature_company_entity_info() {
 /**
  * Implements hook_entity_info_alter().
  */
-function feature_company_entity_info_alter(&$entity_info) {
+function aed_company_entity_info_alter(&$entity_info) {
   foreach (company_types() as $type => $info) {
     $entity_info['company']['bundles'][$type] = array(
       'label' => $info->label,
@@ -83,14 +83,14 @@ function feature_company_entity_info_alter(&$entity_info) {
 /**
  * Implements hook_menu().
  */
-function feature_company_menu() {
+function aed_company_menu() {
   $items = array();
 
   $items['company/add'] = array(
     'title' => 'Add company',
     'page callback' => 'company_admin_add_page',
     'access arguments' => array('administer company entities'),
-    'file' => 'feature_company.admin.inc',
+    'file' => 'aed_company.admin.inc',
     'type' => MENU_LOCAL_ACTION,
     'tab_parent' => 'company',
     'tab_root' => 'company',
@@ -106,7 +106,7 @@ function feature_company_menu() {
     'page arguments' => array($company_uri_argument_position),
     'access callback' => 'entity_access',
     'access arguments' => array('view', 'company', $company_uri_argument_position),
-    'file' => 'feature_company.pages.inc',
+    'file' => 'aed_company.pages.inc',
   );
 
   $items[$company_uri . '/view'] = array(
@@ -123,7 +123,7 @@ function feature_company_menu() {
     'page arguments' => array('company_delete_form', $company_uri_argument_position),
     'access callback' => 'entity_access',
     'access arguments' => array('edit', 'company', $company_uri_argument_position),
-    'file' => 'feature_company.admin.inc',
+    'file' => 'aed_company.admin.inc',
   );
 
   $items[$company_uri . '/edit'] = array(
@@ -132,7 +132,7 @@ function feature_company_menu() {
     'page arguments' => array('company_form', $company_uri_argument_position),
     'access callback' => 'entity_access',
     'access arguments' => array('edit', 'company', $company_uri_argument_position),
-    'file' => 'feature_company.admin.inc',
+    'file' => 'aed_company.admin.inc',
     'type' => MENU_LOCAL_TASK,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
   );
@@ -144,7 +144,7 @@ function feature_company_menu() {
       'page arguments' => array(2),
       'access callback' => 'entity_access',
       'access arguments' => array('create', 'company', $type),
-      'file' => 'feature_company.admin.inc',
+      'file' => 'aed_company.admin.inc',
     );
   }
 
@@ -155,7 +155,7 @@ function feature_company_menu() {
     'access arguments' => array('administer company types'),
     'weight' => 1,
     'type' => MENU_NORMAL_ITEM,
-    'file' => 'feature_company.admin.inc',
+    'file' => 'aed_company.admin.inc',
   );
 
   return $items;
@@ -164,7 +164,7 @@ function feature_company_menu() {
 /**
  * Implements hook_admin_paths().
  */
-function feature_company_admin_paths() {
+function aed_company_admin_paths() {
   $paths = array(
     'company/*/edit' => TRUE,
     'company/*/delete' => TRUE,
@@ -177,7 +177,7 @@ function feature_company_admin_paths() {
 /**
  * Implements hook_permission().
  */
-function feature_company_permission() {
+function aed_company_permission() {
   $permissions = array(
     'administer company types' => array(
       'title' => t('Administer company types'),

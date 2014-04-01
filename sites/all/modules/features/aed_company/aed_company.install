@@ -3,7 +3,7 @@
 /**
  * Implements hook_schema().
  */
-function feature_company_schema() {
+function aed_company_schema() {
   $schema = array();
 
   $schema['company'] = array(

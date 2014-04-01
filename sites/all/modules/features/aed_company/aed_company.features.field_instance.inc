@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * feature_company.features.field_instance.inc
+ * aed_company.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function feature_company_field_default_field_instances() {
+function aed_company_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'company-partner-field_partner_compact_logo'
