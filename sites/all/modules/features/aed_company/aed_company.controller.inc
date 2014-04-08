@@ -15,8 +15,8 @@ class CompanyController extends EntityAPIController {
 
 }
 
- class CompanyTypeController extends EntityAPIControllerExportable {
-   public function create(array $values = array()) {
+class CompanyTypeController extends EntityAPIControllerExportable {
+  public function create(array $values = array()) {
     $values += array(
       'label' => '',
       'description' => '',

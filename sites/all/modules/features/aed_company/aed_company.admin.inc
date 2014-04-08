@@ -79,10 +79,10 @@ function company_type_form_submit_delete(&$form, &$form_state) {
 function company_type_form_delete_confirm($form, &$form_state, $company_type) {
   $form_state['company'] = $company_type;
   // Always provide entity id in the same form key as in the entity edit form.
-  $form['company_id'] = array('#type' => 'value', '#value' => entity_id('company_type' ,$company_type));
+  $form['company_id'] = array('#type' => 'value', '#value' => entity_id('company_type', $company_type));
   return confirm_form($form,
     t('Are you sure you want to delete company type %title?', array('%title' => entity_label('company_type', $company_type))),
-    'company/' . entity_id('company_type' ,$company_type),
+    'company/' . entity_id('company_type', $company_type),
     t('This action cannot be undone.'),
     t('Delete'),
     t('Cancel')
@@ -163,7 +163,7 @@ function company_form($form, &$form_state, $company) {
   );
 
   // Show Delete button if we edit company.
-  $company_id = entity_id('company' ,$company);
+  $company_id = entity_id('company', $company);
   if (!empty($company_id) && company_access('edit', $company)) {
     $form['actions']['delete'] = array(
       '#type' => 'submit',
@@ -210,7 +210,7 @@ function company_form_submit_delete($form, &$form_state) {
 function company_delete_form($form, &$form_state, $company) {
   $form_state['company'] = $company;
   // Always provide entity id in the same form key as in the entity edit form.
-  $form['company_id'] = array('#type' => 'value', '#value' => entity_id('company' ,$company));
+  $form['company_id'] = array('#type' => 'value', '#value' => entity_id('company', $company));
   $company_uri = entity_uri('company', $company);
   return confirm_form($form,
     t('Are you sure you want to delete company %title?', array('%title' => entity_label('company', $company))),

@@ -214,7 +214,7 @@ function aed_company_permission() {
  * Implements hook_entity_property_info_alter().
  */
 function company_entity_property_info_alter(&$info) {
-  $properties = &$info['company']['properties'];
+  $properties = & $info['company']['properties'];
   $properties['created'] = array(
     'label' => t("Date created"),
     'type' => 'date',
@@ -294,7 +294,7 @@ function company_save($company) {
  * Delete single company.
  */
 function company_delete($company) {
-  entity_delete('company', entity_id('company' ,$company));
+  entity_delete('company', entity_id('company', $company));
 }
 
 /**
@@ -342,7 +342,7 @@ function company_type_save($company_type) {
  * Delete single company type.
  */
 function company_type_delete($company_type) {
-  entity_delete('company_type', entity_id('company_type' ,$company_type));
+  entity_delete('company_type', entity_id('company_type', $company_type));
 }
 
 /**
