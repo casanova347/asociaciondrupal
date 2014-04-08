@@ -2876,22 +2876,22 @@ ul.action-links li {
   /*foo*/
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031538}}
-.node-article {
-  /*foo*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031540}}
+.node-article .field-name-field-image img {
+  width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031542}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031547}}
 .node-book {
   /*foo*/
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031546}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031551}}
 .node-forum {
   /*foo*/
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031550}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031555}}
 .node-poll {
   /*foo*/
 }
@@ -2902,15 +2902,15 @@ ul.action-links li {
 /*
  * Wrapper for the list of comments and its titles
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031561}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031566}}
 #comments {
   margin: 1.5em 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031565}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031570}}
 #comments h2.comment-title {
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031569}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031574}}
 #comments h2.comment-form {
   margin: 0;
 }
@@ -2918,47 +2918,47 @@ ul.action-links li {
 /*
  * Wrapper for a single comment
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031578}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031583}}
 .comment {
   margin-bottom: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031581}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031586}}
 .comment.first {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031585}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031590}}
 .comment.last {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031589}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031594}}
 .comment.odd {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031593}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031598}}
 .comment.even {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031597}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031602}}
 .comment .user-picture {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031603}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031608}}
 .comment .submitted p {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031607}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031612}}
 .comment .submitted .username {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031611}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031616}}
 .comment .submitted time {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031616}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031621}}
 .comment .user-signature {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031620}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031625}}
 .comment ul.links {
   /*foo*/
 }
@@ -2966,7 +2966,7 @@ ul.action-links li {
 /*
  * Comment title
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031628}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031633}}
 .comment-title {
   margin: 0;
 }
@@ -2974,37 +2974,37 @@ ul.action-links li {
 /*
  * Comment states
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031635}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031640}}
 .comment-new {
   /*foo*/
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031639}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031644}}
 .comment-by-anonymous {
   /*foo*/
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031643}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031648}}
 .comment-by-node-author {
   /*foo*/
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031647}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031652}}
 .comment-by-viewer {
   /*foo*/
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031651}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031656}}
 .comment-title-hidden {
   /*foo*/
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031655}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031660}}
 .comment-with-picture {
   /*foo*/
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031659}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031664}}
 .comment-with-signature {
   /*foo*/
 }
@@ -3012,7 +3012,7 @@ ul.action-links li {
 /*
  * Preview of the comment before submitting new or updated comment
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031666}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031671}}
 .comment-preview {
   /*foo*/
 }
@@ -3020,7 +3020,7 @@ ul.action-links li {
 /*
  * "New" marker for comments that are new for the current user
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031673}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031678}}
 .new {
   color: #cc0000;
 }
@@ -3028,7 +3028,7 @@ ul.action-links li {
 /*
  * Nested comments are indented
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031680}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031685}}
 .indented {
   margin-left: 40px;
 }
@@ -3039,17 +3039,17 @@ ul.action-links li {
 /*
  * Wrapper for a form element (or group of form elements) and its label
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031695}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031700}}
 .form-item input.error,
 .form-item textarea.error,
 .form-item select.error {
   border: 1px solid #cc0000;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031699}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031704}}
 .form-item label {
   font-weight: 700;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031706}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031711}}
 .form-item .description {
   font-size: 0.85em;
 }
@@ -3057,7 +3057,7 @@ ul.action-links li {
 /*
  * Highlight marks and form required mark
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031719}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031724}}
 .marker,
 .form-required {
   color: #cc0000;
@@ -3066,7 +3066,7 @@ ul.action-links li {
 /*
  * The submit button
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031731}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031736}}
 .container-inline div,
 .container-inline label {
   display: inline;
@@ -3078,7 +3078,7 @@ ul.action-links li {
 /*
  * Buttons used by contrib modules like Media
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031745}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031750}}
 a.button {
   -webkit-appearance: button;
   -moz-appearance: button;
@@ -3088,7 +3088,7 @@ a.button {
 /*
  * Password confirmation
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031753}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031758}}
 .password-parent,
 .confirm-parent {
   margin: 0;
@@ -3097,18 +3097,18 @@ a.button {
 /* =============================================================================
  *   Tables
  * ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031761}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031766}}
 table {
   margin: 10px 0;
   padding: 0;
   width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031766}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031771}}
 table.sticky-header {
   z-index: 10;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031776}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031781}}
 table,
 thead,
 tbody,
@@ -3118,27 +3118,27 @@ td {
   border-color: #cccccc;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031782}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031787}}
 table,
 td,
 th {
   vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031788}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031793}}
 caption,
 th,
 td {
   text-align: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031792}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031797}}
 thead tr {
   font-weight: 700;
   background-color: #e5e5e5;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031798}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031803}}
 td,
 th {
   border-bottom: 0;
@@ -3146,42 +3146,42 @@ th {
   padding: 5px 7px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031804}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031809}}
 tbody {
   /*foo*/
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031808}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031813}}
 tbody tr {
   border-top: 1px solid #cccccc;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031812}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031817}}
 tr {
   /* Table row striping */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031814}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031819}}
 tr.odd {
   background: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031821}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031826}}
 tr.info, tr.even, tr:nth-child(2n+2) {
   border-bottom: 0;
   background-color: whitesmoke;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031826}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031831}}
 tr.drag {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031830}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031835}}
 tr.drag-previous {
   /*foo*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031834}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031839}}
 tr.odd td.active {
   background-color: #eeeeee;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031838}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031843}}
 tr.even td.active {
   background-color: #ebebeb;
 }
@@ -3190,7 +3190,7 @@ tr.even td.active {
  * Forum tables
  * Core sets white-space to nowrap, which makes no sense
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031864}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031869}}
 #forum td .created,
 #forum td .posts,
 #forum td .topics,
@@ -3203,12 +3203,12 @@ tr.even td.active {
 /* =============================================================================
  *   Messages
  * ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031874}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031879}}
 div.messages {
   margin-bottom: 10px;
   margin-top: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031879}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031884}}
 div.messages ul {
   margin-top: 0;
   margin-bottom: 0;
@@ -3217,7 +3217,7 @@ div.messages ul {
 /*
  * Unpublished nodes
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031915}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031920}}
 .node-unpublished p.unpublished,
 .comment-unpublished p.unpublished {
   color: pink;
@@ -3238,28 +3238,28 @@ div.messages ul {
 /* =============================================================================
  *    Maintenance pages
  * ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031925}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031930}}
 .maintenance-page .container {
   padding: 40px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031930}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031935}}
 .maintenance-page #site-name,
 .maintenance-page #page-title {
   margin: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031936}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031941}}
 .db-offline .container {
   margin: 0 auto;
   padding: 40px 0;
   width: 100%;
   max-width: 960px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031943}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031948}}
 .db-offline div.messages {
   margin: 20px 0 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031947}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031952}}
 .db-offline #content {
   padding: 20px 0;
 }
@@ -3270,7 +3270,7 @@ div.messages ul {
 /*
  * Admin menu overrides
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031959}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031964}}
 #admin-menu {
   margin: 0;
   padding: 0;
@@ -3279,7 +3279,7 @@ div.messages ul {
 /*
  * Devel Module
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031967}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031972}}
 .dev-query {
   background: #eeeeee;
   padding: 30px;
@@ -3288,11 +3288,11 @@ div.messages ul {
 /*
  * Styleguide module tweaks
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031975}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031980}}
 #styleguide-header {
   padding: 0 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031978}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031983}}
 #styleguide-header .item-list {
   font-family: inherit;
   margin: 0 20px 20px 0;
@@ -3300,61 +3300,61 @@ div.messages ul {
   width: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031986}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031991}}
 ul > li > i {
   margin-right: 5px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031990}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000031995}}
 ol.alphabetical {
   list-style: lower-alpha;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032001}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032006}}
 table.empresas-colabora tr td {
   padding: 15px;
   vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032006}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032011}}
 table.empresas-colabora tr td img {
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032010}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032015}}
 .center {
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032014}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032019}}
 a.download {
   font-size: 12px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032018}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032023}}
 a.download i {
   margin-right: 4px;
   position: relative;
   top: -2px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032024}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032029}}
 #mini-menu-toggle-wrapper {
   display: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032028}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032033}}
 #menu-bar {
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032032}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032037}}
 .form-item, .form-actions {
   margin-bottom: 20px;
   margin-top: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032039}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032044}}
 .entity.entity-profile2.profile2-socio .field-label {
   line-height: 24px;
   margin: 0;
@@ -3363,7 +3363,7 @@ a.download i {
   text-align: right;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032048}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032053}}
 .image-style-thumbnail {
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -3371,99 +3371,99 @@ a.download i {
   padding: 4px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032052}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032057}}
 .perfil {
   margin-bottom: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032056}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032061}}
 .perfil .views-field-field-foto {
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032060}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032065}}
 .perfil .datos {
   padding-left: 65px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032063}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032068}}
 .perfil .datos .nombre {
   font-size: 18px;
   margin: 0 0 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032069}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032074}}
 .perfil .datos .contenidos > * {
   display: inline-block;
   margin-right: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032079}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032084}}
 .listado-socios .view-header {
   margin-bottom: 20px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032086}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032091}}
 .front .block-main.first {
   margin-top: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032090}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032095}}
 .front .block-main h4 {
   margin-bottom: 0.3em;
   margin-top: 1.3em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032095}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032100}}
 .front .block-main .node-readmore {
   display: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032108}}
 .view-resources table {
   border: none;
   border-top: 1px solid #ebebeb;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032107}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032112}}
 .view-resources table tbody tr {
   border: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032115}}
 .view-resources table tbody tr td ul {
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032112}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032117}}
 .view-resources table tbody tr td ul li {
   list-style: none outside none;
   margin: 0;
   padding: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032116}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032121}}
 .view-resources table tbody tr td ul li a {
   font-size: 12px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032133}}
 .views-tabs table, .views-tabs tr, .views-tabs td, .views-tabs th {
   border: none;
   margin: 0;
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032143}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032148}}
 .page-gestion-de-empresas #columns #content-column, .page-gestion-de-socios #columns #content-column {
   width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032146}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032151}}
 .page-gestion-de-empresas #columns .sidebar, .page-gestion-de-socios #columns .sidebar {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032151}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032156}}
 .page-gestion-de-empresas .views-exposed-widgets .views-exposed-widget, .page-gestion-de-socios .views-exposed-widgets .views-exposed-widget {
   width: 22%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032156}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032161}}
 img.centered {
   display: block;
   margin: 0 auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032162}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032167}}
 .node-product-display-susc-aed .field-type-commerce-product-reference {
   text-align: center;
 }
@@ -3502,7 +3502,7 @@ article#node-28 .field-name-field-image {
   padding: 0 5px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032170}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/global\.styles\.scss}line{font-family:\000032175}}
 .view-commerce-user-orders td, .view-commerce-user-orders th {
   white-space: nowrap;
 }
