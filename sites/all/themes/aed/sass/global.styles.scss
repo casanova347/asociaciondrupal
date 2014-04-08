@@ -1536,7 +1536,12 @@ ul.action-links {
 }
 
 .node-article {
-  /*foo*/
+  .field-name-field-image {
+    img {
+      width: 100%;
+    }
+  }
+
 }
 
 .node-book {

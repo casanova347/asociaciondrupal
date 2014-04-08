@@ -97,7 +97,7 @@ html {
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/responsive\.smartphone\.landscape\.scss}line{font-family:\00003118}}
 #mini-menu-toggle-wrapper a {
-  background: url('images/menu-toggle.png') no-repeat scroll 50% 50% transparent;
+  background: url('../images/menu-toggle.png?1392633188') no-repeat scroll 50% 50% transparent;
   display: inline-block;
   float: right;
   height: 21px;
