@@ -1,0 +1,12 @@
+// Solución para textos que pueden ser de una linea o mas, pero necesitan siempre estar centrados verticalmente.
+// El lugar donde se incluya debe tener si o si establecido un height determinado.
+// Uso:    @include vertical-multi-line();
+@mixin vertical-multi-line {
+  display: table;
+  height: 100%;
+
+  > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
