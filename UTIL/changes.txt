@@ -1,0 +1,5 @@
+- Activar:
+    context
+    context UI
+    context_omega
+
