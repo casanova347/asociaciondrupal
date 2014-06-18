@@ -29,7 +29,7 @@ function aed_videos_flag_default_flags() {
   $flags['video_visualizado'] = array(
     'entity_type' => 'node',
     'title' => 'Video visualizado',
-    'global' => 1,
+    'global' => 0,
     'types' => array(
       0 => 'videos',
     ),
