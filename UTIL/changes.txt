@@ -1,5 +1,15 @@
+- Eliminar la tabla "flag", "flagging", "flag_types", "flag_counts": DROP TABLE `flag`, `flagging`, `flag_counts`, `flag_types`;
+
 - Activar:
     context
     context UI
     context_omega
+    Flag
+    Flag Bookmark
+    views_field_flag
 
+- Desactivar y eliminar:
+    Commerce Recurring UI
+    Commerce Recurring
+    Commerce Recurring Paypal
+    Update manager
