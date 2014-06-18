@@ -13,3 +13,6 @@
     Commerce Recurring
     Commerce Recurring Paypal
     Update manager
+
+- Activar features:
+    views AED
