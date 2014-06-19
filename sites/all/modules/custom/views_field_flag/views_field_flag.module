@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * Implements hook_views_api().
+ */
+function views_field_flag_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+/**
+ * This handler provides a flag link for a given product display
+ */
+class views_field_flag_handler_flag_video_visualizado extends views_handler_field_node {
+
+  function construct() {
+    parent::construct();
+  }
+
+  function query() {
+    //nothing
+  }
+
+  /**
+   * Renders the field handler.
+   */
+  function render($values) {
+    $nid = $values->entity;
+    $link = flag_create_link('video_visualizado', $nid);
+    return $link;
+  }
+}
+
+
+/**
+ * Implements hook_views_data().
+ */
+function views_field_flag_views_data() {
+  $data['views_field_flag']['table']['group'] = 'views_field_flag';
+  $data['views_field_flag']['table']['join'] = array(
+    // #global is a special flag which let's a table appear all the time.
+    '#global' => array(),
+  );
+
+  $data['views_field_flag']['video_visualizado'] = array(
+    'title' => t('Link para flag de Video visualizado'),
+    'help' => t('Renderiza el link de Video visualizado, de un video.'),
+    'field' => array(
+      'handler' => 'views_field_flag_handler_flag_video_visualizado',
+    ),
+  );
+
+  return $data;
+}

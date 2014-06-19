@@ -1,0 +1,6 @@
+// Genera un bg con su width y height.
+@mixin bg-build($img, $repeat: no-repeat, $x: 0, $y: 0, $color: transparent) {
+  background: image-url($img) $repeat $x $y $color;
+  width: image-width($img);
+  height: image-height($img);
+}

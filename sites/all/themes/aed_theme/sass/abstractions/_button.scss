@@ -1,0 +1,60 @@
+//Helper para cambiar el tamaño de los botones
+@mixin btn-size($size: 'normal') {
+
+  //Tratamos los tamaños
+  @if $size == 'small' {
+    padding: 2px 5px;
+
+  } @else if $size == 'medium' {
+    padding: 7px 10px;
+
+  } @else if $size == 'large' {
+    padding: 17px 20px;
+
+  } @else if $size == 'x-large' {
+    padding: 22px 25px;
+
+  } @else if $size == 'xx-large' {
+    padding: 27px 30px;
+
+  } @else if $size == 'xxx-large' {
+    padding: 32px 35px;
+
+  } @else {
+    padding: 12px 15px;
+  }
+}
+
+// Este mixin permite definir bg color, color de fuente y tamaño del botón.
+// Asi mismo, permite tomar control sobre el color de fuente y bg en estado hover.
+// Uso: @include button( [definimos las variables que necesitemos] )
+@mixin button($btn-color: #CCC, $font-color: #FFF, $size: 'normal', $btn-hover-color: $btn-color, $font-hover-color: $font-color) {
+  cursor: pointer;
+  display: inline-block;
+  color: $font-color;
+  background-color: $btn-color;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  @include transition-property(all);
+  @include transition-duration(0.3s);
+
+  // Si no establecemos otro color de hover, toma x defecto el del bg y lo aclara.
+  @if $btn-hover-color == $btn-color {
+    $btn-hover-color: lighten($btn-hover-color, 5%);
+  }
+
+  &:hover, &:focus {
+    text-decoration: none;
+    background-color: $btn-hover-color;
+    color: $font-hover-color;
+  }
+
+  &:active {
+    background-color: darken($btn-color, 5%);
+  }
+
+  // Establecemos el tamaño del boton.
+  @include btn-size($size);
+
+}

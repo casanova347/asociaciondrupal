@@ -1,0 +1,235 @@
+/*
+hay un helper necesario: justified-list.js
+*/
+// "Justifica" una lista de elementos.
+// @see http://code.jelmerdemaat.nl/2012/perfectly-justified-css-grid-technique-using-inline-block/
+// Para usar este mixin solo hace falta cumplir con una estructura <contenedor><elemento></elemento><elemento></elemento></contenedor>
+//Usage: contenedor{ @include justified-list(); }
+@mixin justified-list1($font-size: 12px, $text-align: center) {
+  width: 100%;
+  text-align: justify;
+  line-height: normal;
+  clear: both;
+  padding: 0;
+  font-size: 0;
+  font-size: #{$font-size}\9; /* IE6-9 only hack */
+
+  > * {
+    display: inline-block;
+    font-size: $font-size;
+    text-align: $text-align;
+    vertical-align: top;
+    padding: 0;
+    zoom: 1;
+    *display: inline;
+  }
+
+  &:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+}
+
+// Esta es una segunda versión de justified list para los lugares donde no funciona completamente la primera versión
+// @see http://jsfiddle.net/NGLN/MppZN/2/
+// Estructura: <contenedor><ul><li></li>..</ul></contenedor>
+//Usage: contenedor{ @include justified-list2(); }
+@mixin justified-list2($font-size: 12px, $text-align: center) {
+  width: 100%;
+  text-align: justify;
+  text-justify: distribute; /* IE11 hack */
+  line-height: normal;
+  clear: both;
+  padding: 0;
+  font-size: 0;
+  font-size: #{$font-size}\9; /* IE6-9 only hack */
+
+  > ul {
+    display: inline;
+    float: none;
+
+    li {
+      float: none;
+      display: inline-block;
+      font-size: $font-size;
+      text-align: $text-align;
+      vertical-align: top;
+      padding: 0;
+      zoom: 1;
+      *display: inline;
+    }
+
+    &:after {
+      content: "";
+      width: 100%;
+      display: inline-block;
+      zoom: 1;
+      *display: inline;
+    }
+  }
+}
+
+// Nueva version de justified-list.
+// @todo No reemplazo el actual hasta que no se revise donde se usa y veamos que todo sigue funcionando.
+@mixin justified-list3($font-size: 12px, $text-align: center) {
+  width: 100%;
+  text-align: justify;
+  line-height: normal;
+  clear: both;
+  padding: 0;
+  font-size: 1px;
+
+  &:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+
+  > * {
+    display: inline-block;
+    font-size: $font-size;
+    text-align: $text-align;
+    vertical-align: top;
+    padding: 0;
+  }
+
+}
+
+// "Justifica" una lista de elementos.
+// @see http://code.jelmerdemaat.nl/2012/perfectly-justified-css-grid-technique-using-inline-block/
+// Para usar este mixin solo hace falta cumplir con una estructura <contenedor><elemento></elemento><elemento></elemento></contenedor>
+//Usage: contenedor{ @include justified-list4(); }
+@mixin justified-list4($font-size: 12px, $text-align: center) {
+  width: 100%;
+  text-align: justify;
+  line-height: normal;
+  clear: both;
+  padding: 0;
+  font-size: 0;
+  font-size: #{$font-size} \9; /* IE6-9 only hack */
+
+  > * {
+    display: inline-block;
+    font-size: $font-size;
+    text-align: $text-align;
+    vertical-align: top;
+    padding: 0;
+    zoom: 1;
+    *display: inline;
+  }
+
+  &:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+}
+
+// "Justifica" una lista de elementos.
+// @see http://code.jelmerdemaat.nl/2012/perfectly-justified-css-grid-technique-using-inline-block/
+// Para usar este mixin solo hace falta cumplir con una estructura <contenedor><elemento></elemento><elemento></elemento></contenedor>
+//Usage: contenedor{ @include justified-list5(); }
+@mixin justified-list5($font-size: 12px, $text-align: center) {
+  width: 100%;
+  text-align: justify;
+  line-height: normal;
+  clear: both;
+  padding: 0;
+  font-size: 1px;
+
+  &:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+
+  > * {
+    display: inline-block;
+    font-size: $font-size;
+    text-align: $text-align;
+    vertical-align: top;
+    padding: 0;
+  }
+
+}
+
+// "Justifica" una lista de elementos.
+// @see http://code.jelmerdemaat.nl/2012/perfectly-justified-css-grid-technique-using-inline-block/
+// Para usar este mixin solo hace falta cumplir con una estructura <contenedor><elemento></elemento><elemento></elemento></contenedor>
+//Usage: contenedor{ @include justified-list6(); }
+@mixin justified-list6($font-size: 12px, $text-align: center) {
+  width: 100%;
+  text-align: justify;
+  text-justify: distribute; /* IE11 hack */
+  line-height: normal;
+  clear: both;
+  padding: 0;
+  font-size: 0;
+  font-size: #{$font-size}\9; /* IE6-9 only hack */
+
+  > * {
+    display: inline-block;
+    font-size: $font-size;
+    text-align: $text-align;
+    vertical-align: top;
+    padding: 0;
+    zoom: 1;
+    *display: inline;
+  }
+
+  &:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+}
+
+// Esta es una segunda versión de justified list para los lugares donde no funciona completamente la primera versión
+// @see http://jsfiddle.net/NGLN/MppZN/2/
+// Estructura: <contenedor><ul><li></li>..</ul></contenedor>
+//Usage: contenedor{ @include justified-list7(); }
+@mixin justified-list7($font-size: 12px, $text-align: center) {
+  width: 100%;
+  text-align: justify;
+  text-justify: distribute; /* IE11 hack */
+  line-height: normal;
+  clear: both;
+  padding: 0;
+  font-size: 0;
+  font-size: #{$font-size}\9; /* IE6-9 only hack */
+
+  > ul {
+    display: inline;
+    float: none;
+
+    li {
+      float: none;
+      display: inline-block;
+      font-size: $font-size;
+      text-align: $text-align;
+      vertical-align: top;
+      padding: 0;
+      zoom: 1;
+      *display: inline;
+    }
+
+    &:after {
+      content: "";
+      width: 100%;
+      display: inline-block;
+      zoom: 1;
+      *display: inline;
+    }
+  }
+}

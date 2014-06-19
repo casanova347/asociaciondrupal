@@ -71,7 +71,7 @@
   position: absolute;
   visibility: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000386}}
 #user-profile-form .form-item-pass .description,
 #user-profile-form .form-item-pass .password-suggestions.description {
   display: none !important;
@@ -88,8 +88,8 @@
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003100}}
 #user-profile-form .form-item-pass .password-indicator .indicator {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background-color: #0E90D2;
   background-image: linear-gradient(to bottom, #149bdf, #0480be);

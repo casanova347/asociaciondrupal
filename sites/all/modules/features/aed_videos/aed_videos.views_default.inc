@@ -45,6 +45,7 @@ function aed_videos_views_default_views() {
     'field_videos_video' => 'field_videos_video',
     'title' => 'title',
     'body' => 'title',
+    'video_visualizado' => 'field_videos_video',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -63,6 +64,11 @@ function aed_videos_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'video_visualizado' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   /* Comportamiento si no hay resultados: Global: Área de texto */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -70,9 +76,12 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = '<img src="/sites/default/files/no-results.jpg" />
-<p>"Estos no son los androides que buscas"</p>
-';
+<p>Estos no son los androides que buscas</p>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
+  /* Relación: Indexed Nodo: Users who flagged the entity with flag bookmarks */
+  $handler->display->display_options['relationships']['flag_bookmarks_user']['id'] = 'flag_bookmarks_user';
+  $handler->display->display_options['relationships']['flag_bookmarks_user']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['relationships']['flag_bookmarks_user']['field'] = 'flag_bookmarks_user';
   /* Campo: Indexed Nodo: Video */
   $handler->display->display_options['fields']['field_videos_video']['id'] = 'field_videos_video';
   $handler->display->display_options['fields']['field_videos_video']['table'] = 'search_api_index_default_node_index';
@@ -104,6 +113,12 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
   );
+  /* Campo: views_field_flag: Link para flag de Video visualizado */
+  $handler->display->display_options['fields']['video_visualizado']['id'] = 'video_visualizado';
+  $handler->display->display_options['fields']['video_visualizado']['table'] = 'views_field_flag';
+  $handler->display->display_options['fields']['video_visualizado']['field'] = 'video_visualizado';
+  $handler->display->display_options['fields']['video_visualizado']['label'] = '';
+  $handler->display->display_options['fields']['video_visualizado']['element_label_colon'] = FALSE;
   /* Criterio de ordenación: Indexed Nodo: Año */
   $handler->display->display_options['sorts']['field_videos_ano']['id'] = 'field_videos_ano';
   $handler->display->display_options['sorts']['field_videos_ano']['table'] = 'search_api_index_default_node_index';
@@ -121,17 +136,17 @@ function aed_videos_views_default_views() {
     2 => '2',
     1 => 0,
     3 => 0,
-    4 => 0,
-    5 => 0,
     6 => 0,
-    7 => 0,
-    8 => 0,
     9 => 0,
+    8 => 0,
+    5 => 0,
+    4 => 0,
+    7 => 0,
+    10 => 0,
   );
   $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
     'title' => 'title',
     'body:value' => 'body:value',
-    'field_videos_video:description' => 'field_videos_video:description',
   );
   /* Criterios de filtrado: Indexed Nodo: Estado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -167,8 +182,8 @@ function aed_videos_views_default_views() {
     t('siguiente ›'),
     t('última »'),
     t('<img src="/sites/default/files/no-results.jpg" />
-<p>"Estos no son los androides que buscas"</p>
-'),
+<p>Estos no son los androides que buscas</p>'),
+    t('Users who flagged the entity with flag bookmarks'),
     t('Page'),
   );
   $export['videos'] = $view;

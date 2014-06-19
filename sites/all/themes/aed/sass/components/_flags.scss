@@ -1,0 +1,30 @@
+.flag-wrapper {
+  &.flag-video-visualizado {
+    a {
+      color: white;
+      background: $link-color;
+      @include border-radius(3px);
+      padding: 7px 10px;
+      display: inline-block;
+      line-height: normal;
+      @include transition(all .3s);
+
+      &:hover {
+        background: $link-hover-color;
+        text-decoration: none;
+      }
+
+      &:before {
+        margin-right: 5px;
+      }
+
+      &.flag-action {
+      }
+
+      &.unflag-action {
+        background: forestgreen;
+      }
+
+    }
+  }
+}

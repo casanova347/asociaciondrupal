@@ -1,0 +1,58 @@
+@include establish-baseline($base-font-size);
+
+html {
+  font-family: $font-family-openSans;
+  color: $color-blue-b;
+}
+
+//
+a {
+  @include adjust-font-size-to(14px);
+  text-decoration: none;
+  color: $color-blue-d;
+  @include transition(color 300ms);
+  //  @include link-colors($orange, #000, $pale-orange, $orange, #000);
+
+  &:hover {
+    color: darken($color-blue-d, 30%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  margin-top: 0;
+}
+
+h1 {
+  @include adjust-font-size-to(32px);
+  margin: 0;
+}
+
+h2 {
+  @include adjust-font-size-to(28px);
+}
+
+h3 {
+  @include adjust-font-size-to(24px);
+}
+
+h4 {
+  @include adjust-font-size-to(22px);
+}
+
+h5 {
+  @include adjust-font-size-to(20px);
+}
+
+h6 {
+  @include adjust-font-size-to(18px);
+}
