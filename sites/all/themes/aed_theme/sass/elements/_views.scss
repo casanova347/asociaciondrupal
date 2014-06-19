@@ -1,0 +1,65 @@
+// Formateo estandar para las vistas tipo grid.
+// Ajusta equitativamente cada columna en el espacio segun la cantidad que haya.
+// Se puede modificar el espaciado entre columnas
+// Uso:  @include views-view-grid();
+@mixin views-view-grid($cell-space: 10px) {
+  width: 100%;
+  margin: 0;
+
+  // Distribución en base a cuantas columnas hay
+  // -----------------------------------------
+  &.cols-2 {
+    td {
+      width: 50%;
+    }
+  }
+
+  &.cols-3 {
+    td {
+      width: 33.333333%;
+    }
+  }
+
+  &.cols-4 {
+    td {
+      width: 25%;
+    }
+  }
+
+  &.cols-5 {
+    td {
+      width: 20%;
+    }
+  }
+
+  // Paddings entre celdas
+  // ---------------------
+  .row-first {
+    > td {
+      padding-top: 0;
+    }
+  }
+
+  .row-last {
+    > td {
+      padding-bottom: 0;
+    }
+  }
+
+  // Maquetación basica de cada celda.
+  // ---------------------------------
+  td {
+    vertical-align: top;
+    position: relative;
+    padding: $cell-space;
+
+    &.col-first {
+      padding-left: 0;
+    }
+
+    &.col-last {
+      padding-right: 0;
+    }
+  }
+
+}

@@ -21,6 +21,51 @@ function aed_videos_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_flag_default_flags().
+ */
+function aed_videos_flag_default_flags() {
+  $flags = array();
+  // Exported flag: "Video visualizado".
+  $flags['video_visualizado'] = array(
+    'entity_type' => 'node',
+    'title' => 'Video visualizado',
+    'global' => 0,
+    'types' => array(
+      0 => 'videos',
+    ),
+    'flag_short' => 'Marcar como visto',
+    'flag_long' => 'Marcar este vídeo como visto',
+    'flag_message' => '',
+    'unflag_short' => 'Desmarcar como visto',
+    'unflag_long' => 'Quitar la marca de video visto',
+    'unflag_message' => '',
+    'unflag_denied_text' => '',
+    'link_type' => 'toggle',
+    'weight' => 0,
+    'show_in_links' => array(
+      'full' => 0,
+      'teaser' => 0,
+      'rss' => 0,
+      'search_index' => 0,
+      'search_result' => 0,
+      'token' => 0,
+    ),
+    'show_as_field' => 0,
+    'show_on_form' => 0,
+    'access_author' => '',
+    'show_contextual_link' => 0,
+    'i18n' => 0,
+    'api_version' => 3,
+    'module' => 'aed_videos',
+    'locked' => array(
+      0 => 'name',
+    ),
+  );
+  return $flags;
+
+}
+
+/**
  * Implements hook_node_info().
  */
 function aed_videos_node_info() {
@@ -135,6 +180,7 @@ function aed_videos_default_search_api_index() {
         }
       },
       "fields" : {
+        "nid" : { "type" : "integer" },
         "type" : { "type" : "string" },
         "title" : { "type" : "text", "boost" : "5.0" },
         "status" : { "type" : "integer" },
@@ -153,10 +199,7 @@ function aed_videos_default_search_api_index() {
         "field_videos_version" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "search_api_language" : { "type" : "string" },
-        "body:value" : { "type" : "text" },
-        "field_videos_video:video_url" : { "type" : "uri" },
-        "field_videos_video:thumbnail_path" : { "type" : "uri" },
-        "field_videos_video:description" : { "type" : "text" }
+        "body:value" : { "type" : "text" }
       }
     },
     "enabled" : "1",

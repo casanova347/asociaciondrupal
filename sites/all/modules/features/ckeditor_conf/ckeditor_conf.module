@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AED Ckeditor conf feature.
+ */
+
+include_once 'ckeditor_conf.features.inc';

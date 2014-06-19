@@ -1,0 +1,1 @@
+Estructura y particularidades de paginas bien conocidas: contacto, ficha de un usuario, home, etc
