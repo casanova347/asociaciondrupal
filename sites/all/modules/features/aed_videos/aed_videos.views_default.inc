@@ -78,10 +78,6 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = '<img src="/sites/default/files/no-results.jpg" />
 <p>Estos no son los androides que buscas</p>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
-  /* Relación: Indexed Nodo: Users who flagged the entity with flag bookmarks */
-  $handler->display->display_options['relationships']['flag_bookmarks_user']['id'] = 'flag_bookmarks_user';
-  $handler->display->display_options['relationships']['flag_bookmarks_user']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['relationships']['flag_bookmarks_user']['field'] = 'flag_bookmarks_user';
   /* Campo: Indexed Nodo: Video */
   $handler->display->display_options['fields']['field_videos_video']['id'] = 'field_videos_video';
   $handler->display->display_options['fields']['field_videos_video']['table'] = 'search_api_index_default_node_index';
@@ -117,8 +113,6 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['fields']['video_visualizado']['id'] = 'video_visualizado';
   $handler->display->display_options['fields']['video_visualizado']['table'] = 'views_field_flag';
   $handler->display->display_options['fields']['video_visualizado']['field'] = 'video_visualizado';
-  $handler->display->display_options['fields']['video_visualizado']['label'] = '';
-  $handler->display->display_options['fields']['video_visualizado']['element_label_colon'] = FALSE;
   /* Criterio de ordenación: Indexed Nodo: Año */
   $handler->display->display_options['sorts']['field_videos_ano']['id'] = 'field_videos_ano';
   $handler->display->display_options['sorts']['field_videos_ano']['table'] = 'search_api_index_default_node_index';
@@ -183,7 +177,7 @@ function aed_videos_views_default_views() {
     t('última »'),
     t('<img src="/sites/default/files/no-results.jpg" />
 <p>Estos no son los androides que buscas</p>'),
-    t('Users who flagged the entity with flag bookmarks'),
+    t('Link para flag de Video visualizado'),
     t('Page'),
   );
   $export['videos'] = $view;

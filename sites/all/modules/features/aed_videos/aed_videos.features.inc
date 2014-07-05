@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function aed_videos_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
   if ($module == "video_embed_field" && $api == "default_video_embed_styles") {
     return array("version" => "1");
   }
@@ -55,11 +58,11 @@ function aed_videos_flag_default_flags() {
     'access_author' => '',
     'show_contextual_link' => 0,
     'i18n' => 0,
-    'api_version' => 3,
     'module' => 'aed_videos',
     'locked' => array(
       0 => 'name',
     ),
+    'api_version' => 3,
   );
   return $flags;
 
@@ -180,16 +183,12 @@ function aed_videos_default_search_api_index() {
         }
       },
       "fields" : {
-        "nid" : { "type" : "integer" },
-        "type" : { "type" : "string" },
-        "title" : { "type" : "text", "boost" : "5.0" },
-        "status" : { "type" : "integer" },
-        "promote" : { "type" : "boolean" },
-        "sticky" : { "type" : "boolean" },
-        "created" : { "type" : "date" },
-        "changed" : { "type" : "date" },
         "author" : { "type" : "integer", "entity_type" : "user" },
+        "body:value" : { "type" : "text" },
+        "changed" : { "type" : "date" },
         "comment_count" : { "type" : "integer" },
+        "created" : { "type" : "date" },
+        "field_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_video_ponente" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_videos_ano" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_videos_audiencia" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
@@ -197,9 +196,13 @@ function aed_videos_default_search_api_index() {
         "field_videos_idioma" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_videos_nivel" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_videos_version" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "nid" : { "type" : "integer" },
+        "promote" : { "type" : "boolean" },
         "search_api_language" : { "type" : "string" },
-        "body:value" : { "type" : "text" }
+        "status" : { "type" : "integer" },
+        "sticky" : { "type" : "boolean" },
+        "title" : { "type" : "text", "boost" : "5.0" },
+        "type" : { "type" : "string" }
       }
     },
     "enabled" : "1",

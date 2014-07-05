@@ -26,7 +26,7 @@ class views_field_flag_handler_flag_video_visualizado extends views_handler_fiel
    * Renders the field handler.
    */
   function render($values) {
-    $nid = $values->entity;
+    $nid = is_numeric($values->entity) ? $values->entity : $values->entity->nid;
     $link = flag_create_link('video_visualizado', $nid);
     return $link;
   }
