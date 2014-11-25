@@ -23,9 +23,8 @@ function aed_company_field_group_info() {
     'label' => 'info',
     'weight' => '0',
     'children' => array(
-      0 => 'field_partner_slogan',
-      1 => 'field_partner_web',
-      2 => 'field_partner_descripcion',
+      0 => 'field_partner_web',
+      1 => 'field_partner_year_sponsor',
     ),
     'format_type' => 'div',
     'format_settings' => array(
