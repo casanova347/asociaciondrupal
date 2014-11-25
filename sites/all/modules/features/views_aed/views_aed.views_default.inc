@@ -444,7 +444,11 @@ function views_aed_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'none';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '21600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '21600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
@@ -491,7 +495,7 @@ function views_aed_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<p>Si quieres ser parte de la asociación puede hacerte socio <a href="/content/suscripcion-anual-la-asociacion-espanola-de-drupal">aquí</a></p>';
+  $handler->display->display_options['header']['area']['content'] = '<p>Si quieres ser parte de la asociación puede hacerte socio <a href="/content/suscripcion-anual-la-asociacion-espanola-de-drupal">aquí</a></p><p>Si ya eres socio y quieres aparecer en este listado, ves a tu perfil y habilitalo.</p>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Campo: Perfil: Foto */
   $handler->display->display_options['fields']['field_foto']['id'] = 'field_foto';
@@ -636,7 +640,7 @@ function views_aed_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('<p>Si quieres ser parte de la asociación puede hacerte socio <a href="/content/suscripcion-anual-la-asociacion-espanola-de-drupal">aquí</a></p>'),
+    t('<p>Si quieres ser parte de la asociación puede hacerte socio <a href="/content/suscripcion-anual-la-asociacion-espanola-de-drupal">aquí</a></p><p>Si ya eres socio y quieres aparecer en este listado, ves a tu perfil y habilitalo.</p>'),
     t('Drupal.org'),
     t('Facebook'),
     t('Google plus'),

@@ -17,7 +17,7 @@ fieldset {
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\0000390}}
 button,
 input[type="button"],
 input[type="reset"],
@@ -43,7 +43,7 @@ input[type="submit"] {
   vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\0000397}}
 input[type="text"],
 input[type="password"],
 select,
@@ -65,10 +65,11 @@ textarea {
   width: 100%;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\0000397}}
   input[type="text"],
   input[type="password"],
   select,
@@ -77,25 +78,25 @@ textarea {
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\00003101}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\00003102}}
 input:-moz-placeholder,
 textarea:-moz-placeholder {
   color: #999999;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\00003106}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\00003107}}
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   color: #999999;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\00003112}}
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: #999999;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\00003116}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/forms\.scss}line{font-family:\00003117}}
 #edit-account,
 .profile2-form {
   margin-bottom: 10px;
