@@ -22,7 +22,7 @@ function aed_company_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 12,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'company',
@@ -52,13 +52,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 2,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'company',
@@ -97,10 +93,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 4,
+        'type' => 'hidden',
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'company',
@@ -130,11 +125,11 @@ function aed_company_field_default_field_instances() {
     'description' => 'Descripción pública de la empresa. Será visible si se muestra desplegada.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 11,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'company',
@@ -169,10 +164,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 9,
+        'type' => 'hidden',
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'company',
@@ -208,14 +202,14 @@ function aed_company_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'partner_deployed',
         ),
         'type' => 'image',
-        'weight' => 1,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'company',
@@ -254,10 +248,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'email',
         'settings' => array(),
-        'type' => 'email_default',
-        'weight' => 5,
+        'type' => 'hidden',
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'company',
@@ -287,9 +280,8 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 10,
       ),
     ),
@@ -324,7 +316,7 @@ function aed_company_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 13,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'company',
@@ -355,10 +347,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'company',
@@ -388,11 +379,11 @@ function aed_company_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'company',
@@ -426,7 +417,7 @@ function aed_company_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 8,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'company',
@@ -471,10 +462,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 7,
+        'type' => 'hidden',
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'company',

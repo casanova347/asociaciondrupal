@@ -295,15 +295,15 @@ function aed_company_views_default_views() {
     'caption' => '',
   );
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Campo: Empresa: Página web */
-  $handler->display->display_options['fields']['field_partner_web']['id'] = 'field_partner_web';
-  $handler->display->display_options['fields']['field_partner_web']['table'] = 'field_data_field_partner_web';
-  $handler->display->display_options['fields']['field_partner_web']['field'] = 'field_partner_web';
-  $handler->display->display_options['fields']['field_partner_web']['label'] = '';
-  $handler->display->display_options['fields']['field_partner_web']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_partner_web']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_partner_web']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_partner_web']['type'] = 'link_plain';
+  /* Campo: Empresa: URL */
+  $handler->display->display_options['fields']['url']['id'] = 'url';
+  $handler->display->display_options['fields']['url']['table'] = 'views_entity_company';
+  $handler->display->display_options['fields']['url']['field'] = 'url';
+  $handler->display->display_options['fields']['url']['label'] = '';
+  $handler->display->display_options['fields']['url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
+  $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
   /* Campo: Empresa: Años patrocinados */
   $handler->display->display_options['fields']['field_partner_year_sponsor']['id'] = 'field_partner_year_sponsor';
   $handler->display->display_options['fields']['field_partner_year_sponsor']['table'] = 'field_data_field_partner_year_sponsor';
@@ -320,9 +320,7 @@ function aed_company_views_default_views() {
   $handler->display->display_options['fields']['field_partner_logo']['field'] = 'field_partner_logo';
   $handler->display->display_options['fields']['field_partner_logo']['label'] = '';
   $handler->display->display_options['fields']['field_partner_logo']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_partner_logo']['alter']['path'] = '[field_partner_web]';
-  $handler->display->display_options['fields']['field_partner_logo']['alter']['absolute'] = TRUE;
-  $handler->display->display_options['fields']['field_partner_logo']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['field_partner_logo']['alter']['path'] = '[url]';
   $handler->display->display_options['fields']['field_partner_logo']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_partner_logo']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_partner_logo']['settings'] = array(

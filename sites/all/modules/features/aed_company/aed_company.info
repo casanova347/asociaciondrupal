@@ -35,6 +35,7 @@ features[field_base][] = field_partner_phone
 features[field_base][] = field_partner_slogan
 features[field_base][] = field_partner_web
 features[field_base][] = field_partner_year_sponsor
+features[field_group][] = group_info|company|partner|default
 features[field_group][] = group_partner|company|partner|form
 features[field_instance][] = company-partner-field_partner_casos_de_exito
 features[field_instance][] = company-partner-field_partner_compact_logo
