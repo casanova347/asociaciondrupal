@@ -7,5 +7,21 @@ sites/all/themes/aed/.sass-cache
 #IDEs
 .idea
 
-#sites/*/files
+sites/*/files
 sites/*/private
+
+# Root removed files
+UPGRADE.txt
+CHANGELOG.txt
+COPYRIGHT.txt
+INSTALL.mysql.txt
+INSTALL.pgsql.txt
+INSTALL.sqlite.txt
+INSTALL.txt
+LICENSE.txt
+MAINTAINERS.txt
+README.txt
+PGRADE.txt
+web.config
+xmlrpc.php
+install.php
