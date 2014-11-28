@@ -10,6 +10,40 @@
 function aed_company_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'company-partner-field_partner_casos_de_exito'
+  $field_instances['company-partner-field_partner_casos_de_exito'] = array(
+    'bundle' => 'partner',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Descripción pormenorizada de los casos de éxito de la empresa. Campo público.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'company',
+    'field_name' => 'field_partner_casos_de_exito',
+    'label' => 'Casos de éxito',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 12,
+    ),
+  );
+
   // Exported field_instance: 'company-partner-field_partner_compact_logo'
   $field_instances['company-partner-field_partner_compact_logo'] = array(
     'bundle' => 'partner',
@@ -18,13 +52,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 2,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'company',
@@ -63,10 +93,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 4,
+        'type' => 'hidden',
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'company',
@@ -88,6 +117,40 @@ function aed_company_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'company-partner-field_partner_descripcion'
+  $field_instances['company-partner-field_partner_descripcion'] = array(
+    'bundle' => 'partner',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Descripción pública de la empresa. Será visible si se muestra desplegada.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'company',
+    'field_name' => 'field_partner_descripcion',
+    'label' => 'Descripción',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 11,
+    ),
+  );
+
   // Exported field_instance: 'company-partner-field_partner_location'
   $field_instances['company-partner-field_partner_location'] = array(
     'bundle' => 'partner',
@@ -101,10 +164,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 9,
+        'type' => 'hidden',
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'company',
@@ -140,11 +202,11 @@ function aed_company_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'partner_deployed',
         ),
         'type' => 'image',
         'weight' => 1,
@@ -186,10 +248,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'email',
         'settings' => array(),
-        'type' => 'email_default',
-        'weight' => 5,
+        'type' => 'hidden',
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'company',
@@ -219,10 +280,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 10,
+        'type' => 'hidden',
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'company',
@@ -244,6 +304,40 @@ function aed_company_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'company-partner-field_partner_oferta_de_empleo'
+  $field_instances['company-partner-field_partner_oferta_de_empleo'] = array(
+    'bundle' => 'partner',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Si la empresa dispone de ofertas de empleo, aquí se pueden detallar y poner enlaces externos hacia ella.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'company',
+    'field_name' => 'field_partner_oferta_de_empleo',
+    'label' => 'Oferta de empleo',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 13,
+    ),
+  );
+
   // Exported field_instance: 'company-partner-field_partner_phone'
   $field_instances['company-partner-field_partner_phone'] = array(
     'bundle' => 'partner',
@@ -253,10 +347,9 @@ function aed_company_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'company',
@@ -286,11 +379,10 @@ function aed_company_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'text',
+        'label' => 'hidden',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 3,
+        'type' => 'hidden',
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'company',
@@ -324,7 +416,7 @@ function aed_company_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 8,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'company',
@@ -368,11 +460,11 @@ function aed_company_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 7,
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'company',
@@ -394,15 +486,21 @@ function aed_company_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Años patrocinados');
+  t('Casos de éxito');
+  t('Descripción');
+  t('Descripción pormenorizada de los casos de éxito de la empresa. Campo público.');
+  t('Descripción pública de la empresa. Será visible si se muestra desplegada.');
   t('Eslogan');
   t('Logo');
   t('Logo compacto');
   t('Lugar de operaciones');
   t('Mail de contacto');
   t('Notas');
+  t('Oferta de empleo');
   t('Persona de contacto');
   t('Página web');
   t('Si dispone de una versión compacta de su logo agréguela. Quedará mejor si la queremos colocar en un banner en el que nos veamos limitados por el espacio.');
+  t('Si la empresa dispone de ofertas de empleo, aquí se pueden detallar y poner enlaces externos hacia ella.');
   t('Teléfono de contacto');
 
   return $field_instances;

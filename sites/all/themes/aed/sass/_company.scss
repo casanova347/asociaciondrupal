@@ -1,0 +1,38 @@
+.page-company {
+  header#main-content-header {
+    width: 40%;
+  }
+  .group-info {
+    width: 40%;
+    margin-right: 10%;
+    float: left;
+    .field-name-field-partner-year-sponsor {
+      margin-top: 10px;
+      h2 {
+        padding: 0;
+        margin: 0;
+      }
+      ul{
+      margin: 0;
+      padding: 0;
+        li{
+           list-style: none;
+           display: inline;
+           padding: 0 0 0 10px;
+         }
+      }
+    }
+  }
+  .field-name-field-partner-logo {
+    width: 50%;
+    float: left;
+    margin-top: -50px;
+  }
+
+  .field-name-field-partner-descripcion,
+  .field-name-field-partner-casos-de-exito,
+  .field-name-field-partner-oferta-de-empleo{
+   margin-top: 10px; 
+   clear: both;
+  }
+}
