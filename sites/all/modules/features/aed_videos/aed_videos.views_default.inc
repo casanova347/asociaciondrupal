@@ -113,11 +113,18 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['fields']['video_visualizado']['id'] = 'video_visualizado';
   $handler->display->display_options['fields']['video_visualizado']['table'] = 'views_field_flag';
   $handler->display->display_options['fields']['video_visualizado']['field'] = 'video_visualizado';
+  $handler->display->display_options['fields']['video_visualizado']['label'] = '';
+  $handler->display->display_options['fields']['video_visualizado']['element_label_colon'] = FALSE;
   /* Criterio de ordenación: Indexed Nodo: Año */
   $handler->display->display_options['sorts']['field_videos_ano']['id'] = 'field_videos_ano';
   $handler->display->display_options['sorts']['field_videos_ano']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['field_videos_ano']['field'] = 'field_videos_ano';
   $handler->display->display_options['sorts']['field_videos_ano']['order'] = 'DESC';
+  /* Criterio de ordenación: Indexed Nodo: Fecha de creación */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   /* Criterios de filtrado: Buscar: Búsqueda por texto completo */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_default_node_index';
@@ -177,7 +184,6 @@ function aed_videos_views_default_views() {
     t('última »'),
     t('<img src="/sites/default/files/no-results.jpg" />
 <p>Estos no son los androides que buscas</p>'),
-    t('Link para flag de Video visualizado'),
     t('Page'),
   );
   $export['videos'] = $view;

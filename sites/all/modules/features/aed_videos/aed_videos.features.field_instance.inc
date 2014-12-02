@@ -54,6 +54,60 @@ function aed_videos_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-videos-field_slides'
+  $field_instances['node-videos-field_slides'] = array(
+    'bundle' => 'videos',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Este campo es para enlazar los slides del video.',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_slides',
+    'label' => 'Slides',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'rel_remove' => 'default',
+      'title' => 'value',
+      'title_maxlength' => 128,
+      'title_value' => 'Aquí puedes ver las diapositivas de la presentación',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 40,
+    ),
+  );
+
   // Exported field_instance: 'node-videos-field_video_ponente'
   $field_instances['node-videos-field_video_ponente'] = array(
     'bundle' => 'videos',
@@ -66,7 +120,7 @@ function aed_videos_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -106,7 +160,7 @@ function aed_videos_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -143,7 +197,7 @@ function aed_videos_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -180,7 +234,7 @@ function aed_videos_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -217,7 +271,7 @@ function aed_videos_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -254,7 +308,7 @@ function aed_videos_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -291,7 +345,7 @@ function aed_videos_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -332,7 +386,7 @@ function aed_videos_field_default_field_instances() {
           'video_style' => 'normal',
         ),
         'type' => 'video_embed_field',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -364,10 +418,12 @@ function aed_videos_field_default_field_instances() {
   t('Audiencia');
   t('Año');
   t('Body');
+  t('Este campo es para enlazar los slides del video.');
   t('Evento');
   t('Idioma');
   t('Nivel');
   t('Ponente');
+  t('Slides');
   t('Versión');
   t('Video');
 
