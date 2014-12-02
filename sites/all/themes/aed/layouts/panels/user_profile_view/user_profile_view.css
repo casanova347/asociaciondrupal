@@ -23,9 +23,13 @@
     float: right;
 }
 
+#content .panel-display.plugin_layout_user_profile_view .heading .region-membership-data {
+    float: right;
+}
+
 #content .panel-display.plugin_layout_user_profile_view .heading .region-nombre {
     display: inline-block;
-    font-size: 260%;
+    font-size: 225%;
     font-weight: bold;
     line-height: 100%;
     vertical-align: top;
