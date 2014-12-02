@@ -26,7 +26,7 @@ function ckeditor_conf_strongarm() {
       'filenum' => '0',
       'directories' => array(
         0 => array(
-          'name' => 'sites/default/files/content-files',
+          'name' => 'content-files',
           'subnav' => 1,
           'browse' => 1,
           'upload' => 1,
@@ -67,7 +67,7 @@ function ckeditor_conf_strongarm() {
       'filenum' => '1',
       'directories' => array(
         0 => array(
-          'name' => 'sites/default/files/content-files',
+          'name' => 'content-files',
           'subnav' => 1,
           'browse' => 1,
           'upload' => 1,
