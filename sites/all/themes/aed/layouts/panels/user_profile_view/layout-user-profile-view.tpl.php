@@ -13,10 +13,6 @@
           <?php print $content['foto']; ?>
         </td>
 
-        <td class="region region-membership-data">
-          <?php print $content['membership-data']; ?>
-        </td>
-
         <td class="region region-nombre">
           <?php print $content['nombre']; ?>
         </td>
