@@ -7,7 +7,7 @@
     float: left;
 }
 
-.region-nombre, .region-membership-data {
+.region-nombre {
     width: 74%;
     float: right;
 }
