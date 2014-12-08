@@ -196,6 +196,7 @@ function aed_videos_default_search_api_index() {
         "field_videos_idioma" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_videos_nivel" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_videos_version" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "flag_video_visualizado_user" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "user" },
         "nid" : { "type" : "integer" },
         "promote" : { "type" : "boolean" },
         "search_api_language" : { "type" : "string" },
