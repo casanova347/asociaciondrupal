@@ -5,3 +5,117 @@
  */
 
 include_once 'aed_videos.features.inc';
+
+define('AED_VIDEOS_ALL', 'all');
+define('AED_VIDEOS_SEEN', 'seen');
+define('AED_VIDEOS_NOT_SEEN', 'not_seen');
+define('AED_VIDEOS_QUERY_PARAMETER', 'seen');
+
+/**
+ * Implements hook_block_info().
+ */
+function aed_videos_block_info() {
+  $blocks = array();
+
+  $blocks['aed_videos__filter_flag'] = array(
+    'info' => t('Filter videos by flag'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function aed_videos_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'aed_videos__filter_flag':
+      $block['subject'] = '';
+      $block['content'] = drupal_get_form('aed_videos_filter_flag_form');
+  }
+
+  return $block;
+}
+
+function aed_videos_filter_flag_form($form, &$form_state) {
+  $parameters = drupal_get_query_parameters();
+
+  $form['filter_flag'] = array(
+    '#type' => 'radios',
+    '#options' => array(
+      AED_VIDEOS_ALL => t('All videos'),
+      AED_VIDEOS_SEEN => t('Already seen videos'),
+      AED_VIDEOS_NOT_SEEN => t('Not seen videos'),
+    ),
+    '#default_value' => aed_videos_valid_seen_parameter() ? $parameters[AED_VIDEOS_QUERY_PARAMETER] : AED_VIDEOS_ALL,
+    '#prefix' => '<div class="container-inline">',
+    '#suffix' => '</div>',
+  );
+
+  // Remove "seen" parameter to re-generate the URLs
+  unset($parameters[AED_VIDEOS_QUERY_PARAMETER]);
+
+  $filter_values = array(
+    'all' => url(current_path(), array('query' => $parameters, )),
+    'seen' => url(current_path(), array('query' => $parameters + array(AED_VIDEOS_QUERY_PARAMETER => AED_VIDEOS_SEEN))),
+    'not_seen' => url(current_path(), array('query' => $parameters + array(AED_VIDEOS_QUERY_PARAMETER => AED_VIDEOS_NOT_SEEN))),
+  );
+
+  $form['#attached']['js'][] = array(
+    'data' => drupal_get_path('module', 'aed_videos') . '/js/aed_videos.js',
+    'type' => 'file',
+  );
+
+  $form['#attached']['js'][] = array(
+    'data' => array('aed_videos_filter' => $filter_values),
+    'type' => 'setting',
+  );
+
+  return $form;
+}
+
+/**
+ * Implements hook_search_api_query_alter().
+ */
+function aed_videos_search_api_query_alter(SearchApiQueryInterface $query) {
+  $parameters = drupal_get_query_parameters();
+  if (aed_videos_valid_seen_parameter()) {
+    global $user;
+    $query_filter = $query->createFilter('AND', array('facet:flag_video_visualizado_user'));
+    $query_filter->condition('flag_video_visualizado_user', $user->uid, ($parameters[AED_VIDEOS_QUERY_PARAMETER] == AED_VIDEOS_SEEN)? '=' : '<>');
+    $query->filter($query_filter);
+  }
+}
+
+/**
+ * Implements hook_flag_flag().
+ *
+ * Updates search videos index immediately after changing the flag value.
+ *
+ * @see aed_videos_flag_unflag()
+ */
+function aed_videos_flag_flag($flag, $entity_id, $account, $flagging) {
+  search_api_track_item_change($flag->entity_type, array($entity_id));
+}
+
+/**
+ * Implements hook_flag_unflag().
+ *
+ * Calls automatically to enable flag callback.
+ *
+ * @see aed_videos_flag_flag()
+ */
+function aed_videos_flag_unflag($flag, $entity_id, $account, $flagging) {
+  aed_videos_flag_flag($flag, $entity_id, $account, $flagging);
+}
+
+/**
+ * Helper function to determine if the 'seen' parameter is valid.
+ */
+function aed_videos_valid_seen_parameter() {
+  $parameters = drupal_get_query_parameters();
+  return isset($parameters[AED_VIDEOS_QUERY_PARAMETER]) && in_array($parameters[AED_VIDEOS_QUERY_PARAMETER], array(AED_VIDEOS_SEEN, AED_VIDEOS_NOT_SEEN));
+}
