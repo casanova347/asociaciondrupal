@@ -157,16 +157,10 @@ function aed_videos_views_default_views() {
     1 => '1',
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'videos_page');
+  /* Display: Panel de contenido */
+  $handler = $view->new_display('panel_pane', 'Panel de contenido', 'panel_pane_1');
   $handler->display->display_options['exposed_block'] = TRUE;
-  $handler->display->display_options['path'] = 'videos';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Videos';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler->display->display_options['pane_category']['name'] = 'Paneles de vista';
   $translatables['videos'] = array(
     t('Master'),
     t('más'),
@@ -184,7 +178,8 @@ function aed_videos_views_default_views() {
     t('última »'),
     t('<img src="/sites/default/files/no-results.jpg" />
 <p>Estos no son los androides que buscas</p>'),
-    t('Page'),
+    t('Panel de contenido'),
+    t('Paneles de vista'),
   );
   $export['videos'] = $view;
 

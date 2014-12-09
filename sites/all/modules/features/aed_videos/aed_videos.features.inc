@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function aed_videos_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -51,6 +54,7 @@ function aed_videos_flag_default_flags() {
       'rss' => 0,
       'search_index' => 0,
       'search_result' => 0,
+      'diff_standard' => 0,
       'token' => 0,
     ),
     'show_as_field' => 0,
@@ -199,6 +203,7 @@ function aed_videos_default_search_api_index() {
         "flag_video_visualizado_user" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "user" },
         "nid" : { "type" : "integer" },
         "promote" : { "type" : "boolean" },
+        "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" },
         "search_api_language" : { "type" : "string" },
         "status" : { "type" : "integer" },
         "sticky" : { "type" : "boolean" },
