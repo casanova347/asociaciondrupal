@@ -33,8 +33,10 @@ function aed_videos_block_view($delta = '') {
 
   switch ($delta) {
     case 'aed_videos__filter_flag':
-      $block['subject'] = '';
-      $block['content'] = drupal_get_form('aed_videos_filter_flag_form');
+      if (user_is_logged_in()) {
+        $block['subject'] = '';
+        $block['content'] = drupal_get_form('aed_videos_filter_flag_form');
+      }
   }
 
   return $block;
