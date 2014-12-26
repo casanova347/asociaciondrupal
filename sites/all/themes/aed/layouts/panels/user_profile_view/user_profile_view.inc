@@ -11,7 +11,6 @@ $plugin = array(
   'admin css' => 'user_profile_view.admin.css',
 
   'regions' => array(
-    'membership-data' => t('Member data'),
     'foto' => t('Foto'),
     'nombre' => t('Nombre'),
     'contenido-footer' => t('Contenido footer'),
