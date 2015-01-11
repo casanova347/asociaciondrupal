@@ -53,8 +53,6 @@ function aed_videos_filter_flag_form($form, &$form_state) {
       AED_VIDEOS_NOT_SEEN => t('Not seen videos'),
     ),
     '#default_value' => aed_videos_valid_seen_parameter() ? $parameters[AED_VIDEOS_QUERY_PARAMETER] : AED_VIDEOS_ALL,
-    '#prefix' => '<div class="container-inline">',
-    '#suffix' => '</div>',
   );
 
   // Remove "seen" parameter to re-generate the URLs

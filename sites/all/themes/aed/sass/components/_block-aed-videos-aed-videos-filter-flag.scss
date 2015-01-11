@@ -1,0 +1,15 @@
+#block-aed-videos-aed-videos-filter-flag {
+  .block-content {
+    background: rgba(0, 136, 204, 0.11);
+    padding: 1em;
+    margin-top: 10px;
+
+    #edit-filter-flag {
+      margin-left: 1em;
+
+      label {
+        font-weight: normal;
+      }
+    }
+  }
+}
