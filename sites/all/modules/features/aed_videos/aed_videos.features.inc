@@ -54,7 +54,6 @@ function aed_videos_flag_default_flags() {
       'rss' => 0,
       'search_index' => 0,
       'search_result' => 0,
-      'diff_standard' => 0,
       'token' => 0,
     ),
     'show_as_field' => 0,
@@ -233,7 +232,7 @@ function aed_videos_default_search_api_sort() {
     "default_sort" : "0",
     "default_sort_no_terms" : "0",
     "default_order" : "desc",
-    "options" : { "field_name" : "Fecha de creaci\\u00f3n" },
+    "options" : { "field_name" : "Date created" },
     "rdf_mapping" : []
   }');
   $items['default_node_index__search_api_relevance'] = entity_import('search_api_sort', '{

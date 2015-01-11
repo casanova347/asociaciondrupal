@@ -22,6 +22,7 @@ function aed_videos_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['css_class'] = 'videos-search-list';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'none';
@@ -70,7 +71,7 @@ function aed_videos_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Comportamiento si no hay resultados: Global: Área de texto */
+  /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
@@ -78,7 +79,7 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = '<img src="/sites/default/files/no-results.jpg" />
 <p>Estos no son los androides que buscas</p>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
-  /* Campo: Indexed Nodo: Video */
+  /* Field: Indexed Node: Video */
   $handler->display->display_options['fields']['field_videos_video']['id'] = 'field_videos_video';
   $handler->display->display_options['fields']['field_videos_video']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['field_videos_video']['field'] = 'field_videos_video';
@@ -90,7 +91,7 @@ function aed_videos_views_default_views() {
     'image_style' => '150x100',
     'image_link' => 'content',
   );
-  /* Campo: Indexed Nodo: Título */
+  /* Field: Indexed Node: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -98,7 +99,7 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Campo: Indexed Nodo: The main body text */
+  /* Field: Indexed Node: The main body text */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -109,23 +110,23 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
   );
-  /* Campo: views_field_flag: Link para flag de Video visualizado */
+  /* Field: views_field_flag: Link para flag de Video visualizado */
   $handler->display->display_options['fields']['video_visualizado']['id'] = 'video_visualizado';
   $handler->display->display_options['fields']['video_visualizado']['table'] = 'views_field_flag';
   $handler->display->display_options['fields']['video_visualizado']['field'] = 'video_visualizado';
   $handler->display->display_options['fields']['video_visualizado']['label'] = '';
   $handler->display->display_options['fields']['video_visualizado']['element_label_colon'] = FALSE;
-  /* Criterio de ordenación: Indexed Nodo: Año */
+  /* Sort criterion: Indexed Node: Año */
   $handler->display->display_options['sorts']['field_videos_ano']['id'] = 'field_videos_ano';
   $handler->display->display_options['sorts']['field_videos_ano']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['field_videos_ano']['field'] = 'field_videos_ano';
   $handler->display->display_options['sorts']['field_videos_ano']['order'] = 'DESC';
-  /* Criterio de ordenación: Indexed Nodo: Fecha de creación */
+  /* Sort criterion: Indexed Node: Date created */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Criterios de filtrado: Buscar: Búsqueda por texto completo */
+  /* Filter criterion: Search: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['search_api_views_fulltext']['field'] = 'search_api_views_fulltext';
@@ -149,7 +150,7 @@ function aed_videos_views_default_views() {
     'title' => 'title',
     'body:value' => 'body:value',
   );
-  /* Criterios de filtrado: Indexed Nodo: Estado */
+  /* Filter criterion: Indexed Node: Status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -158,7 +159,7 @@ function aed_videos_views_default_views() {
   );
 
   /* Display: Panel de contenido */
-  $handler = $view->new_display('panel_pane', 'Panel de contenido', 'panel_pane_1');
+  $handler = $view->new_display('panel_pane', 'Panel de contenido', 'videos_search_list');
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['pane_category']['name'] = 'Paneles de vista';
   $translatables['videos'] = array(
@@ -179,6 +180,7 @@ function aed_videos_views_default_views() {
     t('<img src="/sites/default/files/no-results.jpg" />
 <p>Estos no son los androides que buscas</p>'),
     t('Panel de contenido'),
+    t('more'),
     t('Paneles de vista'),
   );
   $export['videos'] = $view;
