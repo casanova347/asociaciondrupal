@@ -1,29 +1,29 @@
 /*
 Basurillas temporales hasta que implemente una solucion permanente a estas cosas.
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\000035}}
 article#node-28 .field-name-field-image {
   float: left;
   margin-right: 15px;
   margin-bottom: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\0000315}}
 .node .field-name-field-tags > * {
   display: inline-block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\0000319}}
 .node .field-name-field-tags ul {
   display: inline-flex;
   margin: 0;
   padding-left: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\0000324}}
 .node .field-name-field-tags ul li {
   float: left;
   list-style: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/tweaks\.scss}line{font-family:\0000327}}
 .node .field-name-field-tags ul li a {
   background: none repeat scroll 0 0 #F1F1F1;
   border-radius: 3px 3px 3px 3px;
