@@ -6,6 +6,9 @@
 <div class="panel-display clearfix" <?php if (!empty($css_id)) {
   print "id=\"$css_id\"";
 }?>>
+    <div class="region region-membership-data">
+      <?php print $content['membership-data']; ?>
+    </div>
 
     <div class="region region-foto">
       <?php print $content['foto']; ?>

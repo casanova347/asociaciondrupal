@@ -5,3 +5,28 @@ function aed_mod_views_api() {
     'api' => 3.0,
   );
 }
+
+/**
+ *  Implements hook_ctools_plugin_directory().
+ */
+function aed_mod_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/' . $plugin_type;
+  }
+}
+
+/**
+ *  Implements hook_theme().
+ */
+function aed_mod_theme($existing, $type, $theme, $path) {
+  return array(
+    // Render AED user membership data:
+    'aed_user_membership_data' => array(
+      'variables' => array(
+        'current_member_status' => ''
+      ),
+      'path' => drupal_get_path('module', 'aed_mod') . '/templates',
+      'template' => 'aed-user-membership-data',
+    ),
+  );
+}
