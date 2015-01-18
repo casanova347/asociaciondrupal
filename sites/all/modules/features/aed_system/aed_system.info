@@ -1,0 +1,11 @@
+name = AED System
+description = Skeleton feature for AED page.
+core = 7.x
+package = Features
+dependencies[] = aed_company
+dependencies[] = aed_videos
+dependencies[] = ckeditor_conf
+dependencies[] = commerce_billy
+dependencies[] = ct_article
+dependencies[] = views_aed
+features[features_api][] = api:2
