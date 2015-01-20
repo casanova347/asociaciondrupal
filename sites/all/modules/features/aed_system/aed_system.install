@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Enable and update install hooks for aed_system feature.
+ */
+
+/**
+ * When enabling, adding or modifying the configuration while deploying, all the
+ * required operations should be declared using hook_update_N().
+ * In this example, you can see how to enable programmatically a new module:
+ *
+ * function aed_system_update_7001() {
+ *   module_enable(array('module_to_enable'));
+ *   return t('Module "module_to_enable" enabled');
+ * }
+ */
