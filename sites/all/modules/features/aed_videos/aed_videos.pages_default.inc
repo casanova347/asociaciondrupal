@@ -16,7 +16,10 @@ function aed_videos_default_page_manager_pages() {
   $page->admin_title = 'videos';
   $page->admin_description = '';
   $page->path = 'videos';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(

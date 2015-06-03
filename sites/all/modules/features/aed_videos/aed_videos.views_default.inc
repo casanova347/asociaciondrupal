@@ -44,6 +44,7 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_videos_video' => 'field_videos_video',
+    'field_video_ponente' => 'title',
     'title' => 'title',
     'body' => 'title',
     'video_visualizado' => 'field_videos_video',
@@ -51,6 +52,11 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'field_videos_video' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_video_ponente' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -71,7 +77,7 @@ function aed_videos_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* No results behavior: Global: Text area */
+  /* Comportamiento si no hay resultados: Global: Área de texto */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
@@ -79,7 +85,7 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = '<img src="/sites/default/files/no-results.jpg" />
 <p>Estos no son los androides que buscas</p>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
-  /* Field: Indexed Node: Video */
+  /* Campo: Indexed Nodo: Video */
   $handler->display->display_options['fields']['field_videos_video']['id'] = 'field_videos_video';
   $handler->display->display_options['fields']['field_videos_video']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['field_videos_video']['field'] = 'field_videos_video';
@@ -91,7 +97,7 @@ function aed_videos_views_default_views() {
     'image_style' => '150x100',
     'image_link' => 'content',
   );
-  /* Field: Indexed Node: Title */
+  /* Campo: Indexed Nodo: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -99,7 +105,15 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: The main body text */
+  /* Campo: Indexed Nodo: Ponente */
+  $handler->display->display_options['fields']['field_video_ponente']['id'] = 'field_video_ponente';
+  $handler->display->display_options['fields']['field_video_ponente']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['fields']['field_video_ponente']['field'] = 'field_video_ponente';
+  $handler->display->display_options['fields']['field_video_ponente']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_video_ponente']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['field_video_ponente']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_video_ponente']['bypass_access'] = 0;
+  /* Campo: Indexed Nodo: The main body text */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -110,23 +124,23 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
   );
-  /* Field: views_field_flag: Link para flag de Video visualizado */
+  /* Campo: views_field_flag: Link para flag de Video visualizado */
   $handler->display->display_options['fields']['video_visualizado']['id'] = 'video_visualizado';
   $handler->display->display_options['fields']['video_visualizado']['table'] = 'views_field_flag';
   $handler->display->display_options['fields']['video_visualizado']['field'] = 'video_visualizado';
   $handler->display->display_options['fields']['video_visualizado']['label'] = '';
   $handler->display->display_options['fields']['video_visualizado']['element_label_colon'] = FALSE;
-  /* Sort criterion: Indexed Node: Año */
+  /* Criterio de ordenación: Indexed Nodo: Año */
   $handler->display->display_options['sorts']['field_videos_ano']['id'] = 'field_videos_ano';
   $handler->display->display_options['sorts']['field_videos_ano']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['field_videos_ano']['field'] = 'field_videos_ano';
   $handler->display->display_options['sorts']['field_videos_ano']['order'] = 'DESC';
-  /* Sort criterion: Indexed Node: Date created */
+  /* Criterio de ordenación: Indexed Nodo: Fecha de creación */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Search: Fulltext search */
+  /* Criterios de filtrado: Buscar: Búsqueda por texto completo */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['search_api_views_fulltext']['field'] = 'search_api_views_fulltext';
@@ -150,7 +164,7 @@ function aed_videos_views_default_views() {
     'title' => 'title',
     'body:value' => 'body:value',
   );
-  /* Filter criterion: Indexed Node: Status */
+  /* Criterios de filtrado: Indexed Nodo: Estado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -179,8 +193,8 @@ function aed_videos_views_default_views() {
     t('última »'),
     t('<img src="/sites/default/files/no-results.jpg" />
 <p>Estos no son los androides que buscas</p>'),
+    t('Ponente'),
     t('Panel de contenido'),
-    t('more'),
     t('Paneles de vista'),
   );
   $export['videos'] = $view;
