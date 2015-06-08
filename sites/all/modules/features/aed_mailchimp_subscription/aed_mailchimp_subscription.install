@@ -1,0 +1,134 @@
+<?php
+
+/**
+ * @file
+ * Install / Uninstall code for the AED Mailchimp Subscription feature.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function aed_mailchimp_subscription_requirements($phase) {
+  // Do not proceed with installation if the config vars are not set in the
+  // settings.php file.
+  $requirements = array();
+  $mailchimp_list_id = variable_get('aed_mailchimp_subscription_mc_list_id');
+  $mailchimp_api_key = variable_get('mailchimp_api_key');
+  if ($phase == 'install') {
+    if ((empty($mailchimp_api_key) || empty($mailchimp_list_id))) {
+      $requirements['aed_mailchimp_subscription_config_vars'] = array(
+        'title' => 'Mailchimp config vars',
+        'description' => 'You must set the config vars in your settings.php prior to installing this module.',
+        'severity' => REQUIREMENT_ERROR,
+      );
+    }
+  }
+  return $requirements;
+}
+
+/**
+ * Implements hook_enable().
+ */
+function aed_mailchimp_subscription_enable() {
+  // Clear field cache to ensure the field type created by our dependency
+  // (mailchimp_lists) is available.
+  field_cache_clear();
+
+  // Create a new mailchimp basefield and its instance on the user entity.
+  $field_name = 'field_mailchimp_subscription';
+
+  // Only proceed if a field with this name doesn't exist yet and we have a list
+  // id available (this value should have come from settings.php).
+  $existing_field = field_info_field($field_name);
+  $list_id = variable_get('aed_mailchimp_subscription_mc_list_id');
+  if (empty($existing_field) && !empty($list_id)) {
+
+    // Create the base field.
+    $field = array(
+      'active' => 1,
+      'cardinality' => 1,
+      'deleted' => 0,
+      'entity_types' => array(),
+      'field_name' => $field_name,
+      'field_permissions' => array(
+        'type' => 1,
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => 0,
+      'module' => 'mailchimp_lists',
+      'settings' => array(
+        'double_opt_in' => 0,
+        'mc_list_id' => $list_id,
+        'profile2_private' => FALSE,
+        'send_welcome' => 0,
+      ),
+      'translatable' => 0,
+      'type' => 'mailchimp_lists_subscription',
+    );
+    field_create_field($field);
+
+    // Create the field instance.
+    $instance = array(
+      'bundle' => 'user',
+      'default_value' => array(
+        0 => array(
+          'subscribe' => 1,
+        ),
+      ),
+      'deleted' => 0,
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'mailchimp_lists',
+          'settings' => array(
+            'interest_groups' => array(),
+            'show_interest_groups' => FALSE,
+          ),
+          'type' => 'mailchimp_lists_subscribe_default',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'user',
+      'field_name' => $field_name,
+      'label' => 'Adhesión a la newsletter de socios',
+      'required' => 0,
+      'settings' => array(
+        'interest_groups_title' => 'Interest Groups',
+        'mergefields' => array(
+          'EMAIL' => 'mail',
+          'FNAME' => 'profile_socio:field_nombre',
+          'LNAME' => 'profile_socio:field_apellidos',
+        ),
+        'options' => array(
+          'interest_groups' => array(),
+          'subscribe' => FALSE,
+        ),
+        'show_interest_groups' => 0,
+        'unsubscribe_on_delete' => 1,
+        'user_register_form' => 1,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'mailchimp_lists',
+        'settings' => array(),
+        'type' => 'mailchimp_lists_select',
+        'weight' => 12,
+      ),
+    );
+    field_create_instance($instance);
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function aed_mailchimp_subscription_uninstall() {
+  // Delete the field created by our module and all instances associated.
+  $field_name = 'field_mailchimp_subscription';
+  $field = field_info_field($field_name);
+  if (!empty($field)) {
+    field_delete_field($field_name);
+  }
+}

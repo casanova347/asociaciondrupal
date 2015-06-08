@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the AED Mailchimp Subscription feature.
+ * Drupal needs this blank file.
  */
 
 include_once 'aed_mailchimp_subscription.features.inc';
