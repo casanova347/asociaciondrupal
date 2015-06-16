@@ -1,4 +1,4 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\000039}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\000039}}
 #user-profile-form .form-item label {
   display: inline-block;
   position: relative;
@@ -7,38 +7,42 @@
   white-space: nowrap;
   font-weight: normal;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000317}}
 #user-profile-form .form-item label + * {
   display: inline-block;
   margin-left: 3%;
   width: 40%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000323}}
 #user-profile-form .form-item label + *.form-textarea-wrapper {
   vertical-align: top;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000332}}
+#user-profile-form #edit-field-mailchimp-subscription label {
+  text-align: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000336}}
 #user-profile-form .description {
   font-size: 0.75em;
   margin-left: 23.5%;
   color: #555555;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000342}}
 #user-profile-form #edit-actions {
   margin-left: 23.5%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000346}}
 #user-profile-form .form-item-pass {
   padding-bottom: 52px;
   position: relative;
   margin-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000351}}
 #user-profile-form .form-item-pass > * {
   clear: none;
   width: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000358}}
 #user-profile-form .form-item-pass .password-parent .password-strength {
   bottom: 22px;
   margin-left: 23.5%;
@@ -46,24 +50,24 @@
   width: 40%;
   font-size: 0.9em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000365}}
 #user-profile-form .form-item-pass .password-parent .password-strength .password-strength-text {
   display: inline-block;
   float: none;
   font-weight: bold;
   text-align: right;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000367}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000371}}
 #user-profile-form .form-item-pass .password-parent .password-strength .password-strength-title {
   display: inline-block;
   float: left;
   margin-right: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000378}}
 #user-profile-form .form-item-pass .confirm-parent {
   margin-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000381}}
 #user-profile-form .form-item-pass .confirm-parent div.password-confirm {
   bottom: 0;
   font-size: 0.85em;
@@ -71,12 +75,12 @@
   position: absolute;
   visibility: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000390}}
 #user-profile-form .form-item-pass .description,
 #user-profile-form .form-item-pass .password-suggestions.description {
   display: none !important;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000391}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\0000395}}
 #user-profile-form .form-item-pass .password-indicator {
   height: 6px;
   background-color: #F7F7F7;
@@ -86,7 +90,7 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
   overflow: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003104}}
 #user-profile-form .form-item-pass .password-indicator .indicator {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -104,61 +108,61 @@
   transition: width 0.6s ease 0s;
   width: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003119}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003123}}
 #user-profile-form .form-type-radio label {
   text-align: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003129}}
 #user-profile-form #edit-profile-socio-field-sexo-und .form-item {
   display: inline;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003127}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003131}}
 #user-profile-form #edit-profile-socio-field-sexo-und .form-item label {
   margin-right: 12px;
   width: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003134}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003138}}
 #user-profile-form .form-item-profile-socio-field-exponer-mi-perfil-und {
   margin-left: 23.5%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003140}}
 #user-profile-form .form-item-profile-socio-field-exponer-mi-perfil-und .description {
   margin-left: 2.7%;
   width: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003142}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003146}}
 #user-profile-form .form-wrapper {
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003146}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003150}}
 #user-profile-form .exponer-este-field {
   font-size: 12px;
   left: 65%;
   position: absolute;
   top: 15%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003153}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003157}}
 #user-profile-form .exponer-este-field > div {
   float: right;
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003165}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003169}}
 #user-profile-form .form-type-checkbox-tree {
   display: block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003168}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003172}}
 #user-profile-form .form-type-checkbox-tree > label {
   vertical-align: top;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003171}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003175}}
 #user-profile-form .form-type-checkbox-tree .no-term-reference-tree-button {
   background-color: transparent;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003178}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003182}}
 #user-profile-form .field-name-field-anos-que-ha-participado > div > label {
   vertical-align: top;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/capy\/vm\/sites\/asociaciondrupal\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003181}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/aed\/sites\/all\/themes\/aed\/sass\/user-form\.scss}line{font-family:\00003185}}
 #user-profile-form .field-name-field-anos-que-ha-participado > div > div > div > label {
   text-align: left;
 }
