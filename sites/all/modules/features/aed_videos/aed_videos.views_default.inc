@@ -44,6 +44,7 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_videos_video' => 'field_videos_video',
+    'field_video_ponente' => 'title',
     'title' => 'title',
     'body' => 'title',
     'video_visualizado' => 'field_videos_video',
@@ -51,6 +52,11 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'field_videos_video' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_video_ponente' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -99,6 +105,14 @@ function aed_videos_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Field: Indexed Node: Ponente */
+  $handler->display->display_options['fields']['field_video_ponente']['id'] = 'field_video_ponente';
+  $handler->display->display_options['fields']['field_video_ponente']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['fields']['field_video_ponente']['field'] = 'field_video_ponente';
+  $handler->display->display_options['fields']['field_video_ponente']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_video_ponente']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['field_video_ponente']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_video_ponente']['bypass_access'] = 0;
   /* Field: Indexed Node: The main body text */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'search_api_index_default_node_index';
@@ -179,6 +193,7 @@ function aed_videos_views_default_views() {
     t('última »'),
     t('<img src="/sites/default/files/no-results.jpg" />
 <p>Estos no son los androides que buscas</p>'),
+    t('Ponente'),
     t('Panel de contenido'),
     t('more'),
     t('Paneles de vista'),
