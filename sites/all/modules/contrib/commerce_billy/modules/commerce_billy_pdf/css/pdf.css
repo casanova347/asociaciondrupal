@@ -32,10 +32,12 @@ body {
   margin-top: 50px;
 }
 
-.customer .field-label {
+.customer .field-label,
+.customer .field__label {
   display: none;
 }
-.customer .field-name-field-customer-lastname {
+.customer .field-name-field-customer-lastname,
+.customer .field--name-field-customer-lastname {
   display: none;
 }
 
