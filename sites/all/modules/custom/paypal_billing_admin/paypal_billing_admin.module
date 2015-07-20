@@ -1,0 +1,191 @@
+<?php
+
+/**
+ * Implementation of hook_menu().
+ */
+function paypal_billing_admin_menu() {
+  $items = array();
+
+  $items['admin/commerce/paypal-plans'] = array(
+    'title' => 'PayPal Plans',
+    'page callback' => 'paypal_plans_overview_page',
+    'access arguments' => array('administer paypal billing plan'),
+  );
+
+  $items['admin/commerce/paypal-plans/add'] = array(
+    'title' => 'Add plan',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('paypal_plans_add'),
+    'access arguments' => array('administer paypal billing plan'),
+    'type' => MENU_LOCAL_ACTION,
+  );
+
+  /////////////////////////////
+
+  $items['create-plan'] = array(
+    'title' => '1: Created billing example plan',
+    'page callback' => 'sample_create_plan',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['get-plan/%'] = array(
+    'title' => '2: Example created billing plan details',
+    'page callback' => 'sample_get_plan',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['activate-plan/%'] = array(
+    'title' => '3: Plan activated',
+    'page callback' => 'sample_activate_plan',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+
+  $items['list-plans'] = array(
+    'title' => '4: List all created plans',
+    'page callback' => 'sample_list_plans',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function paypal_plans_overview_page() {
+  return "paypal_plans_overview_page";
+}
+
+function paypal_plans_add($form, &$form_state) {
+  $links = array();
+
+  $result = array('foo', 'bar');
+
+  foreach ($result as $item) {
+    $links[] = $item;
+  }
+
+  if (count($links)) {
+
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Save configuration'),
+    );
+  }
+  else {
+    $form['#empty_text'] = t('There are no menu links yet. <a href="@link">Add link</a>.', array('@link' => url('admin/structure/menu/manage/' . $form['#menu']['menu_name'] . '/add')));
+  }
+
+  $form['#attached']['css'] = array(drupal_get_path('module', 'menu') . '/menu.css');
+
+  return $form;
+}
+
+/**
+ * @return string
+ */
+function sample_create_plan() {
+  if (_paypal_get_sdk()) {
+
+    $plan = paypal_sdk_create_plan(array(
+      'name' => 'Cuota anual aed',
+      'description' => 'Descripcion de la cuota',
+      'type' => 'fixed'
+    ));
+
+    $currency = paypal_sdk_create_currency(array(
+      'value' => 100,
+      'currency' => 'USD',
+    ));
+
+    $paymentDefinition = paypal_sdk_create_payment_definition(array(
+      'name' => 'Regular Payments',
+      'type' => 'REGULAR',
+      'frecuency' => 'Month',
+      'frecuency-interval' => '2',
+      'cycles' => '12',
+      'currency' => $currency,
+    ));
+
+    $chargeModel = paypal_sdk_create_charge_model(array(
+      'type' => 'SHIPPING',
+      'currency' => $currency,
+    ));
+
+    $merchantPreferences = paypal_sdk_create_merchant_preferences(array(
+      'return-url' => "http://aed.local/ExecuteAgreement.php?success=true",
+      'cancel-url' => "http://aed.local/ExecuteAgreement.php?success=false",
+      'auto-bill' => 'yes',
+      'initial-fail-amount-action' => 'CONTINUE',
+      'max-fail-attemps' => '0',
+      'currency' => $currency,
+    ));
+
+    $paymentDefinition->setChargeModels(array($chargeModel));
+    $plan->setPaymentDefinitions(array($paymentDefinition));
+    $plan->setMerchantPreferences($merchantPreferences);
+
+    try {
+      $id = $plan->create(get_api_context())->getId();
+      $output = '<a href="/get-plan/' . $id . '">Ver los detalles del pan creado</a>';
+      return $output;
+
+    } catch (Exception $ex) {
+      throw $ex;
+    }
+
+  }
+}
+
+function sample_create_billing_agreement() {
+
+}
+
+/**
+ * @param $id
+ * @return mixed
+ * @throws Exception
+ */
+function sample_get_plan($id) {
+  _paypal_get_sdk();
+
+  try {
+    $plan = paypal_sdk_get_plan($id);
+    return '<pre>' . print_r($plan, TRUE) . '</pre>';
+  } catch (Exception $ex) {
+    throw $ex;
+  }
+
+}
+
+/**
+ * @param $id
+ * @return mixed
+ * @throws Exception
+ */
+function sample_activate_plan($id) {
+  _paypal_get_sdk();
+
+  try {
+    $activatePlanRequest = paypal_sdk_activate_plan_request();
+    $createdPlan = paypal_sdk_get_plan($id);
+    $createdPlan->update($activatePlanRequest, get_api_context());
+
+    // now we have an activatd plan. We need request it again? // @todo really we need this?
+    $plan = paypal_sdk_get_plan($createdPlan->getId(), get_api_context());
+    return '<pre>' . print_r($plan, TRUE) . '</pre>';
+
+  } catch (Exception $ex) {
+    throw $ex;
+  }
+
+}
+
+function sample_list_plans() {
+  $plans = paypal_sdk_get_billing_plans();
+  return '<pre>' . print_r($plans, TRUE) . '</pre>';
+}

@@ -1,0 +1,4 @@
+name = PayPal billing admin
+description = Implementacion de la capa administrativa del sdk de paypal.
+version = "7.x-1.0-beta"
+core = 7.x
