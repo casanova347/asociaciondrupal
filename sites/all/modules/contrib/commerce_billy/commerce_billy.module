@@ -76,20 +76,26 @@ function commerce_billy_invoice_nr($order) {
   $method = variable_get('commerce_billy_invoice_nr_method', COMMERCE_BILLY_INVOICE_METHOD_YEARLY);
   switch ($method) {
     case COMMERCE_BILLY_INVOICE_METHOD_MONTHLY:
-      $new_nr = commerce_billy_invoice_nr_monthly();
+      $invoice_nr = commerce_billy_invoice_nr_monthly();
       break;
 
     case COMMERCE_BILLY_INVOICE_METHOD_YEARLY:
-      $new_nr = commerce_billy_invoice_nr_yearly();
+      $invoice_nr = commerce_billy_invoice_nr_yearly();
       break;
 
     case COMMERCE_BILLY_INVOICE_METHOD_INFINITE:
-      $new_nr = commerce_billy_invoice_nr_infinite();
+      $invoice_nr = commerce_billy_invoice_nr_infinite();
       break;
   }
 
-  $pattern = variable_get('commerce_billy_invoice_nr_pattern', '[invoice_nr]');
-  $order->order_number = str_replace('[invoice_nr]', $new_nr, $pattern);
+  // Check if we have a unique order number. If not, write a watchdog error and
+  // do not change the order number.
+  if (!commerce_order_validate_number_unique($invoice_nr, $order->order_id)) {
+    watchdog('commerce_billy', 'Error: Order number %number for order %id already exists.', array('%number' => $invoice_nr, '%id' => $order->order_id), WATCHDOG_ERROR);
+  }
+  else {
+    $order->order_number = $invoice_nr;
+  }
 
   lock_release($lock_name);
 }
@@ -98,63 +104,78 @@ function commerce_billy_invoice_nr($order) {
  * Generated monthly invoice number.
  */
 function commerce_billy_invoice_nr_monthly() {
-  $var_name = 'commerce_billy_invoice_nr_last_monthly';
-  $last_number = commerce_billy_query_variable($var_name);
+  $last_number = commerce_billy_query_variable('commerce_billy_invoice_nr_last');
+  $current_year = date('Y');
+  $current_month = date('m');
 
   $id = 1;
   if ($last_number) {
-    $parts = explode('-', $last_number);
-    $last_year = $parts[0];
-    $last_month = $parts[1];
-    $last_id = $parts[2];
-    $year = date('Y');
-    $month = date('m');
-    if ($last_year == $year) {
-      if ($last_month == $month) {
-        $id = $last_id + 1;
-      }
+    if ($last_number['year'] == $current_year && $last_number['month'] == $current_month) {
+      $id = $last_number['id'] + 1;
     }
   }
-  $new_nr = date('Y') . '-' . date('m') . '-' . $id;
-  variable_set($var_name, $new_nr);
-  return $new_nr;
+
+  $new_nr_array = array(
+    'month' => $current_month,
+    'year' => $current_year,
+    'id' => $id,
+  );
+  variable_set('commerce_billy_invoice_nr_last', $new_nr_array);
+
+  return commerce_billy_apply_invoice_nr_pattern($new_nr_array);
 }
 
 /**
  * Generated yearly invoice number.
  */
 function commerce_billy_invoice_nr_yearly() {
-  $var_name = 'commerce_billy_invoice_nr_last_yearly';
-  $last_number = commerce_billy_query_variable($var_name);
+  $last_number = commerce_billy_query_variable('commerce_billy_invoice_nr_last');
+  $current_year = date('Y');
 
   $id = 1;
   if ($last_number) {
-    $parts = explode('-', $last_number);
-    $last_year = $parts[0];
-    $last_id = $parts[1];
-    $year = date('Y');
-    if ($last_year == $year) {
-      $id = $last_id + 1;
+    if ($last_number['year'] == $current_year) {
+      $id = $last_number['id'] + 1;
     }
   }
-  $new_nr = date('Y') . '-' . $id;
-  variable_set($var_name, $new_nr);
-  return $new_nr;
+
+  $new_nr_array = array(
+    'year' => $current_year,
+    'id' => $id,
+  );
+  variable_set('commerce_billy_invoice_nr_last', $new_nr_array);
+
+  return commerce_billy_apply_invoice_nr_pattern($new_nr_array);
 }
 
 /**
  * Generated infinite invoice number.
  */
 function commerce_billy_invoice_nr_infinite() {
-  $var_name = 'commerce_billy_invoice_nr_last_infinite';
-  $last_number = commerce_billy_query_variable($var_name);
+  $last_number = commerce_billy_query_variable('commerce_billy_invoice_nr_last');
 
   $id = 1;
   if ($last_number) {
-    $id = $last_number + 1;
+    $id = $last_number['id'] + 1;
   }
-  $new_nr = $id;
-  variable_set($var_name, $new_nr);
+
+  $new_nr_array = array(
+    'id' => $id,
+  );
+  variable_set('commerce_billy_invoice_nr_last', $new_nr_array);
+
+  return commerce_billy_apply_invoice_nr_pattern($new_nr_array);
+}
+
+/**
+ * Helper function that applies the invoice number pattern by replacing tokens
+ * and the {id} placeholder.
+ */
+function commerce_billy_apply_invoice_nr_pattern($nr_array) {
+  $pattern = variable_get('commerce_billy_invoice_nr_pattern', '[date:custom:Y]-{id}');
+  $new_nr = str_replace('{id}', $nr_array['id'], $pattern);
+  $new_nr = token_replace($new_nr, array(), array('clear' => TRUE));
+
   return $new_nr;
 }
 
@@ -180,7 +201,7 @@ function commerce_billy_query_variable($var_name) {
  */
 function commerce_billy_menu() {
   $items['admin/commerce/config/billy-invoice'] = array(
-    'title' => 'Billy invoice settings.',
+    'title' => 'Billy invoice settings',
     'description' => 'Configure the Billy invoicing settings',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('commerce_billy_admin_form'),
@@ -194,4 +215,72 @@ function commerce_billy_menu() {
     'weight' => -10,
   );
   return $items;
+}
+
+/**
+ * Implements hook_flush_caches().
+ */
+function commerce_billy_flush_caches() {
+  $entity_info = entity_get_info('commerce_order');
+  $order_types = array_keys($entity_info['bundles']);
+  $field_definition = array(
+    'type' => 'datestamp',
+    'locked' => FALSE,
+    'cardinality' => 1,
+    'settings' => array(
+      'granularity' => array(
+        'year' => 'year',
+        'month' => 'month',
+        'day' => 'day',
+        'hour' => 'hour',
+        'minute' => 'minute',
+        'second' => 'second',
+      ),
+    ),
+  );
+  $instance_definition = array(
+    'entity_type' => 'commerce_order',
+    'required' => FALSE,
+    'widget' => array(
+      'type' => 'date_text',
+      'settings' => array(
+        'input_format' => 'd.m.Y - H:i:s',
+        'no_fieldset' => 0,
+      ),
+    ),
+  );
+
+  $fields = array(
+    'field_commerce_billy_cancel_date' => array(
+      'label' => 'Cancel date',
+      'description' => 'Internally set once the order is cancelled.',
+    ),
+    'field_commerce_billy_i_date' => array(
+      'label' => 'Invoice date',
+      'description' => 'Internally set once the order is invoiced',
+    ),
+  );
+
+  foreach ($fields as $field_name => $field_details) {
+    $field = field_info_field($field_name);
+    if (!$field) {
+      $field = array(
+        'field_name' => $field_name,
+      ) + $field_definition;
+      field_create_field($field);
+    }
+    // Ensure each order type has an instance of the field.
+    foreach ($order_types as $order_type) {
+      $instance = field_info_instance('commerce_order', $field_name, $order_type);
+      if (!$instance) {
+        $instance = array(
+          'field_name' => $field_name,
+          'bundle' => $order_type,
+          'label' => $field_details['label'],
+          'description' => $field_details['description'],
+        ) + $instance_definition;
+        field_create_instance($instance);
+      }
+    }
+  }
 }

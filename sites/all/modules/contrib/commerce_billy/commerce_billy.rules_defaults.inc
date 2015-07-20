@@ -12,7 +12,7 @@ function commerce_billy_default_rules_configuration() {
   $items['rules_commerce_billy_generate_invoice_number_on_order_insert'] = entity_import('rules_config', '{ "rules_commerce_billy_generate_invoice_number_on_order_insert" : {
       "LABEL" : "Generate invoice number on order insert",
       "PLUGIN" : "reaction rule",
-      "TAGS" : [ "commerce_billy" ],
+      "TAGS" : [ "Commerce Billy" ],
       "REQUIRES" : [ "rules", "entity" ],
       "ON" : [ "commerce_order_insert" ],
       "IF" : [
@@ -26,7 +26,7 @@ function commerce_billy_default_rules_configuration() {
   $items['rules_commerce_billy_generate_invoice_number_on_order_update'] = entity_import('rules_config', '{ "rules_commerce_billy_generate_invoice_number_on_order_update" : {
       "LABEL" : "Generate invoice number on order update",
       "PLUGIN" : "reaction rule",
-      "TAGS" : [ "commerce_billy" ],
+      "TAGS" : [ "Commerce Billy" ],
       "REQUIRES" : [ "rules", "entity" ],
       "ON" : [ "commerce_order_update" ],
       "IF" : [
@@ -41,7 +41,7 @@ function commerce_billy_default_rules_configuration() {
   $items['rules_commerce_billy_invoice_order_on_completion'] = entity_import('rules_config', '{ "rules_commerce_billy_invoice_order_on_completion" : {
       "LABEL" : "Invoice order on completion",
       "PLUGIN" : "reaction rule",
-      "TAGS" : [ "commerce_billy" ],
+      "TAGS" : [ "Commerce Billy" ],
       "REQUIRES" : [ "rules", "commerce_order", "entity" ],
       "ON" : [ "commerce_order_update" ],
       "IF" : [
@@ -59,13 +59,17 @@ function commerce_billy_default_rules_configuration() {
   $items['rules_commerce_billy_set_cancel_date'] = entity_import('rules_config', '{ "rules_commerce_billy_set_cancel_date" : {
       "LABEL" : "Set cancel date",
       "PLUGIN" : "reaction rule",
-      "TAGS" : [ "commerce_billy" ],
+      "TAGS" : [ "Commerce Billy" ],
       "REQUIRES" : [ "rules", "entity" ],
       "ON" : [ "commerce_order_update" ],
       "IF" : [
         { "NOT data_is" : { "data" : [ "commerce-order-unchanged:status" ], "value" : "canceled" } },
         { "data_is" : { "data" : [ "commerce-order:status" ], "value" : "canceled" } },
-        { "data_is" : { "data" : [ "commerce-order:type" ], "value" : "commerce_order" } }
+        { "entity_has_field" : {
+            "entity" : [ "commerce-order" ],
+            "field" : "field_commerce_billy_cancel_date"
+          }
+        }
       ],
       "DO" : [
         { "data_set" : {
@@ -79,12 +83,9 @@ function commerce_billy_default_rules_configuration() {
   $items['rules_commerce_billy_set_to_canceled'] = entity_import('rules_config', '{ "rules_commerce_billy_set_to_canceled" : {
       "LABEL" : "Set order to canceled",
       "PLUGIN" : "rule",
-      "TAGS" : [ "commerce_billy" ],
+      "TAGS" : [ "Commerce Billy" ],
       "REQUIRES" : [ "rules", "commerce_order" ],
       "USES VARIABLES" : { "order" : { "label" : "Order", "type" : "commerce_order" } },
-      "IF" : [
-        { "data_is" : { "data" : [ "order:type" ], "value" : "commerce_order" } }
-      ],
       "DO" : [
         { "commerce_order_update_state" : { "commerce_order" : [ "order" ], "order_state" : "canceled" } }
       ]
@@ -93,11 +94,11 @@ function commerce_billy_default_rules_configuration() {
   $items['rules_commerce_billy_set_to_invoiced'] = entity_import('rules_config', '{ "rules_commerce_billy_set_to_invoiced" : {
       "LABEL" : "Set order to invoiced",
       "PLUGIN" : "rule",
-      "TAGS" : [ "commerce_billy" ],
+      "TAGS" : [ "Commerce Billy" ],
       "REQUIRES" : [ "rules", "commerce_order", "commerce_billy" ],
       "USES VARIABLES" : { "order" : { "label" : "Order", "type" : "commerce_order" } },
       "IF" : [
-        { "data_is" : { "data" : [ "order:type" ], "value" : "commerce_order" } },
+        { "entity_has_field" : { "entity" : [ "order" ], "field" : "field_commerce_billy_i_date" } },
         { "data_is" : { "data" : [ "order:order-number" ], "value" : [ "order:order-id" ] } }
       ],
       "DO" : [

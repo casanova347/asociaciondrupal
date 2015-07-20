@@ -1,0 +1,230 @@
+<?php
+
+/**
+ * @file
+ * Install / Uninstall code for the AED Mailchimp Subscription feature.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function aed_mailchimp_subscription_requirements($phase) {
+  // Do not proceed with installation if the config vars are not set in the
+  // settings.php file.
+  $requirements = array();
+  $mailchimp_list_id = variable_get('aed_mailchimp_subscription_mc_list_id');
+  $mailchimp_non_member_list_id = variable_get('aed_mailchimp_subscription_mc_nm_list_id');
+  $mailchimp_api_key = variable_get('mailchimp_api_key');
+  if ($phase == 'install') {
+    if ((empty($mailchimp_api_key) || empty($mailchimp_list_id) || empty($mailchimp_non_member_list_id))) {
+      $requirements['aed_mailchimp_subscription_config_vars'] = array(
+        'title' => 'Mailchimp config vars',
+        'description' => 'You must set the config vars in your settings.php prior to installing this module.',
+        'severity' => REQUIREMENT_ERROR,
+      );
+    }
+  }
+  return $requirements;
+}
+
+/**
+ * Implements hook_enable().
+ */
+function aed_mailchimp_subscription_enable() {
+  // Clear field cache to ensure the field type created by our dependency
+  // (mailchimp_lists) is available.
+  field_cache_clear();
+
+  // Create a new mailchimp basefield and its instance on the user entity.
+  $field_name = 'field_mailchimp_subscription';
+
+  // Only proceed if a field with this name doesn't exist yet and we have a list
+  // id available (this value should have come from settings.php).
+  $existing_field = field_info_field($field_name);
+  $list_id = variable_get('aed_mailchimp_subscription_mc_list_id');
+  if (empty($existing_field) && !empty($list_id)) {
+
+    // Create the base field.
+    $field = array(
+      'active' => 1,
+      'cardinality' => 1,
+      'deleted' => 0,
+      'entity_types' => array(),
+      'field_name' => $field_name,
+      'field_permissions' => array(
+        'type' => 1,
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => 0,
+      'module' => 'mailchimp_lists',
+      'settings' => array(
+        'double_opt_in' => 0,
+        'mc_list_id' => $list_id,
+        'profile2_private' => FALSE,
+        'send_welcome' => 0,
+      ),
+      'translatable' => 0,
+      'type' => 'mailchimp_lists_subscription',
+    );
+    field_create_field($field);
+
+    // Create the field instance.
+    $instance = array(
+      'bundle' => 'user',
+      'default_value' => array(
+        0 => array(
+          'subscribe' => 1,
+        ),
+      ),
+      'deleted' => 0,
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'mailchimp_lists',
+          'settings' => array(
+            'interest_groups' => array(),
+            'show_interest_groups' => FALSE,
+          ),
+          'type' => 'mailchimp_lists_subscribe_default',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'user',
+      'field_name' => $field_name,
+      'label' => 'Adhesión a la newsletter de socios',
+      'required' => 0,
+      'settings' => array(
+        'interest_groups_title' => 'Interest Groups',
+        'mergefields' => array(
+          'EMAIL' => 'mail',
+          'FNAME' => 'profile_socio:field_nombre',
+          'LNAME' => 'profile_socio:field_apellidos',
+        ),
+        'options' => array(
+          'interest_groups' => array(),
+          'subscribe' => FALSE,
+        ),
+        'show_interest_groups' => 0,
+        'unsubscribe_on_delete' => 1,
+        'user_register_form' => 1,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'mailchimp_lists',
+        'settings' => array(),
+        'type' => 'mailchimp_lists_select',
+        'weight' => 12,
+      ),
+    );
+    field_create_instance($instance);
+  }
+
+  // Create a signup form for the anonymous users. This is an entity defined by
+  // the mailchimp_signup module.
+  // Only proceed if we have the list_id defined in the settings.php.
+  $non_member_list_id = variable_get('aed_mailchimp_subscription_mc_nm_list_id');
+  if (!empty($non_member_list_id)) {
+    $export = '{
+      "name" : "non_members_signup",
+      "mc_lists" : { "' . $non_member_list_id . '" : "' . $non_member_list_id . '" },
+      "mode" : "1",
+      "title" : "Newsletter AED",
+      "settings" : {
+        "path" : "",
+        "submit_button" : "Submit",
+        "confirmation_message" : "You have been successfully subscribed.",
+        "destination" : "",
+        "mergefields" : { "EMAIL" : {
+            "name" : "Email Address",
+            "req" : true,
+            "field_type" : "email",
+            "public" : true,
+            "show" : true,
+            "order" : "1",
+            "default" : "",
+            "helptext" : "",
+            "size" : "25",
+            "tag" : "EMAIL",
+            "id" : 0
+          }
+        },
+        "description" : "Join here the AED newsletter.",
+        "doublein" : 0,
+        "send_welcome" : 0,
+        "include_interest_groups" : 0
+      },
+      "rdf_mapping" : []
+    }';
+    $entity = entity_import('mailchimp_signup', $export);
+    $entity->save();
+
+    // Adjust the block settings like region, weight, visibility etc.
+    global $theme;
+    $block_db_row = array(
+      'module' => 'mailchimp_signup',
+      'delta' => 'non_members_signup',
+      'theme' => $theme,
+      'status' => 1,
+      'weight' => 99,
+      'region' => 'sidebar_second',
+      'custom' => 0,
+      'visibility' => 0,
+      'pages' => '',
+      'title' => '',
+      'cache' => 2,
+    );
+    db_merge('block')->key(array(
+      'theme' => $theme,
+      'module' => $block_db_row['module'],
+      'delta' => $block_db_row['delta'],
+    ))->fields($block_db_row)->execute();
+    $block_role_db_row = array(
+      'module' => 'mailchimp_signup',
+      'delta' => 'non_members_signup',
+      'rid' => 1,
+    );
+    db_merge('block_role')->key(array(
+      'module' => $block_role_db_row['module'],
+      'delta' => $block_role_db_row['delta'],
+    ))->fields($block_role_db_row)->execute();
+  }
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function aed_mailchimp_subscription_uninstall() {
+  // Delete the field created by our module and all instances associated.
+  $field_name = 'field_mailchimp_subscription';
+  $field = field_info_field($field_name);
+  if (!empty($field)) {
+    field_delete_field($field_name);
+  }
+  // Delete the subscription forms entities we created on install.
+  $our_entity_names = array(
+    'non_members_signup',
+  );
+  $query = new EntityFieldQuery();
+  $entities = $query->entityCondition('entity_type', 'mailchimp_signup')
+    ->propertyCondition('name', $our_entity_names, 'IN')
+    ->execute();
+  if (!empty($entities['mailchimp_signup'])) {
+    $ids = array_keys($entities['mailchimp_signup']);
+    entity_delete_multiple('mailchimp_signup', $ids);
+  }
+  // Delete also the information about custom blocks created.
+  $our_block_deltas = array(
+    'non_members_signup',
+  );
+  foreach ($our_block_deltas as $delta) {
+    db_delete('block')
+      ->condition('delta', $delta)
+      ->execute();
+    db_delete('block_role')
+      ->condition('delta', $delta)
+      ->execute();
+  }
+}

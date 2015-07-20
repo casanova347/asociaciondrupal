@@ -1,0 +1,10 @@
+name = AED Mailchimp Subscription
+description = Includes the field and variables from mailchimp lists and subscription features.
+core = 7.x
+package = AED
+dependencies[] = mailchimp
+dependencies[] = mailchimp_campaign
+dependencies[] = mailchimp_lists
+dependencies[] = mailchimp_signup
+features[features_api][] = api:2
+project path = sites/all/modules/features
