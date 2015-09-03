@@ -1,0 +1,30 @@
+#contactar-entityform-edit-form {
+
+  > div {
+    @include pie-clearfix;
+  }
+
+  .group-left {
+    width: 50%;
+    padding: 0 10px 0 0;
+    box-sizing: border-box;
+    float: left;
+  }
+
+  .group-right {
+    width: 50%;
+    padding: 0 0 0 10px;
+    box-sizing: border-box;
+    float: right;
+
+    textarea {
+      min-height: 200px;
+    }
+
+  }
+
+  .form-actions {
+    text-align: right;
+  }
+
+}
