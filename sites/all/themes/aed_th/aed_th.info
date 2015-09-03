@@ -1,5 +1,5 @@
 name = aed_th theme
-description = Please provide a description for your theme.
+description = Custom aed_th theme.
 base theme = omega
 screenshot = screenshot.png
 engine = phptemplate
@@ -16,7 +16,7 @@ stylesheets[all][] = css/styles.css
 ; ========================================
 scripts[] = js/jquery.support.cssproperty.js
 scripts[] = js/jquery.imageScroll.js
-scripts[] = js/frontid-th.behaviors.js
+scripts[] = js/aed-th.behaviors.js
 scripts[] = js/mobile-menu.js
 
 ; ========================================
