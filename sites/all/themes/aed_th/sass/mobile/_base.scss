@@ -1,0 +1,16 @@
+// este solo aplica a mobile.
+
+@include breakpoint($mobile-devices) {
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h2.block__title {
+    font-size: 30px;
+    line-height: normal;
+    text-align: center;
+    margin: 0 0 15px;
+  }
+
+}

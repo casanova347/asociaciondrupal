@@ -1,0 +1,20 @@
+// Reseteamos links contextuales
+ul.contextual-links {
+
+  li {
+    background: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    line-height: normal !important;
+    border: none !important;
+
+    a {
+      line-height: normal !important;
+      width: auto !important;
+      height: auto !important;
+    }
+
+  }
+
+}

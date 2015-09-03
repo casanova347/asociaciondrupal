@@ -1,0 +1,49 @@
+////////////////////////////////////////////////////////
+// IMPORTANTE!!!!
+// En este archivo SOLO se definen las posiciones y visibilidad de regiones.
+// Los margenes o paddings o estilos que se le quiera aplicar a estas regiones ACA NO VAN.
+// Para ese tipo de cosas hacerlo directamente en el theme.
+// Esto es importante para mantener al layout generico.
+//////////////////////////////////////////////////////////
+@import "compass";
+@import "breakpoint";
+@import "susy";
+
+$susy: (
+        container: 1200px,
+        global-box-sizing:border-box,
+        columns: 12,
+        gutters: 1/4,
+        math: fluid,
+        output: float,
+        gutter-position: after,
+        debug: (image: hide)
+);
+
+// Este class solo se tiene que utilizar dentro de una
+// region para restringir el ancho del contenido.
+.l-container {
+  @include container;
+  @include pie-clearfix;
+  padding: 0;
+}
+
+// Todos los row son meros contenedores. Inernamente los l-region
+// con los que realmente tienen el contenido.
+.l-admin,
+.l-one,
+.l-two,
+.l-three,
+.l-four,
+.l-five,
+.l-six,
+.l-seven,
+.l-eight,
+.l-nine,
+.l-ten {
+  @include span(12);
+
+  > .l-region {
+  }
+}
+

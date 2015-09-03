@@ -1,0 +1,16 @@
+// Librerias externas
+@import "compass";
+@import "breakpoint";
+
+@import "_variables.scss";
+@import "mobile/_variables.scss";
+
+// Heredamos cosas comunes del proyecto.
+@import "_reset.scss";
+@import "abstractions/**/*";
+
+// Especifico de mobile.
+@import "mobile/_base.scss";
+@import "mobile/components/**/*";
+@import "mobile/regions/**/*";
+@import "mobile/pages/**/*";

@@ -1,0 +1,11 @@
+// Cuando se especifica cellpadding en una tabla, se repercute ese cellpadding en los td directamente.
+// Esta solucion atiende al siguiente caso de uso: nuestro theme como casi todos resetea las propiedades
+// de las tablas, entre ellas el padding de los td.
+// El problema viene cuando desde un editor de texto como ckeditor un usuario quiere establecer un
+//relleno a las celdas. Esto no les va a funcionar porque todos los td estarán a padding:0px que pesa mas que un cellspacing.
+// La solucion es crear este selector que detecta la presencia de los cellpadding dandoles prioridad.
+@for $i from 0 through 30 {
+  table[cellpadding="#{$i}"] td {
+    padding: #{$i}px;
+  }
+}

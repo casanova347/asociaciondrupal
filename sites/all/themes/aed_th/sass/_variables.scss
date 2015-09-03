@@ -1,0 +1,74 @@
+// ------------------------------------------
+// ------------------------------------------
+// Colores
+// ------------------------------------------
+// ------------------------------------------
+// Grises
+$color-grey-a: #333;
+$color-grey-b: #31383c;
+$color-grey-c: #4e4e4e;
+$color-grey-d: #e2e2e2;
+$color-grey-e: #e7e7e7;
+$color-grey-f: #ddd;
+$color-grey-g: rgba(0, 0, 0, 0.03);
+
+// Azules
+$color-blue-a: #20c3c4;
+$color-blue-b: #15a4a5;
+
+// Rojos
+$color-red-a: rgba(245, 99, 99, 0.95);
+
+// Verdes
+$color-green-a: #4B8413;
+$color-green-b: #3D690A;
+$color-green-c: #739159;
+
+// ------------------------------------------
+// ------------------------------------------
+// Breakpoints
+// ------------------------------------------
+// ------------------------------------------
+$mob: 360px;
+$tab: 720px;
+$desk: 960px;
+$mobile-devices: 0 960px;
+
+// ------------------------------------------
+// ------------------------------------------
+// Familias de fuentes y tamaños base.
+// ------------------------------------------
+// ------------------------------------------
+// Fuentes locales.
+//@include font-face("Quicksand", font-files("Quicksand/Quicksand-Regular.woff", "Quicksand/Quicksand-Regular.ttf", "Quicksand/Quicksand-Regular.svg"), "Quicksand/Quicksand-Regular.eot", normal);
+//@include font-face("Quicksand", font-files("Quicksand/Quicksand-Bold.woff", "Quicksand/Quicksand-Bold.ttf", "Quicksand/Quicksand-Bold.svg"), "Quicksand/Quicksand-Bold.eot", bold);
+
+// Google fonts
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300);
+
+// ------------------------------------------
+// ------------------------------------------
+// Familias de fuentes y tamaños base.
+// ------------------------------------------
+// ------------------------------------------
+// Para fuentes web ir a _webfonts.scss
+//$font-family-trebuchet: "Trebuchet MS", 'Geneva', Helvetica, Sans-serif;
+$font-family-OpenSans: 'Open Sans', sans-serif;
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+
+// ------------------------------------------
+// ------------------------------------------
+// Susy global config.
+// ------------------------------------------
+// ------------------------------------------
+$susy: (
+        global-box-sizing: border-box,
+        columns: 12,
+        gutters: 1/4,
+        math: fluid,
+        output: float,
+        gutter-position: after,
+        debug: (image: hide)
+)

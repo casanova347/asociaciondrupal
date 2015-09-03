@@ -1,0 +1,61 @@
+// Rodea un contenido con un circulo perfecto y responsive.
+/*
+<div class="abstracted-circle-wrapper">
+    <div class="abstracted-circle">
+        <div class="inner">
+            <!--Circle content-->
+            <div class="content-absolute-centered">
+                <div class="content">
+                    <div class="inner">
+                        <div class="vertical-content">
+                            <!--absolute-centered content-->
+                            <?php if(!is_null($fields['field_fb']->content)): ?>
+                            <a href="<?php print $fields['field_fb']->content; ?>" class="fa-facebook"></a>
+                            <?php endif; ?>
+                            <!--END absolute-centered content-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Circle content-->
+        </div>
+    </div>
+</div>
+
+abstracted-circle-wrapper es simplemente un div que usamos para sar una dimension concreta al circulo. No estas dimensiones no las aplicamos en abstracted-circle porque el circulo se desforma. Para conseguir un tamaño escalado tiene que ser un elemento externo el que limite wi width (el height escala automagicamente.)
+*/
+//@todo implementar la funcionalidad de _content-absolute-centered.scss como paerte de este componente ara simplificar el nesting de los divs.
+@mixin abstracted-circle($adjusted: false) {
+  position: relative;
+  height: 0;
+  padding: 100% 0 0;
+  list-style: none;
+
+  > .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #F0F0F0;
+    box-shadow: 0 0 1px white; // Antialias trick.
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: -1;
+    box-sizing: border-box;
+  }
+
+}
+
+.abstracted-circle {
+  @include abstracted-circle($adjusted: true);
+}

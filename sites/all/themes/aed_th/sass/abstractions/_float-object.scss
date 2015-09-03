@@ -1,0 +1,26 @@
+// Objeto flotante. Es un elemento que tiene a su izquierda o derecha otro bloque
+// Una extensión de este elemento es el media object, en el cual el objeto flotante es la imagen, y el texto acompaña
+// la imagen
+@mixin float-object() {
+  overflow: hidden;
+
+  .body {
+    overflow: hidden;
+  }
+
+  .object {
+    float: left;
+    margin-right: 10px;
+
+    &.right {
+      float: right;
+      margin-left: 10px;
+      margin-right: 0;
+    }
+  }
+
+}
+
+.float-object {
+  @include float-object();
+}

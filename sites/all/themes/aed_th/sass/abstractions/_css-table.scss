@@ -1,0 +1,43 @@
+// Esta es una pseudo tabla. Es mas practica, tiene menos html y es mas semantica desde que se puede aplicar sobre cualquier tag.
+// Compatible con IE8+
+.table {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+
+  > * {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  &.cols-2 {
+    > * {
+      width: (100% /2);
+    }
+  }
+
+  &.cols-3 {
+    > * {
+      width: (100% /3);
+    }
+  }
+
+  &.cols-4 {
+    > * {
+      width: (100% /4);
+    }
+  }
+
+  &.cols-5 {
+    > * {
+      width: (100% /5);
+    }
+  }
+
+  &.cols-6 {
+    > * {
+      width: (100% /6);
+    }
+  }
+
+}

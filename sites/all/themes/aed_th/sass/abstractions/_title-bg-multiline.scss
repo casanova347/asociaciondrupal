@@ -1,0 +1,9 @@
+// Titulos multi linea con padding por cada una de las lineas
+// http://ecapy.com/front-end-titulos-multi-linea-con-padding-por-cada-una-de-las-lineas/
+@mixin title-bg-multiline($bg: rgba(white, .8), $size: 5px, $separation: 36px) {
+  display: inline;
+  line-height: $separation; // Espaciado entre lineas
+  background: $bg; // Color de fondo del texto
+  padding: $size 0; // padding deseado
+  box-shadow: $size + 3px 0 0 $bg, -$size + -3px 0 0 $bg;
+}

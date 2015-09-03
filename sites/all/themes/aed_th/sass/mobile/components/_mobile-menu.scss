@@ -1,0 +1,76 @@
+// Ocultamos el menu clonado en versión desk.
+.mobile-menu {
+  display: none;
+}
+
+@include breakpoint($mobile-devices) {
+  .mobile-menu {
+    background: rgba(0, 0, 0, 0.8);
+    display: block;
+    width: 100%;
+    top: 0;
+    right: 100%;
+    z-index: 9999;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+    padding: 42px 0 1px;
+    transition: right .5s;
+    position: fixed;
+
+    &.open {
+      right: 0;
+    }
+
+    > .close {
+      position: absolute;
+      width: 33px;
+      height: 33px;
+      right: 10px;
+      top: 9px;
+      background: image-url('icon-close.png') no-repeat 0 0 transparent;
+      background-size: cover;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    #block-system-main-menu {
+
+      ul {
+
+        li {
+          color: white;
+          display: block;
+          list-style: none;
+
+          a {
+            color: #FFF;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-size: 18px;
+            display: block;
+            transition: all 500ms;
+            border-bottom: 0 solid transparent;
+
+            &.disabled {
+              color: #828282;
+            }
+
+            &.active, &:hover {
+              text-decoration: none;
+              background: rgba(255, 255, 255, 0.65);
+              border-bottom: 15px solid rgba(255, 255, 255, 0.71);
+              color: black;
+              padding-bottom: 5px;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

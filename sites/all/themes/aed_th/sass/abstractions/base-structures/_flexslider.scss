@@ -1,0 +1,42 @@
+.flexslider-wrapper {
+  margin-bottom: 20px;
+
+  .flexslider-area {
+    position: relative;
+    border: 0;
+    margin: 0;
+
+    .flexslider {
+
+      ul.slides {
+        li {
+          position: relative;
+        }
+      }
+
+      .flex-control-nav {
+        margin: 0;
+      }
+
+      .flex-direction-nav {
+        a {
+          display: none;
+        }
+      }
+
+      &:hover {
+        .flex-direction-nav {
+          a {
+            display: block;
+
+            &:hover {
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+}
+

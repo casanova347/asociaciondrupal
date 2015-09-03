@@ -1,0 +1,52 @@
+// Forms
+// -----------------------------------
+
+// Estilos compartidos
+textarea,
+.form-text,
+.form-file {
+  @include box-sizing(border-box);
+  width: 100%;
+}
+
+textarea[disabled],
+.form-text[disabled],
+.form-file[disabled] {
+}
+
+.form-file {
+  vertical-align: top;
+}
+
+.form-item {
+  margin: 0 0 1.5em;
+}
+
+input.form-autocomplete {
+}
+
+label {
+}
+
+.form-checkbox {
+  position: relative;
+  top: 3px;
+}
+
+fieldset {
+  @include box-sizing(border-box);
+  padding-top: 30px;
+  position: relative;
+  margin: 0;
+
+  legend {
+    position: absolute;
+    top: 10px;
+
+    span {
+    }
+  }
+
+  .fieldset-wrapper {
+  }
+}

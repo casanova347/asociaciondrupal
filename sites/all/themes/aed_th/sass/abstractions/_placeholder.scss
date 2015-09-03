@@ -1,0 +1,38 @@
+//
+//  Applies custom styles to placeholders
+//
+//  You can also indicate if you want to apply custom styles just for input, or textarea or for all (default option)
+//
+//  Usage:
+//  @include placeholder(all) {
+//     font-size: 15px;
+//     color: blue;
+//  }
+//
+//  input[placeholder]#{$prefix},
+//  textarea[placeholder]#{$prefix} {
+//    font-size: 15px;
+//    color: blue;
+//  }
+@mixin placeholder($elements: 'all') {
+  $form_placeholder_prefixes: ('::-webkit-input-placeholder', ':-moz-placeholder', '::-moz-placeholder', ':-ms-input-placeholder', '::input-placeholder', '::placeholder' );
+  @each $prefix in $form_placeholder_prefixes {
+
+    @if $elements == 'input' {
+      input[placeholder]#{$prefix} {
+        @content
+      }
+
+    } @else if $elements == 'textarea' {
+      textarea[placeholder]#{$prefix} {
+        @content
+      }
+
+    } @else {
+      input[placeholder]#{$prefix},
+      textarea[placeholder]#{$prefix} {
+        @content
+      }
+    }
+  }
+}

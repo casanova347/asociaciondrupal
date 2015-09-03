@@ -1,0 +1,10 @@
+@mixin menu-mobile-style {
+  position: absolute;
+  right: 105%;
+  transition: right .5s;
+  top: 0;
+
+  &.open {
+    right: 0;
+  }
+}

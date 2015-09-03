@@ -1,0 +1,41 @@
+// util para slideshows o videos que tienen contenido dentro de forma absoluta. Lo centra vertical y horizontalmente.
+// Dependencias
+@import "vertical-multiline";
+
+/*
+Estructura:
+<div id="home-video" class="content-absolute-centered">
+    <div class="content">
+        <div class="inner">
+            <div class="vertical-content">
+                <img src="/<?php print $path; ?>/assets/img/logo-543x229.png" class="logo" alt="Front.id">
+                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid blanditiis commodi iste. Ab, animi beatae dignissimos eligendi enim eos laudantium, libero, magnam minima nemo nesciunt odio quis reiciendis rerum ut.</div>
+            </div>
+        </div>
+    </div>
+    <video autoplay loop poster="">
+        <source src="/<?php print $path; ?>/assets/videos/home/960x400.m4v" type="video/mp4">
+    </video>
+</div>
+
+*/
+.content-absolute-centered {
+  position: relative;
+  height: 100%;
+
+  > .content {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+
+    > .inner {
+      @include vertical-multi-line;
+      margin: 0 auto;
+    }
+
+  }
+
+}

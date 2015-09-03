@@ -1,0 +1,20 @@
+// Brinda un aspecto a los mensajes del sistema
+// del tipo "status", "warning" y "error".
+// Uso:  @include messages();
+@mixin messages() {
+  margin: 15px 0;
+  padding: 10px;
+
+  &.status {
+    background: #74E17A;
+  }
+
+  &.warning {
+    background: #ffd111;
+  }
+
+  &.error {
+    background: #ff3e00;
+    color: white;
+  }
+}

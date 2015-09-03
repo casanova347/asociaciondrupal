@@ -1,0 +1,19 @@
+// Aplica un line-through (strike) a un elemento.
+// La principal diferencia con respecto a la propiedad de CSS es que este
+// permite usar un color diferente al del texto.
+@mixin line-through($color: #FF0000, $ancho: 1px) {
+  position: relative;
+  line-height: normal;
+
+  &:after {
+    background: $color;
+    content: "";
+    display: block;
+    height: $ancho;
+    width: 100%;
+    margin-top: -$ancho / 2;
+    position: absolute;
+    left: 0;
+    top: 50%;
+  }
+}

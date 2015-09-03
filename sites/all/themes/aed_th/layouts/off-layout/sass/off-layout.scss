@@ -1,0 +1,115 @@
+////////////////////////////////////////////////////////
+// IMPORTANTE!!!!
+// En este archivo SOLO se definen las posiciones y visibilidad de regiones.
+// Los margenes o paddings o estilos que se le quiera aplicar a estas regiones ACA NO VAN.
+// Para ese tipo de cosas hacerlo directamente en el theme.
+// Esto es importante para mantener al layout generico.
+//////////////////////////////////////////////////////////
+@import "compass";
+@import "breakpoint";
+@import "susy";
+
+$susy: (
+        container: 1200px,
+        global-box-sizing:border-box,
+        columns: 12,
+        gutters: 1/4,
+        math: fluid,
+        output: float,
+        gutter-position: after,
+        debug: (image: hide)
+);
+
+// Susy Variables //Tablet es todo lo que mida 704px hasta el proximo brekpoint. $tab: 44em;
+//Tablet es todo lo que mida 1120px hasta el proximo brekpoint.
+$desk: 70em;
+
+// Importamos el menu por separado desde que no es
+// parte del layout. Es mas bien una capa extra
+@import "mobile-menu";
+
+// Desde 0px para delante estos estilos de aplican. Cuando llege a tablet o
+// desktop se harán modificaciones sobre estas definiciones (mobile first)
+
+// Este class solo se tiene que utilizar dentro de una
+// region para restringir el ancho del contenido.
+.l-container {
+  @include container;
+  @include pie-clearfix;
+  padding: 0;
+}
+
+.l-off-canvas {
+  clear: both;
+}
+
+.l-branding {
+  @include span(12);
+}
+
+.l-region--header {
+  @include span(12);
+}
+
+@include breakpoint($tab) {
+
+  .l-branding {
+    @include span(4);
+  }
+
+  .l-region--header {
+    @include span(8 last);
+  }
+
+}
+
+@include breakpoint($desk) {
+
+  // Si la region central tiene sidebars (1, 2 o ambos) vamos
+  // repartiendo el espacio disponible entre contenido y sidebars
+  // @todo probar con 2 sidebars
+  .has-sidebar-first {
+    .l-content > * > .content {
+      @include span(8 last);
+    }
+
+    .l-region--sidebar-first {
+      // A partir de tablet los sidebar no van al fondo. ergo tenemos que anular el clear:both;
+      @include span(4);
+    }
+
+  }
+
+  .has-sidebar-second {
+    .l-content > .content {
+      @include span(9);
+    }
+
+    .l-region--sidebar-second {
+      @include span(3 last);
+      @include push(9);
+    }
+
+  }
+
+  .has-two-sidebars {
+
+    .l-region--sidebar-first {
+      // A partir de tablet los sidebar no van al fondo. ergo tenemos que anular el clear:both;
+      @include span(3);
+    }
+
+    .l-content .content {
+      @include span(6);
+      @include clearfix;
+    }
+
+    .l-region--sidebar-second {
+      // A partir de tablet los sidebar no van al fondo. ergo tenemos que anular el clear:both;
+      @include span(3 last);
+      @include push(0);
+    }
+
+  }
+
+}

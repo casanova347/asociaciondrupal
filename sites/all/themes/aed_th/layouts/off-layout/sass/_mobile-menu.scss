@@ -1,0 +1,68 @@
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+/*******************************************************************************
+* Off canvas portion of styling for the Off Canvas layout.
+******************************************************************************/
+@import "breakpoint";
+
+$tab: 44em;
+
+.off-canvas-toggler {
+  display: none;
+}
+
+// Este menu solo es valido desde 0px hasta $tablet.
+// De ahi para delante cede el control al theme normal.
+@include breakpoint(0 $desk) {
+  #off-canvas {
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    right: 100%;
+    top: 0;
+    @include transition(right .2s);
+    // El bg es la unica cosa meramente decorativa.
+    background: #ccc;
+
+    &.open {
+      right: 0;
+
+      .off-canvas-toggler {
+        left: 0;
+        width: 100%;
+
+        span{
+          background: image-url("close.png") 97% 50% no-repeat;
+        }
+      }
+    }
+
+    .off-canvas-toggler {
+      // El cursor es la unica cosa meramente decorativa.
+      cursor: pointer;
+      z-index: 1000;
+      width: 110%;
+      height: 33px;
+      display: inline-block;
+      position: absolute;
+      left: 100%;
+      top: 0;
+
+      span {
+        background: image-url("menu.png") 89% 50% no-repeat;
+        display: block;
+        color: white;
+        text-transform: uppercase;
+        padding: 5px 11px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+  }
+}
+
+.relative {
+  margin-left: -10px;
+  position: relative;
+}

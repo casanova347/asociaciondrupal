@@ -1,0 +1,71 @@
+@import "susy";
+
+// Susy global config.
+$susy: (
+        global-box-sizing: border-box,
+        columns: 12,
+        gutters: 1/4,
+        math: fluid,
+        output: float,
+        gutter-position: after,
+        debug: (image: hide)
+);
+
+.layout-container {
+  @include container;
+
+  .col-2 {
+    @include span(2);
+  }
+
+  .col-3 {
+    @include span(3);
+  }
+
+  .col-4 {
+    @include span(4);
+  }
+
+  .col-5 {
+    @include span(5);
+  }
+
+  .col-6 {
+    @include span(6);
+  }
+
+  .col-7 {
+    @include span(7);
+  }
+
+  > * {
+    &:last-child {
+      @include last;
+    }
+  }
+
+  // A helper class to show the grid on development phase.
+  &.show-grid-example {
+    > * {
+      &.col-1,
+      &.col-2,
+      &.col-3,
+      &.col-4,
+      &.col-5,
+      &.col-6,
+      &.col-7,
+      &.col-8,
+      &.col-9,
+      &.col-10,
+      &.col-11,
+      &.col-12 {
+        background: rgba(0, 110, 155, 0.30);
+        border: 1px solid purple;
+        padding: 10px;
+      }
+
+    }
+  }
+
+}
+

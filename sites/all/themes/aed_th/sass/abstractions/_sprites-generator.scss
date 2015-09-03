@@ -1,0 +1,33 @@
+@function emFromPx($px, $base) {
+  @if ($px == 0) {
+    @return 0
+  }
+  @return ($px / $base) * 1em;
+}
+
+// Solo soporta png's.
+// "prefix" es indicar si ".", "#" o "%"
+// "namespace" es la palabra con la que comienza cada elemento del sprite.
+// $path es el directorio de donde se van a leer las imágenes.
+// $layout y $spacing es el orden que reciben los iconos y el espacio entre ellos (ver compass)
+// uso: @include sprite-generate('.', 'sprite-', "iconitos/*.png", horizontal, 20px);
+// Tip: los sprites se almacenan en la carpeta de imagenes definidas en config.rb salvo que le especifiques un path alternativo en config.rb: generated_images_dir = "img/sprites-aqui"
+@mixin sprite-generate($prefix, $namespace, $path, $layout: smart, $spacing: 0) {
+  $map: sprite-map($path, $layout: $layout, $spacing: $spacing);
+  $bg-baseline-size: 100px;
+
+  [class*="#{$namespace}"] {
+    background: sprite-url($map) no-repeat;
+    display: inline-block;
+    background-size: emFromPx(sprite-width($map), $bg-baseline-size) emFromPx(sprite-height($map), $bg-baseline-size);
+    font-size: $bg-baseline-size;
+  }
+
+  @each $imagePath in sprite-names($map) {
+    #{$prefix}#{$namespace}#{$imagePath} {
+      width: emFromPx(image-width(sprite-file($map, $imagePath)), $bg-baseline-size);
+      height: emFromPx(image-height(sprite-file($map, $imagePath)), $bg-baseline-size);
+      background-position: emFromPx(nth(sprite-position($map, $imagePath), 1), $bg-baseline-size) emFromPx(nth(sprite-position($map, $imagePath), 2), $bg-baseline-size);
+    }
+  }
+}

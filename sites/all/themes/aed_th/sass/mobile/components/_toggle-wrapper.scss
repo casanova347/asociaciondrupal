@@ -1,0 +1,25 @@
+.toggle-wrapper {
+  display: none;
+
+  @include breakpoint($mobile-devices) {
+    width: 29px;
+    z-index: 9999;
+    display: block;
+    position: absolute;
+    top: 9px;
+    right: 15px;
+
+    .menu-toggle {
+      $img: "icon-menu-mobile-128x128.png";
+      $width: 35px;
+      display: inline-block;
+      width: $width;
+      background: image-url($img) no-repeat 0 0 transparent;
+      @include div-same-size-as-background-img($img, $width);
+      text-indent: -9999px;
+      cursor: pointer;
+    }
+
+  }
+
+}

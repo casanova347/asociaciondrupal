@@ -1,0 +1,37 @@
+/*
+hay que usarlo junto a editable-inline.js
+*/
+@mixin editable-inline($line){
+  position: relative;
+
+  input, textarea {
+    height: $line * 10; // 10 lineas de alto
+  }
+
+  .ei-placeholder {
+    font-size: 12px;
+    line-height: $line;
+    max-height: $line * 10; // 10 lineas de alto
+    display: block;
+    overflow-y: hidden;
+    white-space: pre-wrap;
+    color: #4a4a4a;
+
+    &:hover {
+
+      &:after {
+        content: attr(data-ei-edit-message);
+        position: absolute;
+        background: image-url('icons/pencil-blue-15x15.png') no-repeat 96% 50% #B1B1B1;
+        padding: 4px 6px;
+        padding-right: 27px;
+        bottom: 0;
+        color: #000000;
+        font-size: 12px;
+        left: 0;
+        white-space: nowrap;
+      }
+    }
+
+  }
+}
