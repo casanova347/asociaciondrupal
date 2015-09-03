@@ -1,3 +1,36 @@
-  .pager {
+.pager {
+  text-align: left;
+
+  li {
+    display: inline-block;
+    padding: 0;
+    margin: 0 8px 0 0;
+
+    &.pager__item--current {
+      color: #fff;
+      background-color: $color-grey-a;
+      border-radius: 3px;
+      font-weight: 300;
+      padding: 5px 10px;
+    }
+
+    a {
+      color: #fff;
+      background-color: $color-blue-b;
+      border-radius: 3px;
+      font-weight: 300;
+      padding: 5px 10px;
+
+      &:hover, &:visited {
+        color: #fff;
+      }
+
+      &:hover, &:focus {
+        background-color: $color-grey-a;
+      }
+
+    }
 
   }
+
+}
