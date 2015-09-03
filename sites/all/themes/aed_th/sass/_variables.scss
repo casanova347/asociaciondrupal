@@ -4,25 +4,21 @@
 // ------------------------------------------
 // ------------------------------------------
 // Grises
-$color-grey-a: #333;
-$color-grey-b: #31383c;
-$color-grey-c: #4e4e4e;
-$color-grey-d: #e2e2e2;
-$color-grey-e: #e7e7e7;
-$color-grey-f: #ddd;
-$color-grey-g: rgba(0, 0, 0, 0.03);
+$color-grey-a: #323337;
+$color-grey-b: #4c4c4c;
+$color-grey-c: #a8aeba;
+$color-grey-d: #e9e9f3;
+$color-grey-d: #eee;
 
 // Azules
-$color-blue-a: #20c3c4;
-$color-blue-b: #15a4a5;
+$color-blue-a: #007fbe;
+$color-blue-b: #009baf;
+$color-blue-c: #337dbb;
+$color-blue-d: #007382;
 
 // Rojos
-$color-red-a: rgba(245, 99, 99, 0.95);
 
 // Verdes
-$color-green-a: #4B8413;
-$color-green-b: #3D690A;
-$color-green-c: #739159;
 
 // ------------------------------------------
 // ------------------------------------------
@@ -39,24 +35,16 @@ $mobile-devices: 0 960px;
 // Familias de fuentes y tamaños base.
 // ------------------------------------------
 // ------------------------------------------
-// Fuentes locales.
-//@include font-face("Quicksand", font-files("Quicksand/Quicksand-Regular.woff", "Quicksand/Quicksand-Regular.ttf", "Quicksand/Quicksand-Regular.svg"), "Quicksand/Quicksand-Regular.eot", normal);
-//@include font-face("Quicksand", font-files("Quicksand/Quicksand-Bold.woff", "Quicksand/Quicksand-Bold.ttf", "Quicksand/Quicksand-Bold.svg"), "Quicksand/Quicksand-Bold.eot", bold);
+@include font-face("museosanscyrl", font-files("MuseoSansCyrl/bold/museosanscyrlbold-webfont.woff", "MuseoSansCyrl/bold/museosanscyrlbold-webfont.ttf", "MuseoSansCyrl/bold/museosanscyrlbold-webfont.svg"), "MuseoSansCyrl/bold/museosanscyrlbold-webfont.eot", 900);
 
-// Google fonts
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300);
+@include font-face("museosanscyrl", font-files("MuseoSansCyrl/light/museosanscyrllight-webfont.woff", "MuseoSansCyrl/light/museosanscyrllight-webfont.ttf", "MuseoSansCyrl/light/museosanscyrllight-webfont.svg"), "MuseoSansCyrl/light/museosanscyrllight-webfont.eot", 100);
 
-// ------------------------------------------
-// ------------------------------------------
-// Familias de fuentes y tamaños base.
-// ------------------------------------------
-// ------------------------------------------
-// Para fuentes web ir a _webfonts.scss
-//$font-family-trebuchet: "Trebuchet MS", 'Geneva', Helvetica, Sans-serif;
-$font-family-OpenSans: 'Open Sans', sans-serif;
+@include font-face("museosanscyrl", font-files("MuseoSansCyrl/normal/museosanscyrlnormal-webfont.woff", "MuseoSansCyrl/normal/museosanscyrlnormal-webfont.ttf", "MuseoSansCyrl/normal/museosanscyrlnormal-webfont.svg"), "MuseoSansCyrl/normal/museosanscyrlnormal-webfont.eot", 500);
 
-$base-font-size: 16px;
-$base-line-height: 24px;
+$font-family-museosans: "museosanscyrl", sans-serif;
+
+$base-font-size: 14px;
+$base-line-height: 1em;
 
 // ------------------------------------------
 // ------------------------------------------

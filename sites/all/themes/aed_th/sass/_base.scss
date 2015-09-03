@@ -1,34 +1,37 @@
 html body {
-  color: $color-grey-c;
-  font-family: $font-family-OpenSans;
+  color: #000;
+  font-family: $font-family-museosans;
   font-size: $base-font-size;
   line-height: $base-line-height;
+  font-weight: normal;
+
+  * {
+    box-sizing: border-box;
+  }
 
   a {
-    color: $color-blue-a;
+    color: $color-blue-c;
     text-decoration: none;
 
     &:hover,
     &:visited {
-      text-decoration: underline;
+      color: $color-blue-a;
     }
 
   }
 
   h1, h2, h3, h4, h5, h6 {
-    letter-spacing: 3px;
-    margin-bottom: 1em;
+
   }
 
   h1 {
-    font-size: 36px;
-    line-height: 46px;
-    font-weight: 700;
+    font-size: 42px;
+    line-height: 50px;
   }
 
   h2 {
     font-size: 24px;
-    font-weight: 700;
+    line-height: 38px;
   }
 
   h3 {
@@ -39,7 +42,6 @@ html body {
   h4 {
     font-size: 24px;
     line-height: 36px;
-    font-weight: 700;
   }
 
   h5 {
@@ -52,12 +54,7 @@ html body {
     font-size: 14px;
     line-height: 24px;
   }
-}
 
-img {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
 }
 
 strong {
