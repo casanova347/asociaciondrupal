@@ -1,0 +1,56 @@
+.view-socios {
+
+  .view-content {
+    margin: 0 0 60px;
+
+    .views-row {
+      position: relative;
+      padding: 20px 0;
+      border-bottom: 1px solid #cdcdcd;
+
+      .views-field-field-foto {
+        position: absolute;
+        top: 23px;
+        left: 0;
+      }
+
+      .datos {
+        padding: 0 0 0 75px;
+
+        .nombre {
+          margin: 0 0 10px;
+
+          span {
+            font-weight: 200;
+          }
+
+        }
+
+        .contenidos {
+
+          * {
+            display: inline-block;
+          }
+
+          .views-field {
+
+            &:last-child a {
+              margin: 0;
+            }
+
+            a {
+              color: $color-grey-a;
+              margin: 0 35px 0 0;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
