@@ -35,11 +35,14 @@ $mobile-devices: 0 960px;
 // Familias de fuentes y tamaños base.
 // ------------------------------------------
 // ------------------------------------------
-@include font-face("museosanscyrl", font-files("MuseoSansCyrl/bold/museosanscyrlbold-webfont.woff", "MuseoSansCyrl/bold/museosanscyrlbold-webfont.ttf", "MuseoSansCyrl/bold/museosanscyrlbold-webfont.svg"), "MuseoSansCyrl/bold/museosanscyrlbold-webfont.eot", 900);
 
-@include font-face("museosanscyrl", font-files("MuseoSansCyrl/light/museosanscyrllight-webfont.woff", "MuseoSansCyrl/light/museosanscyrllight-webfont.ttf", "MuseoSansCyrl/light/museosanscyrllight-webfont.svg"), "MuseoSansCyrl/light/museosanscyrllight-webfont.eot", 100);
+@include font-face("museosanscyrl", font-files("MuseoSansCyrl/100/museosanscyrl_100-webfont.woff", "MuseoSansCyrl/100/museosanscyrl_100-webfont.ttf", "MuseoSansCyrl/100/museosanscyrl_100-webfont.svg"), "MuseoSansCyrl/100/museosanscyrl_100-webfont.eot", 100);
 
-@include font-face("museosanscyrl", font-files("MuseoSansCyrl/normal/museosanscyrlnormal-webfont.woff", "MuseoSansCyrl/normal/museosanscyrlnormal-webfont.ttf", "MuseoSansCyrl/normal/museosanscyrlnormal-webfont.svg"), "MuseoSansCyrl/normal/museosanscyrlnormal-webfont.eot", 500);
+@include font-face("museosanscyrl", font-files("MuseoSansCyrl/300/museosanscyrl_300-webfont.woff", "MuseoSansCyrl/300/museosanscyrl_300-webfont.ttf", "MuseoSansCyrl/300/museosanscyrl_300-webfont.svg"), "MuseoSansCyrl/300/museosanscyrl_300-webfont.eot", 500);
+
+@include font-face("museosanscyrl", font-files("MuseoSansCyrl/500/museosanscyrl_500-webfont.woff", "MuseoSansCyrl/500/museosanscyrl_500-webfont.ttf", "MuseoSansCyrl/500/museosanscyrl_500-webfont.svg"), "MuseoSansCyrl/500/museosanscyrl_500-webfont.eot", 500);
+
+@include font-face("museosanscyrl", font-files("MuseoSansCyrl/900/museosanscyrl_900-webfont.woff", "MuseoSansCyrl/900/museosanscyrl_900-webfont.ttf", "MuseoSansCyrl/900/museosanscyrl_900-webfont.svg"), "MuseoSansCyrl/900/museosanscyrl_900-webfont.eot", 900);
 
 $font-family-museosans: "museosanscyrl", sans-serif;
 

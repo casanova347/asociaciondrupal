@@ -3,7 +3,7 @@ html body {
   font-family: $font-family-museosans;
   font-size: $base-font-size;
   line-height: $base-line-height;
-  font-weight: normal;
+  font-weight: 300;
 
   * {
     box-sizing: border-box;
@@ -58,5 +58,5 @@ html body {
 }
 
 strong {
-  font-weight: bold;
+  font-weight: 500;
 }
